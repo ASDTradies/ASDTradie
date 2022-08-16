@@ -1,0 +1,10 @@
+.requestCard , .reviewCard {
+    flex-direction: row;
+  }
+
+.reviewCard{
+    border: 4px solid black;
+}
+  .reviewCard img{
+    width: 12%;
+  }
