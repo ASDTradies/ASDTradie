@@ -50,20 +50,63 @@
                   <td>UserID *Get user ID*</td><br>
                   <td>TradieID *Get tradie ID*</td><br>
                   <td>RequestID *Get job request ID from Tradie*</td><br>
+                  <td>Total Price: $$$</td><br>
             </tr>
-            <div>
-                <h2> Payment type</h2>
-                <input type="radio" id="creditcard" name="payment_type" value="CreditCard">
-                <label for="creditcard">CreditCard</label><br>
-                <input type="radio" id="zip" name="payment_type" value="ZIP">
-                <label for="zip">ZIP</label><br>
-                <input type="radio" id="paypal" name="payment_type" value="PayPal">
-                <label for="paypal">Paypal</label><br>   
-            </div>
-
-
-
-
+            
+                <h2> Payment type</h2><br>
+                <div class="middle-div">
+                <div class="payment-method">
+                    <label for="card" class="method card">
+                      <div class="card-logos">
+                        <img src="C:\Users\zacha\OneDrive\Pictures\card.png" width="220" height="100"/>
+                      </div>
+               
+                      <div class="radio-input">
+                        <input id="card" type="radio" name="payment">
+                        Pay *TOTAL PRICE* with credit card
+                      </div>
+                    </label>
+                    
+                    <label for="paypal" class="method paypal">
+                      <img src="C:\Users\zacha\OneDrive\Pictures\paypal.png" width="220" height="100"/>
+                      <div class="radio-input">
+                        <input id="paypal" type="radio" name="payment">
+                        Pay *TOTAL PRICE* with PayPal
+                      </div>
+                    </label>
+                  </div>
+               
+                  <div class="input-fields">
+                    <div class="column-1">
+                      <label for="cardholder">Cardholder's Name</label>
+                      <input type="text" id="cardholder" />
+               
+                      <div class="small-inputs">
+                        <div>
+                          <label for="date">Valid thru</label>
+                          <input type="text" id="date" placeholder="MM / YY" />
+                        </div>
+               
+                        <div>
+                          <label for="verification">CVV / CVC *</label>
+                          <input type="password" id="verification"/>
+                        </div>
+                      </div>
+               
+                    </div>
+                    <div class="column-2">
+                      <label for="cardnumber">Card Number</label>
+                      <input type="password" id="cardnumber"/>
+               
+                      <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+                    </div>
+                  </div>
+                
+            <div class="panel-footer">
+                <button class="btn back-btn">Back</button>
+                <button class="btn next-btn">Next Step</button>
+              </div>
+          </div>
           </div>
           <footer class="bg-dark ">
             <p class="footer-p text-center"><em> &copy; 2022- All Copyrights reserver </em></p>
