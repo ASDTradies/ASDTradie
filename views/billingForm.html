@@ -46,34 +46,19 @@
         <div class="container mb-3">
             <h1>Billing Form</h1>
             <tr>
-                <td>BillingID *Make model create a new ID from last database id + 1*</td>
-                  <td>UserID *Get user ID*</td>
-                  <td></td>
-                  <td>
-                  
-                  </td>
-            <div>
-                <h2>BillingID</h2>
-                
-                <p>Billing ID</p>>
-            </div>
-            <div>
-                <h2> UserID</h2>    
-            </div>
-            <div>
-            <h2> RequestID</h2>    
-            </div>
-            <div>
-                <h2> TradieID</h2>    
-            </div>
-            <div>
-                <h2> ServiceID</h2>    
-            </div>
+                <td>BillingID *Make model create a new ID from last database id + 1*</td><br>
+                  <td>UserID *Get user ID*</td><br>
+                  <td>TradieID *Get tradie ID*</td><br>
+                  <td>RequestID *Get job request ID from Tradie*</td><br>
+            </tr>
             <div>
                 <h2> Payment type</h2>
-                <p>Mastercard</p>    
-                <p>ZIP</p>    
-                <p>Afterpay</p>    
+                <input type="radio" id="creditcard" name="payment_type" value="CreditCard">
+                <label for="creditcard">CreditCard</label><br>
+                <input type="radio" id="zip" name="payment_type" value="ZIP">
+                <label for="zip">ZIP</label><br>
+                <input type="radio" id="paypal" name="payment_type" value="PayPal">
+                <label for="paypal">Paypal</label><br>   
             </div>
 
 
