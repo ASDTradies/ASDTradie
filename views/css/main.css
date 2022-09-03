@@ -145,9 +145,11 @@ input[type='password']:focus {
   background: #fff;
 }
  
-.next-btn {
+.pay-btn {
   color: #fff;
   background: #f62f5e;
+  align-items: right;
+  margin-right: 10%;
 }
  
 .btn:focus {
