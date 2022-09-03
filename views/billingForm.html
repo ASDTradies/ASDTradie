@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type = "text/javascript" src="billings-model.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradie Trade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="./css/main.css" rel="stylesheet" >
+    
+</head>
+<body>
+    <main>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="./index.html">TradieTrade</a>
+              
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                  </li> 
+                  <li class="nav-item">
+                    <a class="nav-link" href="./contactus.html">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin">Admin</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./billingForm.html">Billing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./orderHistory.html">Order-History</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="./workHistory.html">Work-History</a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      User
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <a class="dropdown-item" href="#">Manage Account</a>
+                      <a class="dropdown-item" href="#">Dashboard</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        </div>
+        <div class="container mb-3">
+            <h1>Billing Form</h1>
+            <tr>
+                <td>BillingID *Make model create a new ID from last database id + 1*</td><br>
+                  <td>UserID *Get user ID*</td><br>
+                  <td>TradieID *Get tradie ID*</td><br>
+                  <td>RequestID *Get job request ID from Tradie*</td><br>
+                  <td>Total Price: $$$</td><br>
+            </tr>
+            
+                <h2> Payment type</h2><br>
+                <div class="middle-div">
+                <div class="payment-method">
+                    <label for="card" class="method card">
+                      <div class="card-logos">
+                        <img src="C:\Users\zacha\OneDrive\Pictures\card.png" width="220" height="100"/>
+                      </div>
+               
+                      <div class="radio-input">
+                        <input id="card" type="radio" name="payment">
+                        Pay *TOTAL PRICE* with credit card
+                      </div>
+                    </label>
+                    
+                    <label for="paypal" class="method paypal">
+                      <img src="C:\Users\zacha\OneDrive\Pictures\paypal.png" width="220" height="100"/>
+                      <div class="radio-input">
+                        <input id="paypal" type="radio" name="payment">
+                        Pay *TOTAL PRICE* with PayPal
+                      </div>
+                    </label>
+                  </div>
+               
+                  <div class="input-fields">
+                    <div class="column-1">
+                      <label for="cardholder">Cardholder's Name</label>
+                      <input type="text" id="cardholder" />
+               
+                      <div class="small-inputs">
+                        <div>
+                          <label for="date">Valid thru</label>
+                          <input type="text" id="date" placeholder="MM / YY" />
+                        </div>
+               
+                        <div>
+                          <label for="verification">CVV / CVC *</label>
+                          <input type="password" id="verification"/>
+                        </div>
+                      </div>
+               
+                    </div>
+                    <div class="column-2">
+                      <label for="cardnumber">Card Number</label>
+                      <input type="password" id="cardnumber"/>
+               
+                      <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
+                    </div>
+                  </div>
+                
+            <div class="panel-footer">
+                
+                <button class="btn pay-btn">Pay</button>
+              </div>
+          </div>
+          </div>
+          <footer class="bg-dark ">
+            <p class="footer-p text-center"><em> &copy; 2022- All Copyrights reserver </em></p>
+        </footer>
+        
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
