@@ -48,15 +48,15 @@
           </nav>
 
         </div>
-        <h1><center>My Dashboard (Customer)</center></h1>
+        <h1><center>My Dashboard (Tradie)</center></h1>
         <div class="container">
           <div class="services border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
             <div class="row mt-4">
                 <div class="col-10">
-                    <h2>My Current Active Services</h2>
+                    <h2>My Current Services</h2>
                 </div>
                 <div class="col-2">
-                    <p class="border border-secondary shadow p-1 bg-white rounded">Active Services: 3</p>
+                    <button type="button" class="btn btn-dark">Post a new service</button>
                 </div>
                </div>
                 <table class="table table-bordered mt-2">
@@ -65,8 +65,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Service Title</th>
                         <th scope="col">Service Description</th>
-                        <th scope="col">Service Status</th>
-                        <th scope="col">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -79,21 +77,20 @@
                                 <li>Doorbell broken, knock on door.</li>
                             </ul>
                         </td>
-                       <td> Ongoing </td>
+                       
                         <td> <a href="./serviceDetailsPage.html"><button type="button" class="btn btn-dark">View Details</button></a></td>
                     </tr>
                       <tr>
                         <th scope="row">2</th>
                         <td>Gardening</td>
                         <td>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam placeat facere ipsum dolores doloribus ab ipsam magnam sunt laborum dolor.</td>
-                        <td> Ongoing </td>
+                        
                         <td> <a href="./serviceDetailsPage.html"><button type="button" class="btn btn-dark">View Details</button></a></td>
                     </tr>
                       <tr>
                         <th scope="row">3</th>
                         <td >Construction</td>
                         <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere ducimus eaque vitae ad pariatur molestias minima voluptates molestiae. Unde, placeat!</td>
-                        <td> Ongoing </td>
                         <td> <a href="./serviceDetailsPage.html"><button type="button" class="btn btn-dark">View Details</button></a></td>
                     </tr>
                     </tbody>
@@ -102,7 +99,7 @@
           <div class="serviceRequests border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
           
                
-                    <h2 class=" mt-4">My Service Requests</h2>
+                    <h2 class=" mt-4">Service Requests</h2>
               
                 <table class="table table-bordered mt-2">
                     <thead>
@@ -112,7 +109,7 @@
                         <th scope="col">Service Description</th>
                         <th scope="col">Service Request Comment</th>
                         <th scope="col">Service Request Status</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Approval Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -123,6 +120,8 @@
                         <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit.</td>
                         <td>Requested</td>
                         <td>
+                            <button type="button" class="btn btn-dark">Approve</button>
+                            <button type="button" class="btn btn-dark mt-2">Reject</button>
                             <button type="button" class="btn btn-dark mt-2">View Details</button>
                         </td>
                        
@@ -134,6 +133,8 @@
                         <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit.</td>
                         <td>Requested</td>
                         <td>
+                            <button type="button" class="btn btn-dark">Approve</button>
+                            <button type="button" class="btn btn-dark mt-2">Reject</button>
                             <button type="button" class="btn btn-dark mt-2">View Details</button>
                         </td>
                        
@@ -145,6 +146,8 @@
                         <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit.</td>
                         <td>Requested</td>
                         <td>
+                            <button type="button" class="btn btn-dark">Approve</button>
+                            <button type="button" class="btn btn-dark mt-2">Reject</button>
                             <button type="button" class="btn btn-dark mt-2">View Details</button>
                         </td>
                        
@@ -155,7 +158,10 @@
           <div class="serviceHistory border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
             <div class="row mt-4">
                 <div class="col-10">
-                    <h2>Service Order History</h2>
+                    <h2>Work History</h2>
+                </div>
+                <div class="col-2">
+                    <p class="border border-secondary shadow p-1 bg-white rounded">Total Earning: $2500</p>
                 </div>
                </div>
            
@@ -164,7 +170,7 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Service Title</th>
-                        <th scope="col">Tradie Name</th>
+                        <th scope="col">Customer Name</th>
                         <th scope="col">Paid Amount</th>
                       </tr>
                     </thead>
@@ -190,7 +196,40 @@
                     </tbody>
                   </table>
           </div>
-        
+          <div class="reviews border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
+            <h2 class=" mt-4">Recent Customer Reviews</h2>
+                <table class="table table-bordered mt-2">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Service Id</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Comment</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>2</td>
+                        <td>John Smith</td>
+                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit eligendi dolores provident ipsum saepe animi sunt, voluptatem sapiente commodi.</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>2</td>
+                        <td>John Smith</td>
+                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit eligendi dolores provident ipsum saepe animi sunt, voluptatem sapiente commodi.</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>3</td>
+                        <td>John Smith</td>
+                        <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit eligendi dolores provident ipsum saepe animi sunt, voluptatem sapiente commodi.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+          </div>
+        </div>
           <footer class="bg-dark ">
             <p class="footer-p text-center"><em> &copy; 2022- All Copyrights reserver </em></p>
         </footer>
