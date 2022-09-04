@@ -74,46 +74,49 @@ display: inline-block;
 } 
 
 .input-fields {
-display: flex;
-justify-content: space-between;
+
+  display: flex;
+  justify-content: space-between;
+  
+
 }
 
 .input-fields label {
-display: block;
-margin-bottom: 10px;
-color: #b4b4b4;
+  display: block;
+  margin-bottom: 10px;
+  color: #000000;
 }
 
 .info {
-font-size: 12px;
-font-weight: 300;
-display: block;
-margin-top: 50px;
-opacity: .5;
-color: #2e2e2e;
+  font-size: 12px;
+  font-weight: 300;
+  display: block;
+  margin-top: 50px;
+  opacity: .5;
+  color: #2e2e2e;
 }
-
+  
 .middle-div div[class*='column'] {
-width: 382px;
-}
-
-.middle-div input[type='text'],
-.middle-div input[type='password'] {
-font-size: 16px;
-width: 100%;
-height: 50px;
-padding-right: 40px;
-padding-left: 16px;
-color: rgba(46, 46, 46, .8);
-border: 1px solid rgb(225, 225, 225);
-border-radius: 4px;
-outline: none;
-}
-
-.middle-div input[type='text']:focus,
-.middle-div input[type='password']:focus {
-border-color: rgb(119, 219, 119);
-}
+  width: 382px;
+  }
+  
+  .middle-div input[type='text'],
+  .middle-div input[type='password'] {
+  font-size: 16px;
+  width: 100%;
+  height: 50px;
+  padding-right: 40px;
+  padding-left: 16px;
+  color: rgba(46, 46, 46, .8);
+  border: 1px solid rgb(0, 0, 0);
+  border-radius: 4px;
+  outline: none;
+  }
+  
+  .middle-div input[type='text']:focus,
+  .middle-div input[type='password']:focus {
+  border-color: rgb(119, 219, 119);
+  }
 
 #date { background: url(img/icons_calendar_black.png) no-repeat 95%; }
 #cardholder { background: url(img/icons_person_black.png) no-repeat 95%; }
@@ -161,10 +164,10 @@ background: #fff;
 }
 
 .pay-btn {
-color: #fff;
-background: #f62f5e;
-align-items: right;
-margin-right: 10%;
+  color: #fff;
+  background: #312e2f;
+  align-items: right;
+  margin-left: 75%;
 }
 
 .btn:focus {
