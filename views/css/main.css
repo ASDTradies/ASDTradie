@@ -20,6 +20,11 @@ width: 12%;
   width: 100%;
 }
 
+.login-btns{
+  width: 320px;
+  margin-right: 20px;
+}
+
 * {
 box-sizing: border-box;
 }
@@ -169,9 +174,6 @@ outline: none;
 .btn:hover {
 transform: scale(1.1);
 }
-
-
-
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
