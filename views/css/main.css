@@ -9,11 +9,11 @@
 width: 12%;
 }
 
-.register-main input{
+.register-main input, #loginForm input{
   padding: 0.7em; 
   border-radius: .5em;
   margin-bottom: .8em;
-  width: 250px;
+  width: 350px;
 }
 
 .register-main #email{
@@ -22,8 +22,14 @@ width: 12%;
 
 .login-btns{
   width: 320px;
-  margin-right: 20px;
+  margin: 20px;
 }
+
+/* #loginForm input{
+  padding: 0.7em; 
+  width: 250px;
+  margin-bottom: .8em;
+} */
 
 * {
 box-sizing: border-box;
