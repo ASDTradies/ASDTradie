@@ -88,7 +88,7 @@ opacity: .5;
 color: #2e2e2e;
 }
 
-div[class*='column'] {
+/* div[class*='column'] {
 width: 382px;
 }
 
@@ -108,7 +108,7 @@ outline: none;
 input[type='text']:focus,
 input[type='password']:focus {
 border-color: rgb(119, 219, 119);
-}
+} */
 
 #date { background: url(img/icons_calendar_black.png) no-repeat 95%; }
 #cardholder { background: url(img/icons_person_black.png) no-repeat 95%; }

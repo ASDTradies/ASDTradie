@@ -51,36 +51,40 @@
             </ul>
           </div>
         </div>
-      </nav>
+    </nav>
 
+    <main>
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <a class="text-center" href="./index.html"><img src="./images/logo-placeholder.png" width=300px height=300px alt="Tradies Logo" id="logo"></a>
-            <h1 class="text-center">Create an account</h1>
-        </div>
+          <a class="text-center" href="./index.html"><img src="./images/logo-placeholder.png" width=300px height=300px alt="Tradies Logo" id="logo"></a>
+          <h1 class="text-center">Create an account</h1>
+      </div>
 
-        <div class="register-main d-flex justify-content-center align-items-center">
-            <form action="" method="get">
-                <label for="email" class="visually-hidden">Email:</label>
-                <input type="email" name="email" id="email" placeholder="Email address" required><br>
+      <div class="register-main d-flex justify-content-center align-items-center">
+          <form action="" method="get">
+              <label for="email" class="visually-hidden">Email:</label>
+              <input type="email" name="email" id="email" placeholder="Email address" required><br>
+      
+              <label for="first_name" class="visually-hidden">First name:</label>
+              <input type="text" name="first_name" id="first_name" placeholder="First name" required>
+      
+              <label for="" class="visually-hidden">Last name:</label>
+              <input type="text" name="last_name" id="last_name" placeholder="Last name"><br>
+      
+              <label for="password" class="visually-hidden">Password:</label>
+              <input type="password" name="password" id="password" placeholder="Password">
+  
+              <label for="confirm_password" class="visually-hidden">Confirm Password:</label>
+              <input type="password" name="password" id="confirm_password" placeholder="Confirm password"><br>
+          </form>
+      </div>
+      
+      <div class="d-flex flex-column justify-content-center align-items-center">
+          <button type="submit">Create Account</button>
+          <p class="text-center">Already have an account? <a href="">Sign in</a></p>
+      </div>
+    </main>
+
         
-                <label for="first_name" class="visually-hidden">First name:</label>
-                <input type="text" name="first_name" id="first_name" placeholder="First name" required>
-        
-                <label for="" class="visually-hidden">Last name:</label>
-                <input type="text" name="last_name" id="last_name" placeholder="Last name"><br>
-        
-                <label for="password" class="visually-hidden">Password:</label>
-                <input type="password" name="password" id="password" placeholder="Password">
-    
-                <label for="confirm_password" class="visually-hidden">Confirm Password:</label>
-                <input type="password" name="password" id="confirm_password" placeholder="Confirm password"><br>
-            </form>
-        </div>
-        
-        <div class="d-flex flex-column justify-content-center align-items-center">
-            <button type="submit">Create Account</button>
-            <p class="text-center">Already have an account? <a href="">Sign in</a></p>
-        </div>
 </body>
 
 <footer class="bg-dark fixed-bottom">
