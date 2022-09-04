@@ -1,3 +1,8 @@
+/***
+ * Author: Danielle Alota
+ * 
+ */
+
 let loginCustomer = document.getElementById("loginCustomerBtn");
 let loginTradie = document.getElementById("loginTradieBtn");
 let loginTitle = document.getElementById("loginTitle");
