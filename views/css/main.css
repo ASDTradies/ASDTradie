@@ -9,6 +9,17 @@
 width: 12%;
 }
 
+.register-main input{
+  padding: 0.7em; 
+  border-radius: .5em;
+  margin-bottom: .8em;
+  width: 250px;
+}
+
+.register-main #email{
+  width: 100%;
+}
+
 * {
 box-sizing: border-box;
 }
@@ -21,7 +32,6 @@ justify-content: center;
 align-items: center;
 margin-left: 10%;
 }
-
 
 .payment-method {
 display: flex;
