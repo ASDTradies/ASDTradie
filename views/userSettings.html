@@ -52,15 +52,95 @@
         </div>
     </nav>
 
-    <main>
+  <main>
+    <div>
+      <h1>Account Settings</h1>
+    </div>
+
+    <div class="d-flex flex-row">
+      <div id="settings-left-nav nav-pills" role="tablist" aria-orientation="vertical">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Account Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Change Your Password</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Delete Account</a>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="tab-content">
+        <h2 id="tabTitle">Account Settings</h2>
+        <form id="account-settings" action="" method="get">
+            <label for="first_name">First name:</label>
+            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="First name" required>
+    
+            <label for="last_name">Last name:</label>
+            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="Last name"><br>
+
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email address" required><br>
+
+            <label for="address">Address:</label>
+            <input type="text" class="form-control" name="adress" id="address" placeholder="Adress"><br>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="form-control" name="dob" id="dob" placeholder="Date of birth"><br>
+
+            <label for="gender">Gender</label>
+            <input type="radio" class="form-check-input" name="female" id="female">
+            <label for="female">Female</label>
+            <input type="radio" class="form-check-input" name="male" id="male">
+            <label for="male">Male</label>
+            <input type="radio" class="form-check-input" name="other-gen" id="other-gen">
+            <label for="other-gen">Other</label><br>
+            <label for="personal-bio">Personal Bio:</label>
+            <textarea class="form-control" id="personal-bio" rows="3"></textarea>
+            <div class="d-flex flex-column justify-content-center align-items-center">
+              <button type="submit" class="btn-primary btn-lg btn-primary">Save</button><br>
+            </div>
+        </form>
+
+        <form class="visually-hidden" action="" method="get">
+          <label for="first_name">Old password:</label>
+          <input type="password" class="form-control" name="old_password" id="old_password" placeholder="Old password" required>
+    
+          <label for="last_name">New password:</label>
+          <input type="password" class="form-control" name="new_password" id="new_password" placeholder="New password" required>
+
+          <label for="last_name">Confirm new password:</label>
+          <input type="password" class="form-control" name="confirm_new_password" id="confirm_new_password" placeholder="Confirm new password" required><br>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <button type="submit" class="btn-primary btn-lg btn-primary">Save</button><br>
+          </div>
+        </form>
+
+        <form class="visually-hidden" action="" method="get">
+          <label for="first_name">Confirm password:</label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Confirm password" required>
+    
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <button type="submit" class="btn-danger btn-lg btn-primary">Delete Account</button><br>
+          </div>
+        </form>
 
 
-    </main>
+      </div>
+
+    
+
+
+    </div>
+  </main>
     
 </body>
 
-<footer class="bg-dark fixed-bottom">
-    <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
+<footer class="bg-dark">
+  <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
