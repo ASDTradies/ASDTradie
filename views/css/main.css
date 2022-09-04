@@ -61,12 +61,13 @@ input[type='radio'] {
 .input-fields {
   display: flex;
   justify-content: space-between;
+  
 }
   
 .input-fields label {
   display: block;
   margin-bottom: 10px;
-  color: #b4b4b4;
+  color: #000000;
 }
   
 .info {
@@ -78,27 +79,28 @@ input[type='radio'] {
   color: #2e2e2e;
 }
   
-div[class*='column'] {
+.middle-div div[class*='column'] {
   width: 382px;
-}
+  }
   
-input[type='text'],
-input[type='password'] {
+  .middle-div input[type='text'],
+  .middle-div input[type='password'] {
   font-size: 16px;
   width: 100%;
   height: 50px;
   padding-right: 40px;
   padding-left: 16px;
   color: rgba(46, 46, 46, .8);
-  border: 1px solid rgb(225, 225, 225);
+  border: 1px solid rgb(0, 0, 0);
   border-radius: 4px;
   outline: none;
-}
+  }
   
-input[type='text']:focus,
-input[type='password']:focus {
+  .middle-div input[type='text']:focus,
+  .middle-div input[type='password']:focus {
   border-color: rgb(119, 219, 119);
-}
+  }
+
   
 #date { background: url(img/icons_calendar_black.png) no-repeat 95%; }
 #cardholder { background: url(img/icons_person_black.png) no-repeat 95%; }
@@ -147,9 +149,9 @@ input[type='password']:focus {
  
 .pay-btn {
   color: #fff;
-  background: #f62f5e;
+  background: #312e2f;
   align-items: right;
-  margin-right: 10%;
+  margin-left: 75%;
 }
  
 .btn:focus {

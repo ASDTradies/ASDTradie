@@ -13,55 +13,75 @@
 <body>
     <main>
         
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="./index.html">TradieTrade</a>
-              
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                  </li> 
-                  <li class="nav-item">
-                    <a class="nav-link" href="./contactus.html">Contact</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/admin">Admin</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./billingForm.html">Billing</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./orderHistory.html">Order-History</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="./workHistory.html">Work-History</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      User
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <a class="dropdown-item" href="#">Manage Account</a>
-                      <a class="dropdown-item" href="#">Dashboard</a>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </nav>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">TradieTrade</a>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="./billingForm.html">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./orderHistory.html">Order-History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./workHistory.html">Work-History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./userRating.html">Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./comments.html">Comment</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  User
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Manage Account</a>
+                  <a class="dropdown-item" href="#">Dashboard</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
         </div>
         <div class="container mb-3">
             <h1>Billing Form</h1>
-            <tr>
-                <td>BillingID *Make model create a new ID from last database id + 1*</td><br>
-                  <td>UserID *Get user ID*</td><br>
-                  <td>TradieID *Get tradie ID*</td><br>
-                  <td>RequestID *Get job request ID from Tradie*</td><br>
-                  <td>Total Price: $$$</td><br>
-            </tr>
-            
+            <div>
+              <table class="table table-bordered mt-2">
+                <thead>
+                  <tr>
+                    <th scope="col">BillingID</th>
+                    <th scope="col">Service Title</th>
+                    <th scope="col">Customer Name</th>
+                    <th scope="col">Tradie Name</th>
+                    <th scope="col">Total Payment Owed:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Construction</td>
+                    <td>User 1</td>
+                    <td>Trade 1</td>
+                    <td>$20</td>
+                  </tr>
+                </tbody>
+              </table>
+                </div>
                 <h2> Payment type</h2><br>
                 <div class="middle-div">
                 <div class="payment-method">
@@ -72,15 +92,15 @@
                
                       <div class="radio-input">
                         <input id="card" type="radio" name="payment">
-                        Pay *TOTAL PRICE* with Card
+                        Pay with Credit/Master Card
                       </div>
                     </label>
                     
                     <label for="paypal" class="method paypal">
-                      <img src="https://logos-download.com/wp-content/uploads/2016/03/PayPal_horizontally_Logo_2014.png" width="250" height="100"/>
+                      <img src="https://logos-download.com/wp-content/uploads/2016/03/PayPal_horizontally_Logo_2014.png" width="400" height="100"/>
                       <div class="radio-input">
                         <input id="paypal" type="radio" name="payment">
-                        Pay *TOTAL PRICE* with PayPal
+                        Pay with PayPal
                       </div>
                     </label>
                   </div>
@@ -112,7 +132,6 @@
                   </div>
                 
             <div class="panel-footer">
-                
                 <button class="btn pay-btn">Pay</button>
               </div>
           </div>
