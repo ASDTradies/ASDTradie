@@ -7,23 +7,25 @@ let Schema = mongoose.Schema;
 
 let serviceSchema = new Schema({
     id: String,
-    serviceHeading: String,
+    serviceTitle: String,
     description: String,
     longDescription: String,
-    imgURL:  String
+    imageURL:  String
 });
 
 let Service = mongoose.model('Service' , serviceSchema);
 
 
-let service1 = new Service({
-    serviceHeading: 'test',
-    description: 'test',
-    longDescription: 'test',
-    imgURL:  'test'
+//create test service
+let serviceTest = new Service({
+    serviceTitle: 'Lorem',
+    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quaerat ea in laboriosam vel nam voluptatibus odit expedita dolore repellendus.',
+    longDescription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quaerat ea in laboriosam vel nam voluptatibus odit expedita dolore repellendus.Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim quaerat ea in laboriosam vel nam voluptatibus odit expedita dolore repellendus.',
+    imgURL:  'https://image.shutterstock.com/image-photo/tradesman-concreting-path-australia-yellow-600w-1885597630.jpg'
 });
 
-//  service1.save().then(() =>  console.log('saved'));
+
+//serviceTest.save().then(() => console.log('saved1'));
 
 module.exports = { Service : Service};
 
