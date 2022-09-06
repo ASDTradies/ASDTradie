@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded' ,async function(){
     services.forEach((service) =>{
         let serviceListHTML = `
         <tr>
-        <th scope="row" id="${service.id}">${id++}</th>
+        <th scope="row">${id++} <input type="hidden" value="${service.id}" class="serviceId"/> </th>
         <td>${service.serviceTitle}</td>
         <td>${service.description}</td>
         <td> <a href="./serviceDetailsPage.html" class="btn btn-link">View Details</a></td>
-        <td> <a href="./updateService.html" class="btn btn-link">Edit</a></td>
+        <td> <button class="btn btn-link updateServiceBtn">Edit</button></td>
     </tr>`
         serviceList.insertAdjacentHTML('beforeend',serviceListHTML );
 
