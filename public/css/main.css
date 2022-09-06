@@ -241,3 +241,6 @@ transform: scale(1.1);
   font-family: 'Poppins', sans-serif;
   display: none;
 }
+.hidden{
+  display: none;
+}
