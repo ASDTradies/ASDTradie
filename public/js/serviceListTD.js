@@ -9,10 +9,11 @@ document.addEventListener('DOMContentLoaded' ,async function(){
     let services = await getServices();
     let serviceList = document.querySelector('.serviceList');
     serviceList.innerHTML = '';
+    let id = 1;
     services.forEach((service) =>{
         let serviceListHTML = `
         <tr>
-        <th scope="row">${service.id}</th>
+        <th scope="row" id="${service.id}">${id++}</th>
         <td>${service.serviceTitle}</td>
         <td>${service.description}</td>
         <td> <a href="./serviceDetailsPage.html" class="btn btn-link">View Details</a></td>

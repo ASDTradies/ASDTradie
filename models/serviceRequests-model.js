@@ -1,7 +1,5 @@
 let mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/tradieTrade');
 
-//mongoose.connect('mongodb+srv://Aliza:Asdf1234@cluster0.ukmib.mongodb.net/tradieTrade');
 
 let Schema = mongoose.Schema;
 
@@ -11,7 +9,7 @@ let serviceRequestSchema = new Schema({
     stage: String
 });
 
-let ServiceRequest = mongoose.model('Service' , serviceRequestSchema);
+let ServiceRequest = mongoose.model('ServiceRequest' , serviceRequestSchema);
 
 
 let serviceRequestTest = new ServiceRequest({
