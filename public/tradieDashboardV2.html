@@ -75,7 +75,7 @@
                   <h2>My Current Services</h2>
               </div>
               <div class="col-2">
-                  <a href="./postService.html" class="btn btn-dark">Post Service</a>
+                  <button class="btn btn-dark postServiceBtn">Post Service</button>
               </div>
              </div>
               <table class="table table-bordered mt-2 serviceList">
@@ -181,27 +181,57 @@
               <h1>Update Service</h1>
               <form class="updateServiceForm">
                   <div class="form-group">
-                    <label for="serviceTitle">Service Title</label>
-                    <input type="text" class="form-control" id="serviceTitle" placeholder="Construction">
+                    <label for="serviceTitleEdit">Service Title</label>
+                    <input type="text" class="form-control" id="serviceTitleEdit" placeholder="Construction">
                   </div>
                  
-                    <input type="hidden" class="serviceIdInputField" >
+                    <input type="hidden" class="serviceIdInputFieldEdit" >
               
                   
                   <div class="form-group">
-                    <label for="description">Service Short Description</label>
-                    <textarea class="form-control" id="description" rows="2"></textarea>
+                    <label for="descriptionEdit">Service Short Description</label>
+                    <textarea class="form-control" id="descriptionEdit" rows="2"></textarea>
                   </div>
                   <div class="form-group">
-                      <label for="longDescription">Service Long Description</label>
-                      <textarea class="form-control" id="longDescription" rows="5"></textarea>
+                      <label for="longDescriptionEdit">Service Long Description</label>
+                      <textarea class="form-control" id="longDescriptionEdit" rows="5"></textarea>
                     </div>
                     <button type="submit" class="btn btn-dark mt-4">Update Service</button>
                 </form>
              
              
             </div>
-            <div class="tab-pane fade" id="v-pills-addService" role="tabpanel" aria-labelledby="v-pills-addService-tab">Add service</div>
+            <div class="tab-pane fade" id="v-pills-addService" role="tabpanel" aria-labelledby="v-pills-addService-tab">
+              <div class="container mb-3 border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
+                <h1>Post a Service</h1>
+                <form class="createServiceForm">
+                    <div class="form-group">
+                      <label for="serviceTitle">Service Title</label>
+                      <input type="text" class="form-control" id="serviceTitle" placeholder="Construction">
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                      <label for="description">Service Short Description</label>
+                      <textarea class="form-control" id="description" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="longDescription">Service Long Description</label>
+                        <textarea class="form-control" id="longDescription" rows="5"></textarea>
+                      </div>
+                      <div class="form-group mt-2">
+                        <label for="uploadImage">Upload Image</label> <br>
+                        <input type="file" class="form-control-file" id="uploadImage">
+                      </div>
+                      <p class="mt-2 mb-0">OR</p>
+                      <div class="form-group">
+                        <label for="image">Image URL </label>
+                        <input type="text" class="form-control" id="imageURL"  placeholder="URL">
+                      </div>
+                      <button type="submit" class="btn btn-dark mt-4">Post Service</button>
+                  </form>
+              </div>
+            </div>
 
           </div>
 
@@ -219,6 +249,7 @@
     <script src="./js/updateService.js"></script>
     <script src="./js/approveRequest.js"></script>
     <script src="./js/rejectRequest.js"></script>
+    <script src="./js/createService.js"></script>
 </body>
 
 </html>
