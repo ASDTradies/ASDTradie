@@ -1,9 +1,9 @@
 let serviceList = document.querySelector('.serviceList');
 let updateServiceTab = document.querySelector('#v-pills-updateService-tab');
-let serviceTitle =  document.querySelector('#serviceTitle');
-let description =  document.querySelector('#description');
-let longDescription =  document.querySelector('#longDescription');
-let serviceIdInputField =  document.querySelector('.serviceIdInputField');
+let serviceTitleEdit =  document.querySelector('#serviceTitleEdit');
+let descriptionEdit =  document.querySelector('#descriptionEdit');
+let longDescriptionEdit =  document.querySelector('#longDescriptionEdit');
+let serviceIdInputFieldEdit =  document.querySelector('.serviceIdInputFieldEdit');
 let updateServiceForm = document.querySelector('.updateServiceForm');
 
 
@@ -13,16 +13,16 @@ serviceList.addEventListener('click', async (e) =>{
         let id = e.target.parentNode.parentNode.querySelector('.serviceId').value;
         let service = await getService(id);
        // console.log(service);
-        serviceTitle.value = service.serviceTitle;
-        description.value = service.description;
-        longDescription.value = service.longDescription;
-        serviceIdInputField.value= service.id;
+        serviceTitleEdit.value = service.serviceTitle;
+        descriptionEdit.value = service.description;
+        longDescriptionEdit.value = service.longDescription;
+        serviceIdInputFieldEdit.value= service.id;
         updateServiceTab.click();
     }
 });
 updateServiceForm.addEventListener('submit' , async (e) =>{
     e.preventDefault();
-    let id = e.target.querySelector('.serviceIdInputField').value;
+    let id = e.target.querySelector('.serviceIdInputFieldEdit').value;
    // console.log(id);
      await fetch('http://localhost:3000/service/'+ id , {
         method: 'PUT',
@@ -30,9 +30,9 @@ updateServiceForm.addEventListener('submit' , async (e) =>{
             'Content-Type' : 'application/json'
         },
         body: JSON.stringify({
-            serviceTitle: serviceTitle.value,
-            description:description.value,
-            longDescription: longDescription.value
+            serviceTitle: serviceTitleEdit.value,
+            description:descriptionEdit.value,
+            longDescription: longDescriptionEdit.value
         }
      )}).then((res) =>res.text()).then((data) =>window.history.go());
 
