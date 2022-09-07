@@ -12,12 +12,14 @@ document.addEventListener('DOMContentLoaded', async () =>{
     serviceRequests.forEach((request) =>{
         let requestHTML = `
         <tr>
-        <th scope="row">${request.id}</th>
-        <td>${request.serviceId}</td>
+        <th scope="row">${request.id} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
+        <td>${request.serviceId} <input type="hidden" class="serviceId" value="${request.serviceId}"> </td>
         <td>${request.stage}</td>
         <td>
-            <button type="button" class="btn btn-link">Approve</button>
-            <button type="button" class="btn btn-link mt-2">Reject</button>
+            <button type="button" class="btn btn-link approveBtn">Approve</button>
+            <p class="hidden approvedMsg"> Request Approved</p>
+            <button type="button" class="btn btn-link mt-2 rejectBtn">Reject</button>
+            <p class="hidden rejectMsg"> Request Rejected</p>
             <button type="button" class="btn btn-link mt-2">View Details</button>
         </td>
       </tr>`;

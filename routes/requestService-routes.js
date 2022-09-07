@@ -20,5 +20,11 @@ router.get('/', async(req,res) =>{
     res.send(serviceRequest);
 })
 
+router.put('/:id' , async (req,res) =>{
+    let id = req.params.id;
+    await ServiceRequest.updateOne({id: id} , req.body);
+    res.send('Service request approved/rejected');
+})
+
 
 module.exports = router;
