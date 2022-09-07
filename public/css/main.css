@@ -1,3 +1,6 @@
+.approvedMsg, .rejectMsg{
+  display: inline-block;
+}
 .requestCard , .reviewCard {
   flex-direction: row;
 }
