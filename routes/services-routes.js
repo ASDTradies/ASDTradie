@@ -21,9 +21,14 @@ router.post('/' , async (req,res) =>{
    await newService.save();
    res.send('Service have been created');
 });
+router.get('/:id' , async (req,res) =>{
+    let id = req.params.id;
+    let service = await Service.findOne({id: id});
+    res.send(service);
+});
 router.put('/:id', async (req,res) => {
-    let serviceToUpdate = await Service.findOne(req.params.id);
-    serviceToUpdate.update();
+    let id = req.params.id;
+    await Service.updateOne({id: id} , req.body);
     res.send('Service have been updated');
 });
 
