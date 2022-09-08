@@ -8,7 +8,8 @@ router.post('/' , async (req, res) =>{
     let newServiceRequest = new ServiceRequest({
         id: uniqid(),
         serviceId: req.body.serviceId,
-        stage: req.body.stage
+        stage: req.body.stage,
+        date: new Date()
     });
 
     await newServiceRequest.save();

@@ -16,8 +16,10 @@ document.addEventListener('DOMContentLoaded' ,async function(){
         <th scope="row">${id++} <input type="hidden" value="${service.id}" class="serviceId"/> </th>
         <td>${service.serviceTitle}</td>
         <td>${service.description}</td>
-        <td> <a href="/serviceDP?id=${service.id}" class="btn btn-link">View Details</a></td>
-        <td> <button class="btn btn-link updateServiceBtn">Edit</button></td>
+        <td class="d-flex">
+         <a href="/serviceDP?id=${service.id}" class="btn btn-link">View Details</a>
+        <button class="btn btn-link updateServiceBtn">Edit</button></td>
+        
     </tr>`
         serviceList.insertAdjacentHTML('beforeend',serviceListHTML );
 

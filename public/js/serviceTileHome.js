@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded' ,async function(){
       <div class="card-body">
         <h5 class="card-title">${services[i].serviceTitle}</h5>
         <p class="card-text">${services[i].description}</p>
-        <button class="btn btn-primary reqService">Request Service</button>
+        <button class="btn btn-link reqService">Request Service</button>
         <p class="hidden reqServiceConfirmationMsg">Service already requested</p>
-          <a href="/serviceDP?id=${services[i].id}" class="btn btn-primary">View Details</a>
+          <a href="/serviceDP?id=${services[i].id}" class="btn btn-link">View Details</a>
       </div>
     </div>
       `;

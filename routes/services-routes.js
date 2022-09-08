@@ -16,8 +16,7 @@ router.post('/' , async (req,res) =>{
     serviceTitle: reqBody.serviceTitle,
     description: reqBody.description,
     longDescription: reqBody.longDescription,
-    imageURL:  reqBody.imageURL,
-    date: new Date()
+    imageURL:  reqBody.imageURL
    });
    await newService.save();
    res.send('Service have been created');
