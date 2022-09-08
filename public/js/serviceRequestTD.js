@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
             <p class="hidden approvedMsg"> Request Approved</p>
             <button type="button" class="btn btn-link mt-2 rejectBtn">Reject</button>
             <p class="hidden rejectMsg"> Request Rejected</p>
-            <button type="button" class="btn btn-link mt-2">View Details</button>
+            <a href="/serviceRequestDP?id=${request.id}" class="btn btn-link mt-2">View Details</a>
         </td>
       </tr>`;
       serviceRequestList.insertAdjacentHTML('beforeend', requestHTML);

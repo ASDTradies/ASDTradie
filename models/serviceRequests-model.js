@@ -6,7 +6,8 @@ let Schema = mongoose.Schema;
 let serviceRequestSchema = new Schema({
     id: String,
     serviceId: String,
-    stage: String
+    stage: String,
+    date: String
 });
 
 let ServiceRequest = mongoose.model('ServiceRequest' , serviceRequestSchema);
