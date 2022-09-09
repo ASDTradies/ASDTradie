@@ -9,11 +9,13 @@ document.addEventListener('DOMContentLoaded', async () =>{
     let serviceRequestList = document.querySelector('.serviceRequestList');
     serviceRequestList.innerHTML = '';
     let serviceRequests = await getServiceRequests();
+    let i =1;
     serviceRequests.forEach((request) =>{
+       
         let requestHTML = `
         <tr>
-        <th scope="row">${request.id} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
-        <td>${request.serviceId} <input type="hidden" class="serviceId" value="${request.serviceId}"> </td>
+        <th scope="row">${i++} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
+        <td>${request.date} <input type="hidden" class="serviceId" value="${request.serviceId}"> </td>
         <td>${request.stage}</td>
         <td>
             <button type="button" class="btn btn-link approveBtn">Approve</button>
