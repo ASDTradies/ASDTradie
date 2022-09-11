@@ -7,7 +7,8 @@ async function registerUser(event){
     const first_name = document.getElementById('first_name').value;
     const last_name = document.getElementById('last_name').value;
     const password = document.getElementById('password').value;
-
+    const profileType = checkType();
+    
     await fetch('http://localhost:3000/registerUser', {
         method: 'POST',
         headers: {
@@ -17,10 +18,13 @@ async function registerUser(event){
             first_name,
             last_name,
             email,
-            password
+            password,
+            profileType
         })
     })
     .then((res) => res.json())
+}
 
-    // console.log(result)
+function checkType(){
+    return document.getElementById('profileType').checked ? 'T' : 'C';
 }

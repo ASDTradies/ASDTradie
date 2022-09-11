@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema(
         city: String,
         state: String,
         postcode: Number,
+        profileType: {type: String, required: true},
         active: Boolean,
         review_count: Number,
         star_rating: Number

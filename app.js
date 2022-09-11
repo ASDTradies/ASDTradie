@@ -26,7 +26,8 @@ app.post('/register', async (req,res) =>{
             first_name,
             last_name,
             email,
-            password
+            password,
+            profileType
         })
         console.log("User created successfully", response);
     } catch (error) {

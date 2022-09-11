@@ -10,7 +10,8 @@ router.post('/' , async (req, res) =>{
         first_name: reqBody.first_name,
         last_name: reqBody.last_name,
         email: reqBody.email,
-        password: reqBody.password
+        password: reqBody.password,
+        profileType :reqBody.profileType
     });
     await newUser.save();
     res.send(newUser);
