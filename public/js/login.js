@@ -10,10 +10,6 @@ let loginBtns = document.getElementById("login-buttons-container");
 let loginForm = document.getElementById("loginForm");
 let backBtn = document.getElementById("backBtn");
 
-
-//I swear I will make this prettier I just wanted to get this out
-//of the way
-
 loginCustomer.onclick = function(){
     console.log("customer logging in");
     loginTitle.innerHTML = "Login as customer";
@@ -36,3 +32,10 @@ backBtn.onclick = function(){
     loginBtns.classList.remove("visually-hidden");
     loginTitle.innerHTML = "Login";
 }
+
+
+//Login - properly this time
+const form = document.getElementById("login-form");
+form.addEventListener('submit', loginUser);
+
+

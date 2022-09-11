@@ -12,7 +12,6 @@ let serviceSchema = new Schema({
 
 let Service = mongoose.model('Service' , serviceSchema);
 
-
 //create test service
 let serviceTest = new Service({
     serviceTitle: 'Lorem',
