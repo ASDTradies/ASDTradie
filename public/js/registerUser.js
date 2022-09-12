@@ -8,9 +8,9 @@ async function registerUser(event){
     const last_name = document.getElementById('last_name').value;
     const password = checkPasswords();
     const profileType = checkType();
-
+    const alert = document.getElementById('register-alert');
     if(password === ""){
-        document.getElementById('register-alert').innerHTML = 'The passwords are not identical!';
+        alert.innerHTML = 'The passwords are not identical!';
         const pwFields = document.querySelectorAll('#p1, #p2');
         pwFields.forEach(field => {
             field.value = '';
@@ -33,11 +33,13 @@ async function registerUser(event){
         })
     })
     .then((res) => res.json())
-    // if(result.status === 'ok'){
-    //     alert('User has been created!');
-    // } else {
-    //     alert(result.error); 
-    // }
+    if(result.status === 'ok'){
+        console.log('User has been created!');
+    } else {
+        alert.innerHTML = 'This email is already in use!';
+        form.reset();
+        console.log(result.error); 
+    }
 }
 
 function checkType(){

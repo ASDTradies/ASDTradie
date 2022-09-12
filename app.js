@@ -27,7 +27,7 @@ app.post('/register', async (req,res) =>{
     let {first_name, last_name, email, password: plainTextPassword, profileType} = req.body;
 	const password = await bcrypt.hash(plainTextPassword, 10);
 
-    try{
+    try {
         const response = await User.create({
             first_name,
             last_name,
@@ -37,11 +37,11 @@ app.post('/register', async (req,res) =>{
         })
         console.log("User created successfully", response);
     } catch (error) {
+        // console.log("error code ", error.code);
         if (error.code === 11000) {
 			// duplicate key
 			return res.json({ status: 'error', error: 'Email is already in use!' });
 		}
-		throw error;
     }
     res.json({status: 'ok'});
 });
