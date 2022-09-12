@@ -34,7 +34,7 @@ app.post('/register', async (req,res) =>{
             email,
             password,
             profileType
-        })
+        });
         console.log("User created successfully", response);
     } catch (error) {
         // console.log("error code ", error.code);
@@ -51,25 +51,18 @@ app.post('/login', async(req, res) =>{
     const {email, password} = req.body;
     const user = User.findOne({email}).lean(); //Finds user via email
 
-    if(!user){
-        return res.json({status: 'error', error: 'Invalid email/password'});
-    }
+    //If no user exists with specified email
+    if(!user) return res.json({status: 'error', error: 'Invalid email/password'}); 
 
-    //Checks if password is correct
+    // Checks if password is correct
     if(await bcrypt.compare(password, user.password)){
         const token = jwt.sign(
             {id: user.id, email: user.email},
             JWT_Secret
-            )
-
-        res.json({status: 'ok', data: token});
+            );
+        return res.json({status: 'ok', data: token});
     }
-
-    if(!user){
-        res.json({status: 'error', error: 'Invalid email/password'});
-    }
-
-    res.json({status: 'error', error: 'Invalid email/password'});
+    res.json({status: 'error', error: 'Invalid email/password'}); //If this is at all reached, something went wrong
 })
 
 app.get('/customerDashboard', async(req, res) =>{
