@@ -18,8 +18,6 @@ servicesTileList.addEventListener('click', async function(e){
          reqServiceConfirmationMsg.classList.remove('hidden');
          let reqService = e.target.parentNode.parentNode.querySelector('.reqService');
          reqService.classList.add('hidden');
-
-        
     }
 })
 

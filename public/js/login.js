@@ -9,13 +9,38 @@ let loginTitle = document.getElementById("loginTitle");
 let loginBtns = document.getElementById("login-buttons-container");
 let loginForm = document.getElementById("loginForm");
 let backBtn = document.getElementById("backBtn");
+let loginBtn = document.getElementById("loginBtn");
 
+const form = document.getElementById("login-form");
+form.addEventListener('submit', loginUser);
 
-//I swear I will make this prettier I just wanted to get this out
-//of the way
+async function loginUser(event){
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("email").value;
 
-loginCustomer.onclick = function(){
-    console.log("customer logging in");
+    const result = await fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email,
+            password
+        })
+    })
+    .then((res) => res.json())
+    if(result.status === 'ok'){
+        console.log('Token received', result.data)
+        alert('User is logged in!');
+    } else {
+        alert(result.error); 
+    }
+}
+
+// DOM manipulations
+loginCustomer.onclick = async function(){
+    // console.log("customer logging in");
     loginTitle.innerHTML = "Login as customer";
     loginForm.classList.remove("visually-hidden");
     loginBtns.classList.add("visually-hidden");
@@ -23,7 +48,7 @@ loginCustomer.onclick = function(){
 }
 
 loginTradie.onclick = function(){
-    console.log("tradie logging in");
+    // console.log("tradie logging in");
     loginTitle.innerHTML = "Login as tradie";
     loginForm.classList.remove("visually-hidden");
     loginBtns.classList.add("visually-hidden");
@@ -36,3 +61,6 @@ backBtn.onclick = function(){
     loginBtns.classList.remove("visually-hidden");
     loginTitle.innerHTML = "Login";
 }
+
+
+
