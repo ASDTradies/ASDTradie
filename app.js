@@ -25,8 +25,8 @@ let registerUserRouter = require('./routes/registerUser-routes');
 //Register 
 app.post('/register', async (req,res) =>{
     let {first_name, last_name, email, password: plainTextPassword, profileType} = req.body;    
-    bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(plainTextPassword, salt, function(err, hash) {
+    bcrypt.genSalt(10, function(err, salt) { //generates salt 10x
+        bcrypt.hash(plainTextPassword, salt, function(err, hash) { //hashes password for storing
             let password = hash;
             try {
                 const response = User.create({
@@ -38,9 +38,7 @@ app.post('/register', async (req,res) =>{
                 });
                 console.log("User created successfully", response);
             } catch (error) {
-                // console.log("error code ", error.code);
-                if (error.code === 11000) {
-                    // duplicate key
+                if (error.code === 11000) {  // error 11000 means duplicate email
                     return res.json({ status: 'error', error: 'Email is already in use!' });
                 }
                 throw error;

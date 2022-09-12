@@ -18,7 +18,6 @@
      event.preventDefault();
      const email = document.getElementById("email").value;
      const password = document.getElementById("password").value;
- 
      const result = await fetch('/login', {
          method: 'POST',
          headers: {
