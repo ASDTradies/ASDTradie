@@ -24,45 +24,54 @@ let registerUserRouter = require('./routes/registerUser-routes');
 
 //Register 
 app.post('/register', async (req,res) =>{
-    let {first_name, last_name, email, password: plainTextPassword, profileType} = req.body;
-	const password = await bcrypt.hash(plainTextPassword, 10);
-
-    try {
-        const response = await User.create({
-            first_name,
-            last_name,
-            email,
-            password,
-            profileType
+    let {first_name, last_name, email, password: plainTextPassword, profileType} = req.body;    
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(plainTextPassword, salt, function(err, hash) {
+            let password = hash;
+            try {
+                const response = User.create({
+                    first_name,
+                    last_name,
+                    email,
+                    password,
+                    profileType
+                });
+                console.log("User created successfully", response);
+            } catch (error) {
+                // console.log("error code ", error.code);
+                if (error.code === 11000) {
+                    // duplicate key
+                    return res.json({ status: 'error', error: 'Email is already in use!' });
+                }
+                throw error;
+            };
+            res.json({status: 'ok'});
         });
-        console.log("User created successfully", response);
-    } catch (error) {
-        // console.log("error code ", error.code);
-        if (error.code === 11000) {
-			// duplicate key
-			return res.json({ status: 'error', error: 'Email is already in use!' });
-		}
-    }
-    res.json({status: 'ok'});
+    });
 });
 
 //Login
 app.post('/login', async(req, res) =>{
-    const {email, password} = req.body;
-    const user = User.findOne({email}).lean(); //Finds user via email
+    const { email, password } = req.body;
+    const user = await User.findOne({email}).lean(); //Finds user via email
+    if(!user){ //If user is not found
+        return res.json({status: 'error', error: 'Invalid email/password'});
+    };
 
-    //If user is not found
-    if(!user) return res.json({status: 'error', error: 'Invalid email/password'});
-
-    //Checks if password is correct
-    if(await bcrypt.compare(password, user.password)){
-        const token = jwt.sign(
-            {id: user.id, email: user.email},
-            JWT_Secret
+    bcrypt.compare(password, user.password).then((result) => { //User is found
+        if(result){ //If password is correct
+            const token = jwt.sign( //Make a token
+            {
+                id: user._id,
+                email: user.email
+            },
+                JWT_Secret
             );
-        return res.json({status: 'ok', data: token});
-    }
-    res.json({status: 'error', error: 'Invalid email/password'}); //Should never be reached - something went wrong
+            return res.json({status: 'ok', data: token});
+        } else { //Wrong password
+            return res.json({status: 'error', error: 'Invalid email/password'});
+        }
+    });
 });
 
 app.get('/serviceDP', async (req, res) =>{

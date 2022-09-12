@@ -17,9 +17,9 @@
  async function loginUser(event){
      event.preventDefault();
      const email = document.getElementById("email").value;
-     const password = document.getElementById("email").value;
+     const password = document.getElementById("password").value;
  
-     const result = await fetch('http://localhost:3000/login', {
+     const result = await fetch('/login', {
          method: 'POST',
          headers: {
              'Content-Type': 'application/json'
