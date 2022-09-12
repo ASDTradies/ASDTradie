@@ -51,10 +51,10 @@ app.post('/login', async(req, res) =>{
     const {email, password} = req.body;
     const user = User.findOne({email}).lean(); //Finds user via email
 
-    //If no user exists with specified email
-    if(!user) return res.json({status: 'error', error: 'Invalid email/password'}); 
+    //If user is not found
+    if(!user) return res.json({status: 'error', error: 'Invalid email/password'});
 
-    // Checks if password is correct
+    //Checks if password is correct
     if(await bcrypt.compare(password, user.password)){
         const token = jwt.sign(
             {id: user.id, email: user.email},
@@ -62,16 +62,8 @@ app.post('/login', async(req, res) =>{
             );
         return res.json({status: 'ok', data: token});
     }
-    res.json({status: 'error', error: 'Invalid email/password'}); //If this is at all reached, something went wrong
-})
-
-app.get('/customerDashboard', async(req, res) =>{
-    res.send('Customer Dashboard');
-})
-
-app.get('/tradieDashboard', async(req, res) =>{
-    res.send('Tradie Dashboard');
-})
+    res.json({status: 'error', error: 'Invalid email/password'}); //Should never be reached - something went wrong
+});
 
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;
