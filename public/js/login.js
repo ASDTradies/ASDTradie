@@ -31,10 +31,12 @@
      })
      .then((res) => res.json())
      if(result.status === 'ok'){
+        loginTitle.innerHTML = 'All good!';
          console.log('Token received', result.data)
-         alert('User is logged in!');
+         console.log('User is logged in!');
      } else {
-         alert(result.error); 
+        loginTitle.innerHTML = 'Invalid email or password!';
+        console.log(result.error); 
      }
  }
  

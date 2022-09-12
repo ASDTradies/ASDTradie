@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken'); //JSONWebToken - for login and logout
 const bcrypt = require('bcryptjs'); //Bcrypt - for lightweight hashing
-
+const JWT_Secret = 'gftdtd67i!@##(67454sdfsd!@#!24rsrfdxv$@^hvkh90&&(()!!@*89787@@56!!5334arxghbj'
 //Handles MongoDB connection
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://ASD:asd123@tradietrade.3zgqqzy.mongodb.net/tradieTrade');
