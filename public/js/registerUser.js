@@ -6,10 +6,20 @@ async function registerUser(event){
     const email = document.getElementById('email').value;
     const first_name = document.getElementById('first_name').value;
     const last_name = document.getElementById('last_name').value;
-    const password = document.getElementById('password').value;
+    const password = checkPasswords();
     const profileType = checkType();
+
+    if(password === ""){
+        document.getElementById('register-alert').innerHTML = 'The passwords are not identical!';
+        const pwFields = document.querySelectorAll('#p1, #p2');
+        pwFields.forEach(field => {
+            field.value = '';
+            field.classList.add('border-danger');
+        });
+        return;
+    }
     
-    await fetch('http://localhost:3000/registerUser', {
+    const result = await fetch('http://localhost:3000/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,8 +33,17 @@ async function registerUser(event){
         })
     })
     .then((res) => res.json())
+    // if(result.status === 'ok'){
+    //     alert('User has been created!');
+    // } else {
+    //     alert(result.error); 
+    // }
 }
 
 function checkType(){
     return document.getElementById('profileType').checked ? 'T' : 'C';
+}
+
+function checkPasswords(){
+    return document.getElementById('p1').value === document.getElementById('p2').value ? document.getElementById('p1').value : "";
 }
