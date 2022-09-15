@@ -8,7 +8,7 @@ let Schema = mongoose.Schema;
 let orderServiceHistoryScheme = new Schema({
     id: String,
     requestId: String,
-    billingId: String
+    inoviceId: String
 
 });
 
@@ -17,7 +17,7 @@ let OrderServiceHistory = mongoose.model('OrderServiceHistory' , orderServiceHis
 
 let orderServiceHistoryTest = new OrderServiceHistory({
     requestId: 'test',
-    billingId: 'test'
+    invoiceId: 'test'
 });
 
 //  orderServiceHistoryTest.save().then(() =>  console.log('saved'));

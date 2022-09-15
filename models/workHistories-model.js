@@ -8,7 +8,7 @@ let Schema = mongoose.Schema;
 let workHistoryScheme = new Schema({
     id: String,
     requestId: String,
-    billingId: String
+    invoiceId: String
 
 });
 
@@ -17,7 +17,7 @@ let WorkHistory = mongoose.model('WorkHistory' , workHistoryScheme);
 
 let workHistoryTest = new WorkHistory({
     requestId: 'test',
-    billingId: 'test'
+    invoiceId: 'test'
 });
 
 //  workHistoryTest.save().then(() =>  console.log('saved'));
