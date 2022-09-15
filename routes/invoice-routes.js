@@ -6,13 +6,13 @@ let Invoice = require('../models/invoice-model').Invoice;
 router.post('/' , async (req, res) =>{
     //console.log(req.body);
      let newInvoice = new Invoice({
-         id: uniqid(),
-         serviceId: req.body.serviceId,
-         stage: req.body.stage,
-         date: new Date()
+         invoiceId: uniqid(),
+         requestId: req.body.requestId,
+         date: new Date(),
+         price: req.body.price
      });
      await newInvoice.save();
-     res.send('Service requested');
+     res.send('Invoice requested');
  })
  
  router.get('/', async(req,res) =>{
@@ -20,11 +20,10 @@ router.post('/' , async (req, res) =>{
      res.send(invoice);
  })
  
- router.put('/:id' , async (req,res) =>{
-     let id = req.params.id;
-     await invoice.updateOne({id: id} , req.body);
-     res.send('Service request approved/rejected');
+ router.put('/:invoiceId' , async (req,res) =>{
+     let invoiceId = req.params.invoiceId;
+     await invoice.updateOne({invoiceId: invoiceId} , req.body);
+     res.send('Invoice request approved/rejected');
  })
- 
- 
+
  module.exports = router;

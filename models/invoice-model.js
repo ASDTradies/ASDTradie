@@ -8,7 +8,7 @@ let Schema = mongoose.Schema;
 let invoiceScheme = new Schema({
     invoiceid: String,
     requestId: String,
-    date: String,
+    date: Date,
     price: String,
 
 });
@@ -19,7 +19,7 @@ let Invoice = mongoose.model('Invoice' , invoiceScheme);
 let invoiceTest = new Invoice({
   invoiceid: 'test',
     requestId: 'test',
-    date: 'test',
+    date: '2022-05-05',
     price: 'test',
 });
 
