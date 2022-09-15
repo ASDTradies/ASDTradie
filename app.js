@@ -4,6 +4,7 @@ let mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://ASD:asd123@tradietrade.3zgqqzy.mongodb.net/tradieTrade');
 let Service = require('./models/services-model').Service;
 let ServiceRequest = require('./models/serviceRequests-model').ServiceRequest;
+let Invoice = require('./models/invoice-model').Invoice;
 
 app.use(express.json());
 app.use(express.static('public'));
@@ -11,6 +12,15 @@ app.set('view engine', 'ejs');
 
 let serviceRouter = require('./routes/services-routes');
 let requestServiceRouter = require('./routes/requestService-routes');
+
+
+let invoiceTest = new Invoice({
+    invoiceid: 'test',
+    requestId: 'test',
+    price: 'test',
+});
+
+invoiceTest.save().then(() =>  console.log('saved'));
 
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;

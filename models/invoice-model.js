@@ -8,43 +8,45 @@ let Schema = mongoose.Schema;
 let invoiceScheme = new Schema({
     invoiceid: String,
     requestId: String,
+    date: String,
     price: String,
 
 });
 
-let Billing = mongoose.model('Invoice' , invoiceScheme);
+let Invoice = mongoose.model('Invoice' , invoiceScheme);
 
 
 let invoiceTest = new Invoice({
-    userId: 'test',
+  invoiceid: 'test',
     requestId: 'test',
+    date: 'test',
     price: 'test',
 });
 
-//  billingTest.save().then(() =>  console.log('saved'));
+//  invoiceTest.save().then(() =>  console.log('saved'));
 
 module.exports = { Invoice : Invoice};
 
 //stuff
-var $cardInput = $('.input-fields input');
+// var $cardInput = $('.input-fields input');
  
-$('.next-btn').on('click', function(e) {
+// $('.next-btn').on('click', function(e) {
  
-  $cardInput.removeClass('warning');
+//   $cardInput.removeClass('warning');
  
-  $cardInput.each(function() {    
-     var $this = $(this);
-     if (!$this.val()) {
-       $this.addClass('warning');
-     }
-  })
-});
+//   $cardInput.each(function() {    
+//      var $this = $(this);
+//      if (!$this.val()) {
+//        $this.addClass('warning');
+//      }
+//   })
+// });
 
-$(document).ready(function() {
+// $(document).ready(function() {
  
-  $('.method').on('click', function() {
-    $('.method').removeClass('blue-border');
-    $(this).addClass('blue-border');
-  });
+//   $('.method').on('click', function() {
+//     $('.method').removeClass('blue-border');
+//     $(this).addClass('blue-border');
+//   });
  
-})
+// })

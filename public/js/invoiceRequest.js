@@ -1,20 +1,20 @@
-async function getInvoiceRequests(){
-    return await fetch('http://localhost:3000/requestService')
+async function getInvoice(){
+    return await fetch('http://localhost:3000/invoice')
     .then((response) => response.json())
     .then((data) => data);
 }
 
 
 document.addEventListener('DOMContentLoaded', async () =>{
-    let serviceRequestList = document.querySelector('.serviceRequestList');
-    serviceRequestList.innerHTML = '';
-    let serviceRequests = await getServiceRequests();
+    let invoiceList = document.querySelector('.invoiceList');
+    invoiceList.innerHTML = '';
+    let invoices = await getInvoice();
     let i =1;
-    serviceRequests.forEach((request) =>{
+    invoices.forEach((request) =>{
        
         let requestHTML = `
         <tr>
-        <th scope="row">${i++} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
+        <th scope="row">${i++} <input type="hidden" class="invoiceId" value="${request.id}"></th>
         <td>${request.date} <input type="hidden" class="serviceId" value="${request.serviceId}"> </td>
         <td>${request.stage}</td>
         <td>
