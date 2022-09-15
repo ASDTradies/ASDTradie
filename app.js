@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken'); //JSONWebToken - for login and logout
 const bcrypt = require('bcryptjs'); //Bcrypt - for lightweight hashing
-
+const JWT_Secret = 'gftdtd67i!@##(67454sdfsd!@#!24rsrfdxv$@^hvkh90&&(()!!@*89787@@56!!5334arxghbj'
 //Handles MongoDB connection
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://ASD:asd123@tradietrade.3zgqqzy.mongodb.net/tradieTrade');
@@ -24,52 +24,53 @@ let registerUserRouter = require('./routes/registerUser-routes');
 
 //Register 
 app.post('/register', async (req,res) =>{
-    let {first_name, last_name, email, password: plainTextPassword, profileType} = req.body;
-	const password = await bcrypt.hash(plainTextPassword, 10);
-
-    try {
-        const response = await User.create({
-            first_name,
-            last_name,
-            email,
-            password,
-            profileType
-        })
-        console.log("User created successfully", response);
-    } catch (error) {
-        // console.log("error code ", error.code);
-        if (error.code === 11000) {
-			// duplicate key
-			return res.json({ status: 'error', error: 'Email is already in use!' });
-		}
-    }
-    res.json({status: 'ok'});
+    let {first_name, last_name, email, password: plainTextPassword, profileType} = req.body;    
+    bcrypt.genSalt(10, function(err, salt) { //generates salt 10x
+        bcrypt.hash(plainTextPassword, salt, function(err, hash) { //hashes password for storing
+            let password = hash;
+            try {
+                const response = User.create({
+                    first_name,
+                    last_name,
+                    email,
+                    password,
+                    profileType
+                });
+                console.log("User created successfully", response);
+            } catch (error) {
+                if (error.code === 11000) {  // error 11000 means duplicate email
+                    return res.json({ status: 'error', error: 'Email is already in use!' });
+                }
+                throw error;
+            };
+            res.json({status: 'ok'});
+        });
+    });
 });
 
 //Login
 app.post('/login', async(req, res) =>{
-    const {email, password} = req.body;
-    const user = User.findOne({email, password}).lean();
+    const { email, password } = req.body;
+    const user = await User.findOne({email}).lean(); //Finds user via email
+    if(!user){ //If user is not found
+        return res.json({status: 'error', error: 'Invalid email/password'});
+    };
 
-    if(!user){
-        res.json({status: 'error', error: 'Invalid email/password'});
-    }
-
-    if(password === user.password){
-        console.log("user is found");
-        res.json({status: 'ok', data: "blahblah"});
-    } else {
-        res.json({status: 'error', error: 'Invalid email/password'});
-    }
-})
-
-app.get('/customerDashboard', async(req, res) =>{
-    res.send('Customer Dashboard');
-})
-
-app.get('/tradieDashboard', async(req, res) =>{
-    res.send('Tradie Dashboard');
-})
+    bcrypt.compare(password, user.password).then((result) => { //User is found
+        if(result){ //If password is correct
+            const token = jwt.sign( //Make a token
+            {
+                id: user._id,
+                email: user.email
+            },
+                JWT_Secret
+            );
+            return res.json({status: 'ok', data: token});
+        } else { //Wrong password
+            return res.json({status: 'error', error: 'Invalid email/password'});
+        }
+    });
+});
 
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;

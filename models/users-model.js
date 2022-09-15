@@ -23,6 +23,5 @@ const userSchema = new mongoose.Schema(
 );
 
 const User = mongoose.model('User', userSchema);
-//  service1.save().then(() =>  console.log('saved'));
 module.exports = {User : User};
 
