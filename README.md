@@ -19,5 +19,6 @@ Trade Trades is a group project made for Advanced Software Development at UTS. I
 - ExpressJS
 - Mongoose
 - MongoDB
-- JWT
 - Bcrypt
+- PassportJS
+- Connect-flash
