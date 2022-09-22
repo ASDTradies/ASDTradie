@@ -4,7 +4,7 @@ const User = require('../models/users-model').User;
 const bcrypt = require('bcryptjs'); //Bcrypt - for lightweight hashing
 const passport = require('passport');
 
-//GETs
+//GETs - renders all pages
 router.get('/login', (req, res)=> {
     res.render('login.ejs')
 })
@@ -13,16 +13,11 @@ router.get('/registerUser', (req, res)=> {
     res.render('registerUser.ejs')
 })
 
-//Posts
+//POSTs - sends forms to MongoDB
 router.post('/registerUser',  (req, res) =>{
     const { first_name, last_name, email, password, password2, profileChar} = req.body;
-    console.log(profileChar)
-    var profileType = 'C';
-    if(profileChar === 'on'){
-        profileType = 'T';
-    }
-
-    let errors = [];
+    var profileType = profileChar === 'on' ? 'C' : 'T'; //If the checkbox is ticked, user can be a Tradie
+    var errors = []; //Error messages
 
     //Check required fields
     if(!first_name || !last_name || !email || !password || !password2){
@@ -34,7 +29,7 @@ router.post('/registerUser',  (req, res) =>{
         errors.push({msg: 'Passwords do not match'});
     }
 
-    if(errors.length > 0){
+    if(errors.length > 0){    //If there is an error, render the error messages
         res.render('registerUser', {
             errors,
             first_name,
@@ -43,11 +38,10 @@ router.post('/registerUser',  (req, res) =>{
             password,
             password2
         })
-    } else {
-        //Passwords confirmed
+    } else { //Otherwise, find the user using email
         User.findOne({email: email})
         .then(user => {
-            if(user) { //User already exists in the db
+            if(user) { //User not null, already exists in the db
                 errors.push({msg: 'Email is already in use!'})
                 res.render('registerUser', {
                     errors,
@@ -65,7 +59,7 @@ router.post('/registerUser',  (req, res) =>{
                     password,
                     profileType
                 });
-                bcrypt.genSalt(10, function(err, salt){
+                bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
                     bcrypt.hash(newUser.password, salt, (err,hash) => {
                         if(err) throw err;
                         newUser.password = hash;
@@ -84,19 +78,19 @@ router.post('/registerUser',  (req, res) =>{
 
 })
 
+/* Needs to be changed to see if it was logged in using customer or tradie */
 router.post('/login' , (req, res, next) =>{
     passport.authenticate('local', {
-        successRedirect: '/customerDashboard/',
+        successRedirect: '/customerDashboard/', 
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
 });
 
 router.get('/logout', (req, res) =>{
-    req.logout();
+    req.logout(); //Passport method, easily logs out user.
     req.flash('success_msg', 'You are logged out');
     res.redirect('users/login');
-
 })
 
 module.exports = router;

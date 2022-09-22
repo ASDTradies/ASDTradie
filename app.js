@@ -27,12 +27,12 @@ app.use(session({ //express session
     saveUninitialized: true
   }));
 
-  //passport
+//Passport methods, just got them from documentation
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-//global variables
+//res.locals makes these global variables
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
