@@ -27,7 +27,7 @@ app.use(session({ //express session
     saveUninitialized: true
   }));
 
-//Passport methods, just got them from documentation
+//Passport methods, just got them from documentation - initialising middleware
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

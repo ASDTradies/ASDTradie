@@ -13,6 +13,15 @@ router.get('/registerUser', (req, res)=> {
     res.render('registerUser.ejs')
 })
 
+//Checks if app should render tradiedashboard or customerdashboard
+router.get('/redirectLogin', (req, res)=> {
+    if(req.user.profileType == 'T'){
+        res.render('tradieDashboard.ejs');
+    } else{
+        res.render('customerDashboard.ejs')
+    }
+})
+
 //POSTs - sends forms to MongoDB
 router.post('/registerUser',  (req, res) =>{
     const { first_name, last_name, email, password, password2, profileChar} = req.body;
@@ -78,10 +87,9 @@ router.post('/registerUser',  (req, res) =>{
 
 })
 
-/* Needs to be changed to see if it was logged in using customer or tradie */
 router.post('/login' , (req, res, next) =>{
     passport.authenticate('local', {
-        successRedirect: '/customerDashboard/', 
+        successRedirect: '/users/redirectLogin', 
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
