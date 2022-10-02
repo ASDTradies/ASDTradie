@@ -16,16 +16,20 @@ router.get('/registerUser', (req, res)=> {
 //Checks if app should render tradiedashboard or customerdashboard
 router.get('/redirectLogin', (req, res)=> {
     if(req.user.profileType == 'T'){
-        res.render('tradieDashboard.ejs');
+        res.render('tradieDashboard.ejs', {
+            user: req.user
+        });
     } else{
-        res.render('customerDashboard.ejs')
+        res.render('customerDashboard.ejs', {
+            user: req.user
+        })
     }
 })
 
 //POSTs - sends forms to MongoDB
 router.post('/registerUser',  (req, res) =>{
     const { first_name, last_name, email, password, password2, profileChar} = req.body;
-    var profileType = profileChar === 'on' ? 'C' : 'T'; //If the checkbox is ticked, user can be a Tradie
+    var profileType = profileChar === 'on' ? 'T' : 'C'; //If the checkbox is ticked, user can be a Tradie
     var errors = []; //Error messages
 
     //Check required fields
@@ -48,8 +52,7 @@ router.post('/registerUser',  (req, res) =>{
             password2
         })
     } else { //Otherwise, find the user using email
-        User.findOne({email: email})
-        .then(user => {
+        User.findOne({email: email}).then(user => {
             if(user) { //User not null, already exists in the db
                 errors.push({msg: 'Email is already in use!'})
                 res.render('registerUser', {
