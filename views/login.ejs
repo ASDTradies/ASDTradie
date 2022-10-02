@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Tradies</title>
+    <base href="/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">    <link href="/public/css/main.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet" type="text/css">
+  </head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">TradieTrades</a>
+          
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="./billingForm.html">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./orderHistory.html">Order-History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./workHistory.html">Work-History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./userRating.html">Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./comments.html">Comment</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
+                <div class="dropdown-menu">
+                    <a href="login.html" class="dropdown-item">Login</a>
+                    <a href="registerUser.html" class="dropdown-item">Register</a>
+                    <a href="userSettings.html" class="dropdown-item">User Account Settings</a>
+                </div>
+            </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <main>
+      <div class="d-flex flex-column justify-content-center align-items-center">
+          <a class="text-center" href="./index.html"><img src="./images/logo-white.png" width="400px" height="300px" alt="Tradies Logo" id="logo"></a>
+          <h1 class="text-center" id="loginTitle">Login</h1><br>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <form id="login-form" action="/users/login" method="POST">
+          <div class="form-group">
+            <%- include ('./partials/alerts.ejs') %>
+            <input class="form-control form-control-lg position-static" aria-label="password" type="email" name="email" id="email" placeholder="Email address" required><br>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control form-control-lg position-static" aria-label="password" type="password" name="password" id="password" placeholder="Password">
+            <small class="text-center">Forgot your password? <a href="">Reset your password.</a></small>
+          </div>
+
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <br><input type="submit" id="loginBtn" value="Login" class="btn btn-primary btn-lg"><br>
+            <p class="text-center">Don't have an account? <a href="/views/registerUser.ejs">Register now.</a></p>
+          </div> 
+        </form>
+      </div>
+    </main>
+</body>
+
+<footer class="bg-dark fixed-bottom">
+    <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</html>
