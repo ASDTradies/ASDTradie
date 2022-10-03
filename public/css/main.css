@@ -42,6 +42,12 @@ width: 12%;
   justify-content: center;
   align-items: center;
   margin-left: 10%;
+  border-color: #312e2f;
+  border-radius: 3px;
+  }
+  
+  .middle{
+    align-items: center;
   }
   
   .payment-method {
