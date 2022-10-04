@@ -6,14 +6,16 @@ let mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 const invoiceSchema = new mongoose.Schema({
-    invId: String,
-    invRequestID: String,
-    invServiceID: String,
-    invCustomerID: String,
-    invTradieID: String,
-    invAddress: String,
-    invDate: Date,
-    invPrice: String,
+ //   invId: String,
+ //   invRequestID: String,
+ //   invServiceID: String,
+ //   invCustomerID: String,
+  //  invTradieID: String,
+  //  invAddress: String,
+  //  invDate: Date,
+  //  invPrice: String,
+      first_name: String,
+      street_address: String,
 },
 { collection: 'invoices' } 
 );
