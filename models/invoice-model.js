@@ -14,7 +14,6 @@ const invoiceSchema = new mongoose.Schema({
     invAddress: String,
     invDate: Date,
     invPrice: String,
-    invPaid: Boolean,
 },
 { collection: 'invoices' } 
 );
