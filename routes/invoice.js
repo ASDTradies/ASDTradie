@@ -3,13 +3,17 @@ let router = express.Router();
 let uniqid = require('uniqid');
 const Invoice = require('../models/invoice-model').Invoice;
 
+router.get('/invoiceGen', (req, res)=> {
+    res.render('invoiceGen.ejs'), {
+        invoice: req.invoice
+    }
+})
+
 router.get('/billingForm', (req, res)=> {
     res.render('billingForm.ejs')
 })
 
-router.get('/invoiceGen', (req, res)=> {
-    res.render('invoiceGen.ejs')
-})
+
 
 
 router.post('/billingForm',  (req, res) =>{
@@ -27,7 +31,7 @@ router.post('/billingForm',  (req, res) =>{
     });
 // }
     newInvoice.save()
-    res.redirect('/billingForm.ejs');
+    res.redirect('/invoice/invoiceGen')
 })
 
 module.exports = router;
