@@ -54,30 +54,36 @@
     </nav>
     <div class="container mb-3">
       <h1>Billing Form</h1>
-        <div>
+          <div>
+          <form action="/invoice/billingForm" method = "POST">
+          <div>
           <table class="table table-bordered mt-2">
             <thead>
               <tr>
                   <th scope="col">InvoiceID</th>
                   <th scope="col">Service Title</th>
-                  <th scope="col">Customer Name</th>
-                  <th scope="col">Tradie Name</th>
+                  <th scope="col">CustomerID</th>
+                  <th scope="col">TradieID</th>
                   <th scope="col">Total Payment Owed:</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
+                  <input type="hidden" id="id" name="id" value="1"/>
                   <td>Construction</td>
-                  <td>User 1</td>
-                  <td>Trade 1</td>
+                  <input type="hidden" id="service_title" name="service_title" value="Construction"/>
+                  <td>User: 112</td>
+                  <input type="hidden" id="userID" name="userID" value="112"/>
+                  <td>Tradie: 278</td>
+                  <input type="hidden" id="tradieID" name="tradieID" value="278"/>
                   <td>$20</td>
+                  <input type="hidden" id="price" name="price" value="$20"/>
                 </tr>
               </tbody>
             </table>
               </div>
-              <div>
-                <form action="/invoice/billingForm" method = "POST">
+              
                 <div class="middle-div">
                 <h2 class ="middle"> Address of service enquiry</h2><br>
               <div class="input-fields">
