@@ -15,7 +15,7 @@ const invoiceSchema = new mongoose.Schema({
   //  invDate: Date,
   //  invPrice: String,
       first_name: String,
-      street_address: String,
+      street_address: String
 },
 { collection: 'invoices' } 
 );
