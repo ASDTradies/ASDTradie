@@ -14,15 +14,15 @@ router.get('/billingForm', (req, res)=> {
 
 router.post('/billingForm',  async (req, res) =>{
     //const { invRequestID, invServiceID, invCustomerID, invTradieID, invAddress, invDate, invPrice, invPaid} = req.body;
-    const { first_name, street_address} = req.body;
+    const { service_title , userID , tradieID , street_address , price} = req.body;
     const newInvoice = new Invoice({
         //invRequestID,
-        //invServiceID, 
-        first_name, 
-        //invTradieID, 
-        street_address
-        //invDate, 
-        //invPrice, 
+        service_title, 
+        userID, 
+        tradieID, 
+        street_address,
+        date: new Date(), 
+        price 
         //invPaid
     });
     await newInvoice.save()
