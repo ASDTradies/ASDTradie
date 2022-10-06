@@ -81,7 +81,7 @@
               <td><%=invoice.tradieID %></td>
               <td><%=invoice.street_address %></td>
               <td><%=invoice.date %></td>
-              <td><%=invoice.price %></td>
+              <td><%=invoice.price * invoice.hours %></td>
             </tr>
           <%})%>
 
