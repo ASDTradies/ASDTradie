@@ -5,46 +5,19 @@ let mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
-let invoiceScheme = new Schema({
-    invoiceid: String,
-    requestId: String,
+const invoiceSchema = new mongoose.Schema({
+ //   invId: String,
+ //   invRequestID: String,
+    service_title: String,
+    userID: String,
+    tradieID: String,
+    street_address: String,
+    date: String,
     price: String,
-
-});
-
-let Billing = mongoose.model('Invoice' , invoiceScheme);
-
-
-let invoiceTest = new Invoice({
-    userId: 'test',
-    requestId: 'test',
-    price: 'test',
-});
-
-//  billingTest.save().then(() =>  console.log('saved'));
-
+      //first_name: String,
+    street_address: String
+},
+{ collection: 'invoices' } 
+);
+const Invoice = mongoose.model('Invoice', invoiceSchema);
 module.exports = { Invoice : Invoice};
-
-//stuff
-var $cardInput = $('.input-fields input');
- 
-$('.next-btn').on('click', function(e) {
- 
-  $cardInput.removeClass('warning');
- 
-  $cardInput.each(function() {    
-     var $this = $(this);
-     if (!$this.val()) {
-       $this.addClass('warning');
-     }
-  })
-});
-
-$(document).ready(function() {
- 
-  $('.method').on('click', function() {
-    $('.method').removeClass('blue-border');
-    $(this).addClass('blue-border');
-  });
- 
-})

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tradie Trade</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/main.css" rel="stylesheet" >
+    
+</head>
+<body>
+    <main>  
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">TradieTrade</a>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+              </li> 
+              <li class="nav-item">
+                <a class="nav-link" href="./billingForm.html">Billing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./orderHistory.html">Order-History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./workHistory.html">Work-History</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./userRating.html">Review</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./comments.html">Comment</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
+                <div class="dropdown-menu">
+                  <a href="login.html" class="dropdown-item">Login</a>
+                  <a href="registerUser.html" class="dropdown-item">Register</a>
+                  <a href="userSettings.html" class="dropdown-item">User Account Settings</a>
+              </div>
+            </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    <div>
+        <h1>Invoice</h1>
+    <table class="table table-bordered mt-2">
+        <thead>
+          <tr>
+              <th scope="col">InvoiceID</th>
+              <th scope="col">Service Title</th>
+              <th scope="col">Customer ID</th>
+              <th scope="col">Tradie ID</th>
+              <th scope="col">Street Address</th>
+              <th scope="col">Date of purchase</th>
+              <th scope="col">Total Payment:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%=invoice.id %></td>
+              <td><%=invoice.service_title %></td>
+              <td><%=invoice.userID %></td>
+              <td><%=invoice.tradieID %></td>
+              <td><%=invoice.street_address %></td>
+              <td><%=invoice.date %></td>
+              <td><%=invoice.price %></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>>
+        <div class="panel-footer"></div>
+        <a href="./index.html">
+        <button type="submit" class="btn pay-btn" type="submit">Pay</button>
+    </a>
+      </div>
+
+
+    <footer class="bg-dark">
+        <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
+    </footer>
+    
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
