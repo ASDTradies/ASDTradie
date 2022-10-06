@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type = "text/javascript" src="orderServiceHistory-model.js"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +10,10 @@
     
 </head>
 <body>
-    <main>
-        
+    <main>  
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="./index.html">TradieTrade</a>
-          
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
@@ -55,26 +52,22 @@
           </div>
         </div>
     </nav>
-
-  </div>
-  <div class="container mb-3">
-    <h1>Order History</h1>
     <div>
-      <table class="table table-bordered mt-2">
-        <thead class="th">
+        <h1>Invoice</h1>
+    <table class="table table-bordered mt-2">
+        <thead>
           <tr>
-            <th scope="col">InvoiceID</th>
-            <th scope="col">Service Title</th>
-            <th scope="col">Customer ID</th>
-            <th scope="col">Tradie ID</th>
-            <th scope="col">Street Address</th>
-            <th scope="col">Date of purchase</th>
-            <th scope="col">Total Payment:</th>
-          </tr>
-        </thead>
-        <tbody class="tbody">
-          <%invoiceList.forEach(invoice => {%>
-            <tr class="tr">
+              <th scope="col">InvoiceID</th>
+              <th scope="col">Service Title</th>
+              <th scope="col">Customer ID</th>
+              <th scope="col">Tradie ID</th>
+              <th scope="col">Street Address</th>
+              <th scope="col">Date of purchase</th>
+              <th scope="col">Total Payment:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
               <td><%=invoice.id %></td>
               <td><%=invoice.service_title %></td>
               <td><%=invoice.userID %></td>
@@ -83,17 +76,23 @@
               <td><%=invoice.date %></td>
               <td><%=invoice.price %></td>
             </tr>
-          <%})%>
-
-        </tbody>
-      </table>
-        </div>
+          </tbody>
+        </table>
+        </div>>
+        <div class="panel-footer"></div>
+        <form action="./orderHistory.ejs">
+        <button class="btn pay-btn">Order History</button>
+        </form>
+    </a>
       </div>
-      <footer class="bg-dark">
+
+
+    <footer class="bg-dark">
         <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
     </footer>
-
+    
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
 </html>

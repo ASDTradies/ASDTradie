@@ -60,25 +60,28 @@
           <table class="table table-bordered mt-2">
             <thead>
               <tr>
-                  <th scope="col">InvoiceID</th>
+                  <th scope="col">Service Request</th>
                   <th scope="col">Service Title</th>
                   <th scope="col">CustomerID</th>
                   <th scope="col">TradieID</th>
+                  <th scope="col">Hours</th>
                   <th scope="col">Total Payment Owed:</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <th scope="row">1</th>
-                  <input type="hidden" id="id" name="id" value="1"/>
+                  <input type="hidden" id="service_requestID" name="service_requestID" value="125"/>
                   <td>Construction</td>
                   <input type="hidden" id="service_title" name="service_title" value="Construction"/>
                   <td>User: 112</td>
                   <input type="hidden" id="userID" name="userID" value="112"/>
                   <td>Tradie: 278</td>
                   <input type="hidden" id="tradieID" name="tradieID" value="278"/>
+                  <td>Hours: 8</td>
+                  <input type="hidden" id="hours" name="hours" value="8"/>
                   <td>$20</td>
-                  <input type="hidden" id="price" name="price" value="$20"/>
+                  <input type="hidden" id="price" name="price" value="50"/>
                 </tr>
               </tbody>
             </table>

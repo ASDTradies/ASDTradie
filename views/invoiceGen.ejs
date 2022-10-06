@@ -52,37 +52,90 @@
           </div>
         </div>
     </nav>
-    <div>
-        <h1>Invoice</h1>
-    <table class="table table-bordered mt-2">
-        <thead>
-          <tr>
-              <th scope="col">InvoiceID</th>
-              <th scope="col">Service Title</th>
-              <th scope="col">Customer ID</th>
-              <th scope="col">Tradie ID</th>
-              <th scope="col">Street Address</th>
-              <th scope="col">Date of purchase</th>
-              <th scope="col">Total Payment:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><%=invoice.id %></td>
-              <td><%=invoice.service_title %></td>
-              <td><%=invoice.userID %></td>
-              <td><%=invoice.tradieID %></td>
-              <td><%=invoice.street_address %></td>
-              <td><%=invoice.date %></td>
-              <td><%=invoice.price %></td>
-            </tr>
-          </tbody>
-        </table>
-        </div>>
-        <div class="panel-footer"></div>
-        <a href="./index.html">
-        <button type="submit" class="btn pay-btn" type="submit">Pay</button>
-    </a>
+    <div class="middle-div"><br>
+        <div class="row">
+        <h1>Customer Invoice</h1>
+            <div class="column-1"><br>
+              <label><b>Invoice ID:</b> #<%=invoice.id %> </label>
+              <label><b>Date:</b> <%=invoice.date %> </label>
+          </div>
+
+        <div class="column-1"><br>
+        </div>
+          <div class="column-2"><br>
+            <label><b>Tradie Trade Corporation</b></label><br>
+            <label>15 Broadway Ultimo</label><br>
+            <label>NSW 2007</label>
+          </div>
+          </div>
+        </div><br>
+        
+        <div class="middle-div"><br>
+            <div class="row">
+                <div class="column-1"><br>
+                <label><b>Billing to:</b></label><br><br>
+                  <label><b><%=invoice.first_name %> <%=invoice.last_name %></b> #<%=invoice.id %> </label>
+                  <label><b>Contact:</b> <%=invoice.phone_number %> </label>
+              </div>
+    
+            <div class="column-1"><br>
+            <label><b>Address to:</b></label><br><br>
+            <label><%=invoice.street_address%></label><br>
+            <label><%=invoice.city%></label><br>
+            <label><%=invoice.state%> <%=invoice.post_code%></label><br>
+
+            </div>
+              <div class="column-2"><br>
+                <label><b>Job Done by:</b></label><br><br>
+                <label>Mr Bob Builder</label><br>
+                <label>BobnTrades</label>
+              </div>
+              </div>
+            </div><br>
+
+            <div class="middle-div"><br>
+                <table class="table table-bordered mt-2">
+                    <thead>
+                      <tr>
+                        <th scope="col">Service Request ID: </th>
+                          <th scope="col">User ID: </th>
+                          <th scope="col">Tradie ID</th>
+                          <th scope="col">Service Title</th>
+                          <th scope="col">Hours</th>
+                          <th scope="col">Price(Per H)</th>
+                          <th scope="col">Total Payment:</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                            <td><%=invoice.service_requestID %></td>
+                            <td><%=invoice.userID %></td>
+                            <td><%=invoice.tradieID %></td>
+                            <td><%=invoice.service_title %></td>
+                            <td><%=invoice.hours %></td>
+                            <td>$<%=invoice.price %></td>
+                            <td>$<%=invoice.hours * invoice.price%></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>>
+                    <div class="panel-footer"></div>
+                    <form action="./orderHistory.ejs">
+                    <button class="btn pay-btn">Order History</button>
+                    </form>
+                </a>
+            </div>
+
+
+
+
+
+
+
+
+
+
+  
       </div>
 
 
