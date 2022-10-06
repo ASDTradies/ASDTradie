@@ -17,28 +17,28 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                <a class="nav-link active" aria-current="page" href="index">Home</a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="./billingForm.html">Billing</a>
+                <a class="nav-link" href="billingForm">Billing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./orderHistory.html">Order-History</a>
+                <a class="nav-link" href="orderHistory">Order-History</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./workHistory.html">Work-History</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
+                <a class="nav-link" href="../tradieDashboard.html">Tradie Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
+                <a class="nav-link" href="../customerDashboard.html">Customer Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./userRating.html">Review</a>
+                <a class="nav-link" href="../userRating.html">Review</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./comments.html">Comment</a>
+                <a class="nav-link" href="../comments.html">Comment</a>
               </li>
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
@@ -56,7 +56,7 @@
       <h1>Billing Form</h1>
           <div>
           <form action="/invoice/billingForm" method = "POST">
-          <div>
+          <div class="th">
           <table class="table table-bordered mt-2">
             <thead>
               <tr>
@@ -65,12 +65,13 @@
                   <th scope="col">CustomerID</th>
                   <th scope="col">TradieID</th>
                   <th scope="col">Hours</th>
+                  <th scope="col">Price (per Hour):</th>
                   <th scope="col">Total Payment Owed:</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">125</th>
                   <input type="hidden" id="service_requestID" name="service_requestID" value="125"/>
                   <td>Construction</td>
                   <input type="hidden" id="service_title" name="service_title" value="Construction"/>
@@ -78,10 +79,11 @@
                   <input type="hidden" id="userID" name="userID" value="112"/>
                   <td>Tradie: 278</td>
                   <input type="hidden" id="tradieID" name="tradieID" value="278"/>
-                  <td>Hours: 8</td>
+                  <td>8</td>
                   <input type="hidden" id="hours" name="hours" value="8"/>
-                  <td>$20</td>
+                  <td>$50</td>
                   <input type="hidden" id="price" name="price" value="50"/>
+                  <td>$400</td>
                 </tr>
               </tbody>
             </table>

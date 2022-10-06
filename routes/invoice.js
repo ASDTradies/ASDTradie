@@ -12,6 +12,10 @@ router.get('/billingForm', (req, res)=> {
     res.render('billingForm.ejs')
 })
 
+//router.get('/index', (req, res)=> {
+//    res.render('index.html')
+//})
+
 /*router.get('/orderHistory', (req, res)=> {
     Invoice.find({}).then((invoice) =>{
         res.send(invoice);
@@ -41,6 +45,16 @@ router.get('/billingForm', (req, res)=> {
 router.get('/orderHistory', (req, res)=> {
     Invoice.find({}, function(err, invoices){
         res.render('orderHistory', {
+            invoiceList: invoices
+        })
+    })
+        
+
+})
+
+router.get('/workHistory', (req, res)=> {
+    Invoice.find({}, function(err, invoices){
+        res.render('workHistory', {
             invoiceList: invoices
         })
     })
