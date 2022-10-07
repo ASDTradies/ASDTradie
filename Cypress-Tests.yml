@@ -23,6 +23,7 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run test'
+  continueOnError: true
   
 
 - task: PublishTestResults@2
