@@ -6,6 +6,18 @@ describe('Testing Invoice Generation', () => {
     .type('Test1')
     .should('have.value', 'Test1')
 
+    cy.get('#last_name').click({force:true}).get('#last_name')
+    .type('Test2')
+    .should('have.value', 'Test2')
+
+    cy.get('#street_address').click({force:true}).get('#street_address')
+    .type('123 Test')
+    .should('have.value', '123 Test')
+
+    cy.get('#city').click({force:true}).get('#city')
+    .type('HelloWorld')
+    .should('have.value', 'HelloWorld')
+
     cy.get('#payBtn').click()
     cy.get('#FirstName').should('have.value', '')
   })
