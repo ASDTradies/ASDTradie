@@ -23,13 +23,13 @@
                 <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
               </li> 
               <li class="nav-item">
-                <a class="nav-link" href="invoice/billingForm">Billing</a>
+                <a class="nav-link" href="billingForm">Billing</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="invoice/orderHistory">Order-History</a>
+                <a class="nav-link" href="orderHistory">Order-History</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./workHistory.html">Work-History</a>
+                <a class="nav-link" href="workHistory">Work-History</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
@@ -72,7 +72,7 @@
             <th scope="col">Total Payment:</th>
           </tr>
         </thead>
-        <tbody class="tbody">
+        <tbody id="invoiceList" class="tbody">
           <%invoiceList.forEach(invoice => {%>
             <tr class="tr">
               <td><%=invoice.id %></td>
@@ -81,7 +81,7 @@
               <td><%=invoice.tradieID %></td>
               <td><%=invoice.street_address %></td>
               <td><%=invoice.date %></td>
-              <td><%=invoice.price %></td>
+              <td><%=invoice.price * invoice.hours %></td>
             </tr>
           <%})%>
 
