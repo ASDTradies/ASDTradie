@@ -12,16 +12,74 @@ router.get('/billingForm', (req, res)=> {
     res.render('billingForm.ejs')
 })
 
+//router.get('/index', (req, res)=> {
+//    res.render('index.html')
+//})
+
+/*router.get('/orderHistory', (req, res)=> {
+    Invoice.find({}).then((invoice) =>{
+        res.send(invoice);
+        res.render('orderHistory.ejs')
+    }).catch((error) => {
+        res.status(500).send(error);
+    })
+})
+*/
+
+/*const invoiceSchema = {
+    //   invId: String,
+    //   invRequestID: String,
+       service_title: String,
+       userID: String,
+       tradieID: String,
+       street_address: String,
+       date: String,
+       price: String,
+         //first_name: String,
+       street_address: String
+   }
+
+   const Invoice = mongoose.model('Invoice', invoiceSchema);
+   */
+
+router.get('/orderHistory', (req, res)=> {
+    Invoice.find({}, function(err, invoices){
+        res.render('orderHistory', {
+            invoiceList: invoices
+        })
+    })
+        
+
+})
+
+router.get('/workHistory', (req, res)=> {
+    Invoice.find({}, function(err, invoices){
+        res.render('workHistory', {
+            invoiceList: invoices
+        })
+    })
+        
+
+})
+
+
 router.post('/billingForm',  async (req, res) =>{
     //const { invRequestID, invServiceID, invCustomerID, invTradieID, invAddress, invDate, invPrice, invPaid} = req.body;
-    const { service_title , userID , tradieID , street_address , price} = req.body;
+    const { service_requestID, service_title , userID , first_name , last_name , tradieID , hours , street_address , phone_number, city, state, post_code, price} = req.body;
     const newInvoice = new Invoice({
-        //invRequestID,
+        service_requestID,
         service_title, 
         userID, 
+        first_name,
+        last_name,
         tradieID, 
+        hours,
         street_address,
         date: new Date(), 
+        phone_number,
+        city,
+        state, 
+        post_code,
         price 
         //invPaid
     });
@@ -33,17 +91,10 @@ router.post('/billingForm',  async (req, res) =>{
     .catch(err => console.log(err))
 })
 
+
+
+
+
 module.exports = router;
 
-
-
-
-
-   // var errors = []; //Error messages
-
-    //Check required fields
-  //  if(!first_name || !last_name || !street_address || !city || !postcode || !state || !phone_number){
-   //    errors.push({msg: 'Please fill in all fields'});
-   // }
-  //  else{
 

@@ -49,6 +49,15 @@ width: 12%;
   .middle{
     align-items: center;
   }
+
+  .th{
+    top:0;
+    position: sticky;
+  }
+  .tbody{
+    overflow-y: auto;
+  }
+
   
   .payment-method {
   display: flex;
@@ -249,5 +258,22 @@ width: 12%;
   }
   .hidden{
     display: none;
+  }
+
+  .column-1{
+    float: left;
+    width:50%;
+    justify-content: space-between;
+
+  }
+  .column-2{
+    float: left;
+    width:50%;
+    justify-content: space-between;
+  }
+  .row:after{
+    content: "";
+    display: table;
+    clear: both;
   }
   
