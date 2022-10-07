@@ -1,9 +1,3 @@
-describe('My First Test', () => {
-  it('Does not do much!', () => {
-    expect(true).to.equal(true)
-  })
-})
-
 describe('Testing Invoice Generation', () => {
   it('Tests if an invoice is generated successfully', () => {
     cy.visit('http://localhost:3000/invoice/billingForm')
@@ -17,3 +11,20 @@ describe('Testing Invoice Generation', () => {
   })
 })
 
+describe('Testing OrderHistory', () => {
+  it('Tests if OrderHistory page generates anything', () => {
+    cy.visit('http://localhost:3000/invoice/orderHistory')
+
+    cy.get('#invoiceList')
+    .should('have.value', '')
+  })
+})
+
+describe('Testing workHistory', () => {
+  it('Tests if workHistory page generates anything', () => {
+    cy.visit('http://localhost:3000/invoice/workHistory')
+
+    cy.get('#invoiceList')
+    .should('have.value', '')
+  })
+})
