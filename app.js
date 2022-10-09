@@ -80,5 +80,5 @@ app.use('/requestService' ,requestServiceRouter);
 app.use('/users', usersRouter)
 app.use('/invoice', invoiceRouter);
 app.use('/customerDashboard', customerDashboardRouter);
-app.use('/review', reviewRouter)
+app.use('/reviews', reviewRouter);
 app.listen('3000', () => console.log('listening at 3000'));
