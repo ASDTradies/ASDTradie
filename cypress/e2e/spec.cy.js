@@ -40,8 +40,6 @@ describe('Testing workHistory', () => {
     .should('have.value', '')
   })
 })
-<<<<<<< Updated upstream
-=======
 
 describe('Testing Tradie Login', () => {
   it('Tests tradie login', () =>{
@@ -71,6 +69,7 @@ describe('Testing Customer Login', () => {
     cy.get('#loginBtn').click()
     cy.url().should('include', '/customerDashboard')
   })
+
 })
 
 /*
@@ -89,4 +88,3 @@ describe('Testing Review', ( => {
   })
   })
 */
->>>>>>> Stashed changes
