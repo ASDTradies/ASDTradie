@@ -1,6 +1,6 @@
 let reviewForm = document.querySelector('.reviewForm');
 let serviceRequestID = document.querySelector('#serviceRequestId')
-let name = document.querySelector('#reviewName');
+let reviewName = document.querySelector('#reviewName');
 let review = document.querySelector('#review');
 
 reviewForm.addEventListener('submit', function(e){

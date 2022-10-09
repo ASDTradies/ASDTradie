@@ -69,4 +69,22 @@ describe('Testing Customer Login', () => {
     cy.get('#loginBtn').click()
     cy.url().should('include', '/customerDashboard')
   })
+
 })
+
+/*
+describe('Testing Review', ( => {
+  it('Tests if review is successfully submitted', () => {
+    cy.visit('http://localhost:3000/reviews')
+    cy.get(#reviewList).should('have.value', 'Good')
+  })
+  })
+
+  describe('Testing dublicates reviews, ( => {
+  it('Tests if review is successfully submitted', () => {
+    cy.visit('http://localhost:3000/reviews')
+    cy.remove((#review).type('id',01))
+    cy.get(#reviewList).get(have.value, '01) == null;
+  })
+  })
+*/
