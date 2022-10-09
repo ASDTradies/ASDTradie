@@ -46,6 +46,8 @@ let requestServiceRouter = require('./routes/requestService-routes');
 let usersRouter = require('./routes/users.js');
 let invoiceRouter = require('./routes/invoice.js');
 let customerDashboardRouter = require('./routes/customerDashboard.js');
+let indexRouter = require('./routes/index.js');
+
 
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;
@@ -71,6 +73,7 @@ app.get('/serviceRequestDP', async(req,res) =>{
     })
 })
 
+app.use('/index' ,indexRouter);
 app.use('/service' ,serviceRouter);
 app.use('/requestService' ,requestServiceRouter);
 app.use('/users', usersRouter)

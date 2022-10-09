@@ -12,86 +12,43 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="./index.html">TradieTrade</a>
-      
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="./billingForm.html">Billing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./orderHistory.html">Order-History</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./workHistory.html">Work-History</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./userRating.html">Review</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./comments.html">Comment</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
-            <div class="dropdown-menu">
-              <a href="login.html" class="dropdown-item">Login</a>
-              <a href="registerUser.html" class="dropdown-item">Register</a>
-              <a href="userSettings.html" class="dropdown-item">User Account Settings</a>
-          </div>
-        </li>
-        </ul>
+      <a class="navbar-brand" href="./index.html">TradieTrades</a>
+      <div class="collapse navbar-collapse navbar-nav mr-auto">
+          <a href="index.html#about-trades" class="text-white nav-item nav-link">How We Work</a>
+          <a href="#" class="text-white nav-item nav-link">Post A Service</a>
+      </div>
+      <div class="my-2 my-lg-0 navbar-nav">
+        <a href="/users/login" class="text-white nav-item nav-link active">Log In</a>
+        <a href="/users/registerUser" class="text-white nav-item nav-link">Register</a>
       </div>
     </div>
   </nav>
-
-    <main>
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <a class="text-center" href="./index.html"><img src="./images/logo-white.png" width="400px" height="300px" alt="Tradies Logo" id="logo"></a>
-        <h1 class="text-center">Create an account</h1>
-        <h3 class="text-center" id="register-alert"></h3>
-      </div>
-
-      <div class="register-main d-flex justify-content-center align-items-center custom-control custom-switch">
-          <form id="register-form" action="/users/registerUser" method="POST">
-            <%- include ('./partials/alerts.ejs') %>
-            <label for="email" class="visually-hidden">Email:</label>
-              <input type="email" name="email" id="email" placeholder="Email address" required><br>
-      
-              <label for="first_name" class="visually-hidden">First name:</label>
-              <input type="text" name="first_name" id="first_name" placeholder="First name" required>
-      
-              <label for="last_name" class="visually-hidden">Last name:</label>
-              <input type="text" name="last_name" id="last_name" placeholder="Last name"><br>
-      
-              <label for="password" class="visually-hidden">Password:</label>
-              <input type="password" name="password" id="p1" placeholder="Password">
-  
-              <label for="confirm_password" class="visually-hidden">Confirm Password:</label>
-              <input type="password" name="password2" id="p2" placeholder="Confirm password"><br>
-              
-              <div class="d-flex justify-content-center gap-2 mb-1">
-                <input type="checkbox" name="profileChar" id="profileChar">
-                <label for="profiletype">I want to be a TradeTrades' Tradie</label><br>
-              </div>
-              
-              <div class="d-flex flex-column justify-content-center align-items-center">
-                <input type="submit" value="Create Account" class="btn-primary btn-lg btn-primary mb-0"></button><br>
-                <p class="text-center">Already have an account? <a href="/views/login.ejs">Sign in</a></p>
-              </div>
-          </form>
+  <main>
+    <div class="d-flex flex-column justify-content-center align-items-center">
+      <a class="text-center" href="./index.html"><img src="./images/logo-white.png" width="400px" height="300px" alt="Tradies Logo" id="logo"></a>
+      <h1 class="text-center">Create an account</h1>
+      <h3 class="text-center" id="register-alert"></h3>
+    </div>
+    <div class="register-main d-flex justify-content-center align-items-center custom-control custom-switch">
+      <form id="register-form" action="/users/registerUser" method="POST">
+        <%- include ('./partials/alerts.ejs') %>
+        <div class="hstack gap-3">
+          <input type="text" name="first_name" id="first_name" class="form-control form-control-lg position-static mb-3" aria-label="First name" placeholder="First name" required>
+          <input type="text" name="last_name" id="last_name" class="form-control form-control-lg position-static mb-3" aria-label="Last name" placeholder="Last name" required>
         </div>
-    </main>
-
-        
+        <input type="email" name="email" class="form-control form-control-lg position-static mb-3" aria-label="Email" id="email" placeholder="Email address" required>
+        <input type="password" name="password" id="p1" class="form-control form-control-lg position-static mb-3" aria-label="Password" placeholder="Password" required>
+        <input type="password" name="password2" id="p2" class="form-control form-control-lg position-static mb-3" aria-label="Confirm password" placeholder="Confirm password" required>          
+        <div class="d-flex justify-content-center gap-2 mb-1">
+          <input type="checkbox" class="form-check-input mb-3" name="profileChar" aria-label="Profile type"  id="profileChar"> I want to be a TradeTrades' Tradie
+        </div>
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <input type="submit" value="Create Account" class="btn btn-primary btn-lg"></button><br>
+          <p class="text-center">Already have an account? <a href="/users/login">Log in</a></p>
+        </div>
+      </form>
+    </div>
+  </main>     
 </body>
 
 <footer class="bg-dark mb-0 fixed-bottom">

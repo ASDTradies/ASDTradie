@@ -13,56 +13,24 @@
     <main>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">TradieTrade</a>
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="invoice/billingForm">Billing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="invoice/orderHistory">Order-History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="invoice/workHistory">Work-History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./userRating.html">Review</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./comments.html">Comment</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
-                <div class="dropdown-menu">
-                  <a href="login.html" class="dropdown-item">Login</a>
-                  <a href="registerUser.html" class="dropdown-item">Register</a>
-                  <a href="userSettings.html" class="dropdown-item">User Account Settings</a>
-              </div>
-            </li>
-            </ul>
+          <a class="navbar-brand" href="./index.html">TradieTrades</a>
+          <div class="collapse navbar-collapse navbar-nav mr-auto">
+              <a href="index.html#about-trades" class="text-white nav-item nav-link">How We Work</a>
+              <a href="http://localhost:3000/allServices.html" class="text-white nav-item nav-link">Request A Service</a>
+              <a href="/invoice/billingForm" class="text-white nav-item nav-link">Pay for Service</a>
+
+            </div>
+          <div class="my-2 my-lg-0 navbar-nav">
+            <a href="http://localhost:3000/customerDashboard.html" class="text-white nav-item nav-link active">My Dashboard</a>
+            <a href="/users/logout" class="text-white nav-item nav-link">Logout</a>
           </div>
         </div>
-    </nav>
+      </nav>
 
-        </div>
-        <h1><center>My Dashboard (Customer)</center></h1>
         <div class="container">
-        
+          <h1><center>My Dashboard (Customer)</center></h1>
           <div class="serviceRequests border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
-          
-               
-                    <h2 class=" mt-4">My Service Requests</h2>
-              
+            <h2 class=" mt-4">My Service Requests</h2>
                 <table class="table table-bordered mt-2 ">
                     <thead>
                       <tr>
@@ -82,7 +50,8 @@
             <div class="row mt-4">
                 <div class="col-10">
                     <h2>Service Order History</h2>
-                </div>
+                    <a href="invoice/orderHistory">Full Order History</a>
+                  </div>
                </div>
            
                 <table class="table table-bordered mt-2">
@@ -98,20 +67,20 @@
                       <tr>
                         <th scope="row">1</th>
                         <td>Construction</td>
-                        <td>Lorem</td>
-                        <td>$20</td>
+                        <td>John</td>
+                        <td>$1500</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
                         <td>Gardening</td>
-                        <td>Lorem</td>
-                        <td>$20</td>
+                        <td>Gary</td>
+                        <td>$700</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td >Construction</td>
-                        <td>Lorem</td>
-                        <td>$20</td>
+                        <td>Construction</td>
+                        <td>Steven</td>
+                        <td>$300</td>
                       </tr>
                     </tbody>
                   </table>
@@ -135,31 +104,29 @@
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>John</td>
-                        <td>Very good job</td>
+                        <td>Bowser</td>
+                        <td>Very good customer. A pleasure to work with.</td>
                         <td>11/02/22</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>Steven</td>
-                        <td>Bad job</td>
+                        <td>Michelle</td>
+                        <td>Thanks for picking Michelle's Gardens!</td>
                         <td>22/02/22</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td >Tracy</td>
-                        <td>Professional</td>
+                        <td>Emily</td>
+                        <td>Professional customer. Thanks.</td>
                         <td>13/06/22</td>
                       </tr>
                     </tbody>
                   </table>
-          </div>
-        
-          <footer class="bg-dark">
-            <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
-        </footer>
-        
+          </div> 
     </main>
+    <footer class="bg-dark">
+      <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
+  </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./js/serviceRequestCD.js"></script>
 </body>

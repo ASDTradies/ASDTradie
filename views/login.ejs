@@ -10,48 +10,19 @@
     <link href="/css/main.css" rel="stylesheet" type="text/css">
   </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">TradieTrades</a>
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="./billingForm.html">Billing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./orderHistory.html">Order-History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./workHistory.html">Work-History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./userRating.html">Review</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./comments.html">Comment</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
-                <div class="dropdown-menu">
-                    <a href="login.html" class="dropdown-item">Login</a>
-                    <a href="registerUser.html" class="dropdown-item">Register</a>
-                    <a href="userSettings.html" class="dropdown-item">User Account Settings</a>
-                </div>
-            </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">TradieTrades</a>
+      <div class="collapse navbar-collapse navbar-nav mr-auto">
+          <a href="index.html#about-trades" class="text-white nav-item nav-link">How We Work</a>
+          <a href="#" class="text-white nav-item nav-link">Post A Service</a>
+      </div>
+      <div class="my-2 my-lg-0 navbar-nav">
+        <a href="/users/login" class="text-white nav-item nav-link active">Log In</a>
+        <a href="/users/registerUser" class="text-white nav-item nav-link">Register</a>
+      </div>
+    </div>
+  </nav>
     <main>
       <div class="d-flex flex-column justify-content-center align-items-center">
           <a class="text-center" href="./index.html"><img src="./images/logo-white.png" width="400px" height="300px" alt="Tradies Logo" id="logo"></a>
@@ -71,7 +42,7 @@
 
           <div class="d-flex flex-column justify-content-center align-items-center">
             <br><input type="submit" id="loginBtn" value="Login" class="btn btn-primary btn-lg"><br>
-            <p class="text-center">Don't have an account? <a href="/views/registerUser.ejs">Register now.</a></p>
+            <p class="text-center">Don't have an account? <a href="/users/registerUser">Register now.</a></p>
           </div> 
         </form>
       </div>
