@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', async () =>{
         <td>${request.date} <input type="hidden" class="serviceId" value="${request.serviceId}"> </td>
         <td>${request.stage}</td>
         <td>
-            <button type="button" class="btn btn-link approveBtn">Approve</button>
+            <a type="button" href="" class="btn btn-link approveBtn">Approve</a>
             <p class="hidden approvedMsg"> Request Approved</p>
             <button type="button" class="btn btn-link mt-2 rejectBtn">Reject</button>
             <p class="hidden rejectMsg"> Request Rejected</p>

@@ -11,13 +11,15 @@
 </head>
 <body>
     <main>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="./index.html">TradieTrades</a>
           <div class="collapse navbar-collapse navbar-nav mr-auto">
               <a href="index.html#about-trades" class="text-white nav-item nav-link">How We Work</a>
-              <a href="#" class="text-white nav-item nav-link">Request A Service</a>
-          </div>
+              <a href="http://localhost:3000/allServices.html" class="text-white nav-item nav-link">Request A Service</a>
+              <a href="/invoice/billingForm" class="text-white nav-item nav-link">Pay for Service</a>
+
+            </div>
           <div class="my-2 my-lg-0 navbar-nav">
             <a href="http://localhost:3000/customerDashboard.html" class="text-white nav-item nav-link active">My Dashboard</a>
             <a href="/users/logout" class="text-white nav-item nav-link">Logout</a>
@@ -25,15 +27,10 @@
         </div>
       </nav>
 
-        </div>
-        <h1><center>My Dashboard (Customer)</center></h1>
         <div class="container">
-        
+          <h1><center>My Dashboard (Customer)</center></h1>
           <div class="serviceRequests border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
-          
-               
-                    <h2 class=" mt-4">My Service Requests</h2>
-              
+            <h2 class=" mt-4">My Service Requests</h2>
                 <table class="table table-bordered mt-2 ">
                     <thead>
                       <tr>
@@ -53,7 +50,8 @@
             <div class="row mt-4">
                 <div class="col-10">
                     <h2>Service Order History</h2>
-                </div>
+                    <a href="invoice/orderHistory">Full Order History</a>
+                  </div>
                </div>
            
                 <table class="table table-bordered mt-2">
