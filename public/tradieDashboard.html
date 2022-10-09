@@ -14,46 +14,17 @@
         
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="./index.html">TradieTrade</a>
-          
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-              </li> 
-              <li class="nav-item">
-                <a class="nav-link" href="invoice/billingForm">Billing</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="invoice/orderHistory">Order-History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="invoice/workHistory">Work-History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./tradieDashboard.html">Tradie Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./customerDashboard.html">Customer Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./userRating.html">Review</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./comments.html">Comment</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">User</a>
-                <div class="dropdown-menu">
-                  <a href="login.html" class="dropdown-item">Login</a>
-                  <a href="registerUser.html" class="dropdown-item">Register</a>
-                  <a href="userSettings.html" class="dropdown-item">User Account Settings</a>
-              </div>
-            </li>
-            </ul>
+          <a class="navbar-brand" href="./index.html">TradieTrades</a>
+          <div class="collapse navbar-collapse navbar-nav mr-auto">
+              <a href="index.html#about-trades" class="text-white nav-item nav-link">How We Work</a>
+              <a href="#" class="text-white nav-item nav-link postServiceBtn">Post A Service</a>
+          </div>
+          <div class="my-2 my-lg-0 navbar-nav">
+            <a href="http://localhost:3000/tradieDashboard.html" class="text-white nav-item nav-link active">My Dashboard</a>
+            <a href="/users/logout" class="text-white nav-item nav-link">Logout</a>
           </div>
         </div>
-    </nav>
+      </nav>
 
         </div>
         <h1><center>My Dashboard (Tradie)</center></h1>
@@ -109,7 +80,8 @@
           <div class="tab-pane fade" id="v-pills-workHistory" role="tabpanel" aria-labelledby="v-pills-workHistory-tab">  <div class="row mt-4">
             <div class="col-10">
                 <h2>Work History</h2>
-            </div>
+                <a href="invoice/workHistory">Full Work History</a>
+              </div>
             <div class="col-2">
                 <p class="border border-secondary shadow p-1 bg-white rounded">Total Earning: $2500</p>
             </div>
@@ -126,20 +98,20 @@
                   <tr>
                     <th scope="row">1</th>
                     <td>Construction</td>
-                    <td>Lorem</td>
-                    <td>$20</td>
+                    <td>John Smith</td>
+                    <td>$1500</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>Gardening</td>
-                    <td>Lorem</td>
-                    <td>$20</td>
+                    <td>Gary Oaks</td>
+                    <td>$700</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td >Construction</td>
-                    <td>Lorem</td>
-                    <td>$20</td>
+                    <td>Steven Grant</td>
+                    <td>$300</td>
                   </tr>
                 </tbody>
               </table>
@@ -160,19 +132,19 @@
                     <th scope="row">1</th>
                     <td>2</td>
                     <td>John Smith</td>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit eligendi dolores provident ipsum saepe animi sunt, voluptatem sapiente commodi.</td>
+                    <td>Professional and completed the job days in advance. Kept communication with me at all times, and answered any queries I had.</td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
                     <td>2</td>
-                    <td>John Smith</td>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit eligendi dolores provident ipsum saepe animi sunt, voluptatem sapiente commodi.</td>
+                    <td>Gary Oaks</td>
+                    <td>Rehauled my front garden into a beautiful garden sanctuary. 5/5 highly recommend</td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
                     <td>3</td>
-                    <td>John Smith</td>
-                    <td>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam odit eligendi dolores provident ipsum saepe animi sunt, voluptatem sapiente commodi.</td>
+                    <td>Steven Grant</td>
+                    <td>Fixed up my fences. They are no longer a shade of green but nice and mint. Thank you!</td>
                   </tr>
                 </tbody>
               </table>

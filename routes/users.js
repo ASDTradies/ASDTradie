@@ -16,13 +16,9 @@ router.get('/registerUser', (req, res)=> {
 //Checks if app should render tradiedashboard or customerdashboard
 router.get('/redirectLogin', (req, res)=> {
     if(req.user.profileType == 'T'){
-        res.render('tradieDashboard.ejs', {
-            user: req.user
-        });
+        res.redirect('http://localhost:3000/tradieDashboard.html');
     } else{
-        res.render('customerDashboard.ejs', {
-            user: req.user
-        })
+        res.redirect('http://localhost:3000/customerDashboard.html');
     }
 })
 
@@ -54,7 +50,7 @@ router.post('/registerUser',  (req, res) =>{
     } else { //Otherwise, find the user using email
         User.findOne({email: email}).then(user => {
             if(user) { //User not null, already exists in the db
-                errors.push({msg: 'Email is already in use!'})
+                errors.push({msg: 'This email is already in use!'})
                 res.render('registerUser', {
                     errors,
                     first_name,
@@ -77,7 +73,7 @@ router.post('/registerUser',  (req, res) =>{
                         newUser.password = hash;
                         newUser.save()
                         .then(user => {
-                            req.flash('success_msg', 'Registration successful!')
+                            req.flash('success_msg', 'Registration successful! Please enter your credentials to log in.')
                             res.redirect('/users/login')
                         })
                         .catch(err => console.log(err));
@@ -98,10 +94,18 @@ router.post('/login' , (req, res, next) =>{
     })(req, res, next);
 });
 
-router.get('/logout', (req, res) =>{
-    req.logout(); //Passport method, easily logs out user.
+// router.post('/logout', (req, res) =>{
+//     req.logout(); //Passport method, easily logs out user.
+//     req.flash('success_msg', 'You are logged out');
+//     res.redirect('users/login');
+// })
+
+router.get('/logout', (req, res, next) => {
+    req.logout(function(err) {
+      if (err) { return next(err); }
     req.flash('success_msg', 'You are logged out');
-    res.redirect('users/login');
-})
+    res.redirect('http://localhost:3000/');
+    });
+  });
 
 module.exports = router;
