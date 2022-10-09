@@ -31,6 +31,52 @@
           <h1><center>My Dashboard (Customer)</center></h1>
           <div class="serviceRequests border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
             <h2 class=" mt-4">My Service Requests</h2>
+          </section>
+          <section class="reviews">
+               <!-- Modal -->
+               <div class="modal" tabindex="-1" id="reviewModal">
+                  <div class="modal-dialog">
+                      <div class="modal-content">
+                          <div class="modal-header">
+                              <h5 class="modal-title">Review Service</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <form class="mail-form reviewForm">
+                                  <div class="form-group">
+                                      <label for="name" class="pt-1 pb-1">Service ID</label>
+                                      <input class="form-control pb-2" type="text" id="serID" placeholder="Name" name="name">
+          
+                                  </div>
+
+                                  <div class="form-group">
+                                    <label for="name" class="pt-1 pb-1">Name(Shown on Review)</label>
+                                    <input class="form-control pb-2" type="text" id="reviewName" placeholder="Name" name="name">
+        
+                                </div>
+                                 
+                                  <div class="form-group">
+                                      <label for="review" class="pt-2 pb-1">Review</label>
+                                      <textarea class="form-control mb-2" id="review" rows="3"></textarea>
+                                  </div>
+                                  <input type="submit" class="btn btn-primary reviewSubmitBtn">
+                              </form>
+                          </div>
+          
+          
+          
+          
+                      </div>
+                  </div>
+              </div>
+              <button class="btn btn-primary reviewBtn" data-bs-toggle="modal" data-bs-target="#reviewModal">Review Service</button>
+             <div class="container">
+                 <div class="row reviews-list">
+                     
+      
+                 </div>
+             </div>
+          </section>
                 <table class="table table-bordered mt-2 ">
                     <thead>
                       <tr>
@@ -129,6 +175,7 @@
   </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./js/serviceRequestCD.js"></script>
+    <script src="./js/addReview.js"></script>
 </body>
 
 </html>
