@@ -1,11 +1,11 @@
 let reviewForm = document.querySelector('.reviewForm');
 let serviceRequestID = document.querySelector('#serviceRequestId')
-let name = document.querySelector('#name');
+let name = document.querySelector('#reviewName');
 let review = document.querySelector('#review');
 
 reviewForm.addEventListener('submit', function(e){
     e.preventDefault();
-    fetch('http://localhost:3000/reviews', {
+    fetch('/reviews', {
         method: 'POST',
         headers:{
             'Content-type' : 'application/json'

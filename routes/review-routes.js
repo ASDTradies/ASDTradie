@@ -1,12 +1,26 @@
 let express = require('express');
 let router = express.Router();
-let Review = require('../models/reviews-model').Review;
+let Review = require('../models/reviews-model.js').Review;
 let uniqid = require('uniqid');
 
 
-router.get('/reviewForm', async(req,res) =>{
-    res.render('reviewForm.ejs')
+router.get('/', async(req,res) =>{
+    let reviews = await Review.find();
+    res.send(reviews);
 })
+
+router.post('/', async(req,res) =>{
+    let reqBody = req.body;
+    let newReview = new Review({
+        id:uniqid(),
+        serviceRequestId:reqBody.serviceRequestId,
+        reviewName:reqBody.reviewName,
+        review: reqBody.review,
+        
+});
+await newReview.save();
+res.send('review saved');
+});
 
 
 router.delete('/:id', async(req,res) =>{

@@ -5,14 +5,14 @@ let mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
-let reviewScheme = new Schema({
+let reviewSchema = new Schema({
     id: String,
     serviceRequestId: String,
+    reviewName: String,
     review: String
-
 });
 
-let Review = mongoose.model('Review' , reviewScheme);
+let Review = mongoose.model('Review' , reviewSchema);
 
 
 let reviewTest = new Review({
