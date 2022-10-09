@@ -47,6 +47,7 @@ let usersRouter = require('./routes/users.js');
 let invoiceRouter = require('./routes/invoice.js');
 let customerDashboardRouter = require('./routes/customerDashboard.js');
 let indexRouter = require('./routes/index.js');
+let reviewRouter = require('./routes/review-routes.js');
 
 
 app.get('/serviceDP', async (req, res) =>{
@@ -79,4 +80,5 @@ app.use('/requestService' ,requestServiceRouter);
 app.use('/users', usersRouter)
 app.use('/invoice', invoiceRouter);
 app.use('/customerDashboard', customerDashboardRouter);
+app.use('/review', reviewRouter)
 app.listen('3000', () => console.log('listening at 3000'));
