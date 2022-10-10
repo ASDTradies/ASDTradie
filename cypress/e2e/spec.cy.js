@@ -91,6 +91,7 @@ describe('Testing if tradie can view detail of an existing Service on Tradie Das
     cy.url().should('include', 'serviceDP?id=')
 
   })
+})
 
 /*
 describe('Testing Review', ( => {
