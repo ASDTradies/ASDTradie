@@ -13,6 +13,10 @@ router.get('/registerUser', (req, res)=> {
     res.render('registerUser.ejs')
 })
 
+router.get('/settings', (req, res)=> {
+    res.render('userSettings.ejs')
+})
+
 //Checks if app should render tradiedashboard or customerdashboard
 router.get('/redirectLogin', (req, res)=> {
     if(req.user.profileType == 'T'){
