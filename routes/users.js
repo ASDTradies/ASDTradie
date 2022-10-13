@@ -14,7 +14,9 @@ router.get('/registerUser', (req, res)=> {
 })
 
 router.get('/settings', (req, res)=> {
-    res.render('userSettings.ejs')
+    res.render('userSettings.ejs', {
+        user: req.user
+    })
 })
 
 //Checks if app should render tradiedashboard or customerdashboard
