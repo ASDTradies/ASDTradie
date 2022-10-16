@@ -3,17 +3,18 @@ const router = express.Router();
 const User = require('../models/users-model').User;
 const bcrypt = require('bcryptjs'); //Bcrypt - for lightweight hashing
 const passport = require('passport');
+const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
 //GETs - renders all pages
-router.get('/login', (req, res)=> {
-    res.render('login.ejs')
+router.get('/login', forwardAuthenticated, (req, res)=> {
+    res.render('login')
 })
 
 router.get('/registerUser', (req, res)=> {
     res.render('registerUser.ejs')
 })
 
-router.get('/settings', (req, res)=> {
+router.get('/settings', ensureAuthenticated, (req, res)=> {
     res.render('userSettings.ejs', {
         user: req.user
     })
@@ -27,6 +28,14 @@ router.get('/redirectLogin', (req, res)=> {
         res.redirect('http://localhost:3000/customerDashboard.html');
     }
 })
+
+router.get('/logout', ensureAuthenticated, (req, res, next) => {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+    req.flash('success_msg', 'You are logged out');
+    res.redirect('http://localhost:3000/');
+    });
+});
 
 //POSTs - sends forms to MongoDB
 router.post('/registerUser',  (req, res) =>{
@@ -99,19 +108,5 @@ router.post('/login' , (req, res, next) =>{
         failureFlash: true
     })(req, res, next);
 });
-
-// router.post('/logout', (req, res) =>{
-//     req.logout(); //Passport method, easily logs out user.
-//     req.flash('success_msg', 'You are logged out');
-//     res.redirect('users/login');
-// })
-
-router.get('/logout', (req, res, next) => {
-    req.logout(function(err) {
-      if (err) { return next(err); }
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('http://localhost:3000/');
-    });
-  });
 
 module.exports = router;
