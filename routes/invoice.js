@@ -43,13 +43,13 @@ router.get('/billingForm', (req, res)=> {
    */
 
 router.get('/orderHistory', (req, res)=> {
+    //var query = {userID: "112"};
     Invoice.find({}, function(err, invoices){
         res.render('orderHistory', {
             invoiceList: invoices
         })
-    })
         
-
+    })
 })
 
 router.get('/workHistory', (req, res)=> {
@@ -57,9 +57,19 @@ router.get('/workHistory', (req, res)=> {
         res.render('workHistory', {
             invoiceList: invoices
         })
+       
     })
         
 
+})
+
+router.post('search', async (req, res)=>{
+    var query = "searchQuery";
+    Invoice.find({query}, function(err, invoices){
+        res.render('orderHistory',{
+            invoiceList: invoices
+        })
+    })
 })
 
 
@@ -83,12 +93,18 @@ router.post('/billingForm',  async (req, res) =>{
         price 
         //invPaid
     });
-    await newInvoice.save()
-    .then(newInvoice =>{
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.userID, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.userID = hash;
+            newInvoice.save()
+            .then(newInvoice =>{
         // console.log("newinvoice" + newInvoice)
-        res.render('invoiceGen.ejs', {invoice: newInvoice});
+            res.render('invoiceGen.ejs', {invoice: newInvoice});
+        })
+        .catch(err => console.log(err))
+        })
     })
-    .catch(err => console.log(err))
 })
 
 

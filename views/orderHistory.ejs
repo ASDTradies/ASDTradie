@@ -29,6 +29,11 @@
   </div>
   <div class="container mb-3">
     <h1>Order History</h1>
+    <form action="/invoice/search" method = "POST">
+      
+        <input type="text" name="searchQuery" id="searchQuery" placeholder="Search" />
+        <button type="submit" id="searchBtn" class="btn pay-btn" type="submit">Search</button>
+    </form>
     <div>
       <table class="table table-bordered mt-2">
         <thead class="th">

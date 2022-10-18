@@ -9,8 +9,10 @@ let commentScheme = new Schema({
     id: String,
     serviceRequestId: String,
     comment: String
-
-});
+    
+},
+    { collection: 'reviews' } 
+);
 
 let Comment = mongoose.model('Comment' , commentScheme);
 
