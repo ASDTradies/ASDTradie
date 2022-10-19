@@ -34,7 +34,7 @@
             <a id="nav-about-me" class="nav-link active" href="#about-me">About Me</a>
           </li>
           <li class="nav-item">
-            <a id="nav-acc-settings" class="nav-link active" href="#">Change My Address</a>
+            <a id="nav-change-address" class="nav-link active" href="#change-address">Change My Address</a>
           </li>
           <li class="nav-item">
             <a id="nav-change-pw" class="nav-link" href="#change-password">Change My Password</a>
@@ -73,6 +73,24 @@
             <div class="d-flex flex-column justify-content-center align-items-center">
               <button type="submit" class="btn-primary btn-lg btn-primary mt-4">Save</button><br>
             </div>
+        </form>
+
+        <form id="change-address" class="visually-hidden " action="" method="get">
+          <label for="current_address">Street address</label>
+          <input type="text" class="form-control form-control-lg position-static w-50 mb-4" autocomplete="off" aria-label="Current Address" name="current_adress" id="current_adress" placeholder="<%= user.address ? user.address : 'eg. 42 Wallaby Way'%>" required>
+          
+          <label for="city">City</label>
+          <input type="text" class="form-control form-control-lg position-static w-50 mb-4" name="city" id="city" placeholder="<%= user.city ? user.city : 'eg. Sydney'%>">
+
+          <label for="state">Postcode</label>
+          <input type="number" class="form-control form-control-lg position-static w-50 mb-4" name="postcode" id="postcode" placeholder="<%= user.postcode ? user.postcode : 'eg. 2000'%>">
+
+          <label for="state">State</label>
+          <input type="text" class="form-control form-control-lg position-static w-50 mb-4" name="state" id="state" placeholder="<%= user.state ? user.state : 'eg. NSW'%>">
+
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <button type="submit" class="btn-primary btn-lg btn-primary">Update Address</button><br>
+          </div>
         </form>
 
         <form id="change-password" class="visually-hidden " action="" method="get">
@@ -114,6 +132,7 @@
   let navAboutMe = document.getElementById("nav-about-me");
   let navChangePassword = document.getElementById("nav-change-pw");
   let navDeactivateAcc = document.getElementById("nav-deactivate-acc");
+  let navChangeAddress = document.getElementById("nav-change-address");
   let tabTitle = document.getElementById("tabTitle");
 
   navAboutMe.onclick = function(){
@@ -121,7 +140,17 @@
       let formToShow = document.getElementById("about-me");
       formToShow.classList.remove("visually-hidden");
       document.getElementById("change-password").classList.add("visually-hidden");
+      document.getElementById("change-address").classList.add("visually-hidden");
       document.getElementById("deactivate-account").classList.add("visually-hidden");
+  }
+
+  navChangeAddress.onclick = function () {
+    tabTitle.innerHTML = "Change Address"
+    let formToShow = document.getElementById("change-address");
+    formToShow.classList.remove("visually-hidden");
+    document.getElementById("change-password").classList.add("visually-hidden");
+    document.getElementById("deactivate-account").classList.add("visually-hidden");
+    document.getElementById("about-me").classList.add("visually-hidden");
   }
 
   navChangePassword.onclick = function(){
@@ -129,6 +158,7 @@
       let formToShow = document.getElementById("change-password");
       formToShow.classList.remove("visually-hidden");
       document.getElementById("about-me").classList.add("visually-hidden");
+      document.getElementById("change-address").classList.add("visually-hidden");
       document.getElementById("deactivate-account").classList.add("visually-hidden");
   }
 
@@ -137,6 +167,7 @@
       let formToShow = document.getElementById("deactivate-account");
       formToShow.classList.remove("visually-hidden");
       document.getElementById("change-password").classList.add("visually-hidden");
+      document.getElementById("change-address").classList.add("visually-hidden");
       document.getElementById("about-me").classList.add("visually-hidden");
   }
 </script>
