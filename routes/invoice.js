@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let uniqid = require('uniqid');
+const bcrypt = require('bcryptjs'); //Bcrypt - for lightweight hashing
 const Invoice = require('../models/invoice-model').Invoice;
 
 // router.get('/invoiceGen', async (req, res)=> {
@@ -97,14 +98,92 @@ router.post('/billingForm',  async (req, res) =>{
         bcrypt.hash(newInvoice.userID, salt, (err,hash) => {
             if(err) throw err;
             newInvoice.userID = hash;
-            newInvoice.save()
-            .then(newInvoice =>{
-        // console.log("newinvoice" + newInvoice)
-            res.render('invoiceGen.ejs', {invoice: newInvoice});
-        })
-        .catch(err => console.log(err))
         })
     })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.first_name, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.first_name = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.service_requestID, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.service_requestID = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.service_title, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.service_title = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.last_name, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.last_name = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.tradieID, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.tradieID = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.hours, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.hours = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.street_address, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.street_address = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.date, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.date = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.phone_number, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.phone_number = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.city, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.city = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.state, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.state = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.post_code, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.post_code = hash;
+        })
+    })
+    bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+        bcrypt.hash(newInvoice.price, salt, (err,hash) => {
+            if(err) throw err;
+            newInvoice.price = hash;
+        })
+    })
+    newInvoice.save()
+    .then(newInvoice =>{
+// console.log("newinvoice" + newInvoice)
+    res.render('invoiceGen.ejs', {invoice: newInvoice});
+})
+.catch(err => console.log(err))
 })
 
 
