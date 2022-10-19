@@ -75,7 +75,7 @@ router.post('/registerUser',  (req, res) =>{
                     password2
                 })
             } else {
-                const newUser = new User({
+                const newUser = new User({ //Make a new user object to save
                     first_name,
                     last_name,
                     email,
@@ -109,4 +109,11 @@ router.post('/login' , (req, res, next) =>{
     })(req, res, next);
 });
 
+router.post('/change-details', (req, res) => {
+    const { first_name, last_name, email, phone, dob, bio} = req.body;
+    Object.keys(req.body).forEach(function(key){
+        console.log(key + " " + req.body[key])
+    })
+    
+});
 module.exports = router;
