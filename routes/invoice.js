@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 let uniqid = require('uniqid');
 const Invoice = require('../models/invoice-model').Invoice;
+const User = require('../models/users-model').User;
 
 // router.get('/invoiceGen', async (req, res)=> {
 //     let invoice = Invoice.findOne({first_name: res.newInvoice.first_name});
@@ -9,7 +10,9 @@ const Invoice = require('../models/invoice-model').Invoice;
 // })
 
 router.get('/billingForm', (req, res)=> {
-    res.render('billingForm.ejs')
+    User.findOne({_id: id}).then(user => {
+        res.render('billingForm', {user: User});
+    })
 })
 
 //router.get('/index', (req, res)=> {
