@@ -18,9 +18,15 @@ router.get('/billingForm', ensureAuthenticated, (req, res)=> {
         if(serviceRequest){
             console.log(serviceRequest.customerID)
             console.log(serviceRequest.tradieID)
-            res.render('billingForm.ejs', {
-            //NOT SURE WHAT TO PUT HERE
+            let service_request = serviceRequest({
+                id: serviceRequest.id,
+                serviceId: serviceRequest.serviceId,
+                stage: serviceRequest.stage,
+                date: serviceRequest.date,
+                tradieID: serviceRequest.tradieID,
+                customerID: serviceRequest.userID
             });
+            res.render('billingForm.ejs', service_request);
         }
     })
 })
