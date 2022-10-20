@@ -2,13 +2,15 @@ let express = require('express');
 let router = express.Router();
 let uniqid = require('uniqid');
 const Invoice = require('../models/invoice-model').Invoice;
+const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
+
 
 // router.get('/invoiceGen', async (req, res)=> {
 //     let invoice = Invoice.findOne({first_name: res.newInvoice.first_name});
 //     res.render('invoiceGen.ejs', invoice);
 // })
 
-router.get('/billingForm', (req, res)=> {
+router.get('/billingForm', ensureAuthenticated, (req, res)=> {
     res.render('billingForm.ejs')
 })
 
@@ -42,7 +44,7 @@ router.get('/billingForm', (req, res)=> {
    const Invoice = mongoose.model('Invoice', invoiceSchema);
    */
 
-router.get('/orderHistory', (req, res)=> {
+router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
     Invoice.find({}, function(err, invoices){
         res.render('orderHistory', {
             invoiceList: invoices
@@ -52,7 +54,7 @@ router.get('/orderHistory', (req, res)=> {
 
 })
 
-router.get('/workHistory', (req, res)=> {
+router.get('/workHistory', ensureAuthenticated, (req, res)=> {
     Invoice.find({}, function(err, invoices){
         res.render('workHistory', {
             invoiceList: invoices
@@ -63,7 +65,7 @@ router.get('/workHistory', (req, res)=> {
 })
 
 
-router.post('/billingForm',  async (req, res) =>{
+router.post('/billingForm',  ensureAuthenticated, async (req, res) =>{
     //const { invRequestID, invServiceID, invCustomerID, invTradieID, invAddress, invDate, invPrice, invPaid} = req.body;
     const { service_requestID, service_title , userID , first_name , last_name , tradieID , hours , street_address , phone_number, city, state, post_code, price} = req.body;
     const newInvoice = new Invoice({
