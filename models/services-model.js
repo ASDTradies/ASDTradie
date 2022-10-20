@@ -7,7 +7,8 @@ let serviceSchema = new Schema({
     serviceTitle: String,
     description: String,
     longDescription: String,
-    imageURL:  String
+    imageURL:  String,
+    tradieID: String
 });
 
 let Service = mongoose.model('Service' , serviceSchema);

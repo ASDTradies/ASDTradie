@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 let Service = require('../models/services-model').Service;
+const passport = require('passport');
 
 let uniqid = require('uniqid');
 
@@ -10,13 +11,15 @@ router.get('/' , async (req,res) =>{
     res.send(services);
 });
 router.post('/' , async (req,res) =>{
+    console.log(req.session.userID)
     let reqBody = req.body;
-   let newService = new Service({
+    let newService = new Service({
     id: uniqid(),
     serviceTitle: reqBody.serviceTitle,
     description: reqBody.description,
     longDescription: reqBody.longDescription,
-    imageURL:  reqBody.imageURL
+    imageURL:  reqBody.imageURL,
+    tradieID: req.session.userID
    });
    await newService.save();
    res.send('Service have been created');

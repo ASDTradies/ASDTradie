@@ -22,10 +22,12 @@ router.get('/settings', ensureAuthenticated, (req, res)=> {
 
 //Checks if app should render tradiedashboard or customerdashboard
 router.get('/redirectLogin', (req, res)=> {
+    req.session.userID = req.user._id;
     if(req.user.profileType == 'T'){
         res.redirect('http://localhost:3000/tradieDashboard.html');
     } else{
         res.redirect('http://localhost:3000/customerDashboard.html');
+        
     }
 })
 
