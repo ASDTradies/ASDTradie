@@ -114,9 +114,43 @@ router.post('/change-details', (req, res) => {
     Object.keys(form).forEach(k => (!form[k] && form[k] !== undefined) && delete form[k]);
     User.updateOne(req.user, form, function(err, res){
         if(err) throw err;
-        console.log("Document updated")
-        res.render('/users/settings')
-    }); 
+        console.log("document updated")
+        req.flash('success_msg', 'Details successfully changed!')
+        res.redirect('/users/settings')
+    });  
+});
+
+
+router.post('/change-password', (req, res) => {
+    const { current_password, new_password, new_password2} = req.body;
+    console.log(req.body)
+    var errors = [];
+    bcrypt.compare(current_password, req.user.password, (err, isMatch) => {
+        if(err) {
+            throw err
+        }
+
+        if(new_password !== new_password2){
+            errors.push({msg: 'Passwords do not match'});
+        }
+
+        if(errors.length > 0){    //If there is an error, render the error messages
+            req.flash('error', 'Passwords do not match')
+            res.redirect('/users/settings')
+        } else if (isMatch) {
+                bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
+                    bcrypt.hash(new_password, salt, (err,hash) => {
+                        req.user.password = hash;
+                        req.user.save();
+                        req.flash('success_msg', 'Password successfully changed!')
+                        res.redirect('/users/settings')
+                    })
+                })
+        } else {
+            req.flash('error', 'Wrong password!')
+            res.redirect('/users/settings')
+        }
+    })
 })
 
 module.exports = router;
