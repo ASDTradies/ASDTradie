@@ -3,6 +3,11 @@ let router = express.Router();
 let uniqid = require('uniqid');
 const Invoice = require('../models/invoice-model').Invoice;
 const User = require('../models/users-model').User;
+let ServiceRequest = require('../models/serviceRequests-model').ServiceRequest;
+
+
+//console.log(result);
+
 
 // router.get('/invoiceGen', async (req, res)=> {
 //     let invoice = Invoice.findOne({first_name: res.newInvoice.first_name});
@@ -10,10 +15,8 @@ const User = require('../models/users-model').User;
 // })
 
 router.get('/billingForm', (req, res)=> {
-    User.findOne({_id: id}).then(user => {
-        res.render('billingForm', {user: User});
+        res.render('billingForm.ejs');
     })
-})
 
 //router.get('/index', (req, res)=> {
 //    res.render('index.html')
@@ -44,16 +47,33 @@ router.get('/billingForm', (req, res)=> {
 
    const Invoice = mongoose.model('Invoice', invoiceSchema);
    */
-
+//GETS ALL INVOICE
 router.get('/orderHistory', (req, res)=> {
     Invoice.find({}, function(err, invoices){
         res.render('orderHistory', {
             invoiceList: invoices
         })
     })
-        
-
 })
+//GETS ALL USERS
+/*router.get('/TEST', (req, res)=> {
+    User.find({}, function(err, users){
+        res.render('TEST', {
+            userList: users
+        })
+    })
+})
+*/
+//GETS ALL SERVICE REQUESTS
+router.get('/TEST', (req, res)=> {
+    ServiceRequest.find({}, function(err, requests){
+        res.render('TEST', {
+            requestList: requests
+        })
+    })
+})
+
+
 
 router.get('/workHistory', (req, res)=> {
     Invoice.find({}, function(err, invoices){
