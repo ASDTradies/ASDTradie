@@ -107,13 +107,16 @@ router.post('/login' , (req, res, next) =>{
         failureRedirect: '/users/login',
         failureFlash: true
     })(req, res, next);
-});
+})
 
 router.post('/change-details', (req, res) => {
-    const { first_name, last_name, email, phone, dob, bio} = req.body;
-    Object.keys(req.body).forEach(function(key){
-        console.log(key + " " + req.body[key])
-    })
-    
-});
+    var form = req.body;
+    Object.keys(form).forEach(k => (!form[k] && form[k] !== undefined) && delete form[k]);
+    User.updateOne(req.user, form, function(err, res){
+        if(err) throw err;
+        console.log("Document updated")
+        res.render('/users/settings')
+    }); 
+})
+
 module.exports = router;

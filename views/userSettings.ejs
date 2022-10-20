@@ -31,7 +31,7 @@
       <div id="settings-left-nav nav-pills" role="tablist" aria-orientation="vertical">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a id="nav-about-me" class="nav-link active" href="#about-me">About Me</a>
+            <a id="nav-about-me" class="nav-link active" href="#my-details">My Details</a>
           </li>
           <li class="nav-item">
             <a id="nav-change-address" class="nav-link active" href="#change-address">Change My Address</a>
@@ -44,11 +44,11 @@
           </li>
         </ul>
       </div>
-
       <div class="container tab-content align-items-center">
-        <h2 id="tabTitle">About Me</h2>
+        <%- include ('./partials/alerts.ejs') %>
+        <h2 id="tabTitle">My Details</h2>
         <p id="tab-message"></p>
-        <form id="about-me" action="/users/change-details" method="post">
+        <form id="my-details" action="/users/change-details" method="post">
           <div class="d-flex flex-row ">
             <div class="me-5">
               <label for="first_name">First name</label>
@@ -65,9 +65,6 @@
             <label for="dob">Phone Number</label>
             <input type="number" class="form-control form-control-lg position-static w-25" aria-label="Phone Number" name="phone" id="phone" placeholder="<%= user.phone ? user.phone : 'eg. 0403 111 222'%>"><br>
 
-            <label for="dob">Date of Birth</label>
-            <input type="date" class="form-control form-control-lg position-static w-25" aria-label="Date of Birth" name="dob" id="dob" placeholder="<%= user.dob ? user.dob : 'Date of birth'%>"><br>
-
             <label for="personal-bio">Personal Bio</label>
             <textarea class="form-control" id="personal-bio" rows="5" placeholder="<%= user.bio ? user.bio : 'Say something about yourself!'%>"></textarea>
             <div class="d-flex flex-column justify-content-center align-items-center">
@@ -83,7 +80,7 @@
           <input type="text" class="form-control form-control-lg position-static w-50 mb-4" name="city" id="city" placeholder="<%= user.city ? user.city : 'eg. Sydney'%>">
 
           <label for="state">Postcode</label>
-          <input type="number" class="form-control form-control-lg position-static w-50 mb-4" name="postcode" id="postcode" placeholder="<%= user.postcode ? user.postcode : 'eg. 2000'%>">
+          <input type="text" class="form-control form-control-lg position-static w-50 mb-4" name="postcode" id="postcode" placeholder="<%= user.postcode ? user.postcode : 'eg. 2000'%>">
 
           <label for="state">State</label>
           <input type="text" class="form-control form-control-lg position-static w-50 mb-4" name="state" id="state" placeholder="<%= user.state ? user.state : 'eg. NSW'%>">
@@ -136,8 +133,8 @@
   let tabTitle = document.getElementById("tabTitle");
 
   navAboutMe.onclick = function(){
-      tabTitle.innerHTML = "Account Settings"
-      let formToShow = document.getElementById("about-me");
+      tabTitle.innerHTML = "My Details"
+      let formToShow = document.getElementById("my-details");
       formToShow.classList.remove("visually-hidden");
       document.getElementById("change-password").classList.add("visually-hidden");
       document.getElementById("change-address").classList.add("visually-hidden");
@@ -150,14 +147,14 @@
     formToShow.classList.remove("visually-hidden");
     document.getElementById("change-password").classList.add("visually-hidden");
     document.getElementById("deactivate-account").classList.add("visually-hidden");
-    document.getElementById("about-me").classList.add("visually-hidden");
+    document.getElementById("my-details").classList.add("visually-hidden");
   }
 
   navChangePassword.onclick = function(){
       tabTitle.innerHTML = "Change Password"
       let formToShow = document.getElementById("change-password");
       formToShow.classList.remove("visually-hidden");
-      document.getElementById("about-me").classList.add("visually-hidden");
+      document.getElementById("my-details").classList.add("visually-hidden");
       document.getElementById("change-address").classList.add("visually-hidden");
       document.getElementById("deactivate-account").classList.add("visually-hidden");
   }
@@ -168,7 +165,7 @@
       formToShow.classList.remove("visually-hidden");
       document.getElementById("change-password").classList.add("visually-hidden");
       document.getElementById("change-address").classList.add("visually-hidden");
-      document.getElementById("about-me").classList.add("visually-hidden");
+      document.getElementById("my-details").classList.add("visually-hidden");
   }
 </script>
 </html>

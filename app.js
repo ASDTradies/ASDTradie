@@ -49,8 +49,6 @@ let customerDashboardRouter = require('./routes/customerDashboard.js');
 let indexRouter = require('./routes/index.js');
 let reviewRouter = require('./routes/review-routes.js');
 
-
-
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;
     let service = await Service.findOne({id: id});
