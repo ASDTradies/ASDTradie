@@ -2,6 +2,8 @@ let express = require('express');
 let router = express.Router();
 let uniqid = require('uniqid');
 const Invoice = require('../models/invoice-model').Invoice;
+let ServiceRequest = require('../models/serviceRequests-model').ServiceRequest;
+let Service = require('../models/services-model').Service;
 const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
 
@@ -11,7 +13,16 @@ const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 // })
 
 router.get('/billingForm', ensureAuthenticated, (req, res)=> {
-    res.render('billingForm.ejs')
+//Get serviceRequest where service request customer id = current session id
+    ServiceRequest.findOne({customerID : req.session.userID}).then(serviceRequest => { 
+        if(serviceRequest){
+            console.log(serviceRequest.customerID)
+            console.log(serviceRequest.tradieID)
+            res.render('billingForm.ejs', {
+            //NOT SURE WHAT TO PUT HERE
+            });
+        }
+    })
 })
 
 //router.get('/index', (req, res)=> {
@@ -49,9 +60,7 @@ router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
         res.render('orderHistory', {
             invoiceList: invoices
         })
-    })
-        
-
+    })  
 })
 
 router.get('/workHistory', ensureAuthenticated, (req, res)=> {
