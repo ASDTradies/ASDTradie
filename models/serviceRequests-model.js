@@ -7,7 +7,9 @@ let serviceRequestSchema = new Schema({
     id: String,
     serviceId: String,
     stage: String,
-    date: String
+    date: String,
+    tradieID: String,
+    customerID: String,
 });
 
 let ServiceRequest = mongoose.model('ServiceRequest' , serviceRequestSchema);
