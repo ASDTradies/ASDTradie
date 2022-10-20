@@ -126,9 +126,7 @@ router.post('/change-password', (req, res) => {
     console.log(req.body)
     var errors = [];
     bcrypt.compare(current_password, req.user.password, (err, isMatch) => {
-        if(err) {
-            throw err
-        }
+        if(err) throw err
 
         if(new_password !== new_password2){
             errors.push({msg: 'Passwords do not match'});
