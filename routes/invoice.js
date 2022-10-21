@@ -15,20 +15,13 @@ const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 router.get('/billingForm', ensureAuthenticated, (req, res)=> {
 //Get serviceRequest where service request customer id = current session id
     ServiceRequest.findOne({customerID : req.session.userID}).then(serviceRequest => { 
+        console.log(serviceRequest)
         if(serviceRequest){
-            console.log(serviceRequest.customerID)
-            console.log(serviceRequest.tradieID)
-            let service_request = serviceRequest({
-                id: serviceRequest.id,
-                serviceId: serviceRequest.serviceId,
-                stage: serviceRequest.stage,
-                date: serviceRequest.date,
-                tradieID: serviceRequest.tradieID,
-                customerID: serviceRequest.userID
-            });
-            res.render('billingForm.ejs', service_request);
+            res.render('billingForm.ejs', {serviceRequest : ServiceRequest});
         }
+        
     })
+    .catch(err => console.log(err))
 })
 
 //router.get('/index', (req, res)=> {

@@ -42,15 +42,20 @@
                   <th scope="col">Total Payment Owed:</th>
                 </tr>
               </thead>
+
+
+<script> </script>
+
+
               <tbody>
                 <tr>
-                  <th scope="row"><%service_request.serviceID%></th>
+                  <th scope="row"><%=serviceRequest.serviceID%></th>
                   <input type="hidden" id="service_requestID" name="service_requestID" value="125"/>
                   <td>Construction</td>
                   <input type="hidden" id="service_title" name="service_title" value="Construction"/>
-                  <td>User: <%service_request.customerID%></td>
+                  <td>User: <%=serviceRequest.customerID%></td>
                   <input type="hidden" id="userID" name="userID" value="112"/>
-                  <td>Tradie: <%service_request.tradieID%></td>
+                  <td>Tradie: <%=serviceRequest.tradieID%></td>
                   <input type="hidden" id="tradieID" name="tradieID" value="278"/>
                   <td>8</td>
                   <input type="hidden" id="hours" name="hours" value="8"/>
