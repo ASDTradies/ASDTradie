@@ -21,21 +21,21 @@ router.get('/billingForm', ensureAuthenticated, (req, res)=> {
 
 
 router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
-    Invoice.find({}, function(err, invoices){
+    Invoice.find({userID: req.session.userID+'/'}, function(err, invoices){
+        console.log("Result:", invoices)
         res.render('orderHistory', {
             invoiceList: invoices
         })
-    })  
+    })
 })
 
+
 router.get('/workHistory', ensureAuthenticated, (req, res)=> {
-    Invoice.find({}, function(err, invoices){
+    Invoice.find({tradieID: req.session.userID+'/'}, function(err, invoices){
         res.render('workHistory', {
             invoiceList: invoices
         })
     })
-        
-
 })
 
 
@@ -47,6 +47,9 @@ router.post('/billingForm',  ensureAuthenticated, async (req, res) =>{
     //Check required fields
     if(!first_name || !last_name || !street_address || !phone_number || !city || !state || !post_code|| !cardNumber|| !cardName || !expiry || !verification){
         errors.push({msg: 'Please fill in all fields'});
+    }
+    if(phone_number.length != 10 || post_code.length != 4 || expiry.length != 4 || cardNumber.length != 16 || verification.length != 3){
+        errors.push({msg: 'Please fill fields to correct length'});
     }
     else{
     const newInvoice = new Invoice({
