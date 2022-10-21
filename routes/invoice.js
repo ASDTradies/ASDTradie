@@ -75,7 +75,14 @@ router.get('/workHistory', ensureAuthenticated, (req, res)=> {
 
 router.post('/billingForm',  ensureAuthenticated, async (req, res) =>{
     //const { invRequestID, invServiceID, invCustomerID, invTradieID, invAddress, invDate, invPrice, invPaid} = req.body;
-    const { service_requestID, service_title , userID , first_name , last_name , tradieID , hours , street_address , phone_number, city, state, post_code, price} = req.body;
+    const { service_requestID, service_title , userID , first_name , last_name , tradieID , hours , street_address , phone_number, city, state, post_code, price, cardNumber, cardName, expiry, verification } = req.body;
+    var errors = []; //Error messages
+
+    //Check required fields
+    if(!first_name || !last_name || !street_address || !phone_number || !city || !state || !post_code|| !cardNumber|| !cardName || !expiry || !verification){
+        errors.push({msg: 'Please fill in all fields'});
+    }
+    else{
     const newInvoice = new Invoice({
         service_requestID,
         service_title, 
@@ -93,12 +100,16 @@ router.post('/billingForm',  ensureAuthenticated, async (req, res) =>{
         price 
         //invPaid
     });
+
+    
     await newInvoice.save()
     .then(newInvoice =>{
         // console.log("newinvoice" + newInvoice)
         res.render('invoiceGen.ejs', {invoice: newInvoice});
     })
+
     .catch(err => console.log(err))
+    }
 })
 
 
