@@ -17,7 +17,7 @@ router.get('/billingForm', ensureAuthenticated, (req, res)=> {
     ServiceRequest.findOne({customerID : req.session.userID}).then(serviceRequest => { 
         console.log(serviceRequest)
         if(serviceRequest){
-            res.render('billingForm.ejs', {serviceRequest : ServiceRequest});
+            res.render('billingForm.ejs', {serviceRequest});
         }
         
     })
