@@ -53,10 +53,23 @@ router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
 
 
 router.get('/workHistory', ensureAuthenticated, (req, res)=> {
-    Invoice.find({tradieID: req.session.userID+'/'}, function(err, invoices){
+    const {query} = req.body;
+    var errors = [];
+    Invoice.find(
+    {$and:[{tradieID: req.session.userID+'/'},
+    {$or:[{street_address: query.toString()}, 
+        {_id: query.toString()},
+        {service_title: query.toString()}, 
+        {userID: query.toString()}, 
+        {date: query.toString()}, 
+        {price: query.toString()}
+    ]}
+    ]}, function(err, invoices){
+        console.log("Query:", query);
+        console.log("Result:", invoices);
         res.render('workHistory', {
             invoiceList: invoices
-        })
+        });
     })
 })
 
