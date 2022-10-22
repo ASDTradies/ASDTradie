@@ -10,6 +10,9 @@ let serviceRequestSchema = new Schema({
     date: String,
     tradieID: String,
     customerID: String,
+    serviceTitle: String,
+    priceByHour: Number,
+    hoursWorked: Number
 });
 
 let ServiceRequest = mongoose.model('ServiceRequest' , serviceRequestSchema);

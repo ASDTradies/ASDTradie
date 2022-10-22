@@ -6,14 +6,18 @@ let Service = require('../models/services-model').Service;
 
 router.post('/' , async (req, res) =>{
    //console.log(req.body);
+
    let serviceRequested = Service.findOne({id: req.body.serviceId}).then(service =>{
     console.log(service.tradieID)
     console.log(req.session.userID)
+    
     let newServiceRequest = new ServiceRequest({
         id: uniqid(),
         serviceId: req.body.serviceId,
         stage: req.body.stage,
         date: new Date(),
+        hoursWorked: hoursWorked,
+        priceByHour: priceByHour,
         tradieID: service.tradieID,
         customerID: req.session.userID
     });

@@ -36,6 +36,7 @@
          <button class="nav-link" id="v-pills-reviews-tab" data-bs-toggle="pill" data-bs-target="#v-pills-reviews" type="button" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews</button>
          <button class="nav-link" id="v-pills-updateService-tab" data-bs-toggle="pill" data-bs-target="#v-pills-updateService" type="button" role="tab" aria-controls="v-pills-updateService" aria-selected="false">Update Service</button>
          <button class="nav-link" id="v-pills-addService-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addService" type="button" role="tab" aria-controls="v-pills-addService" aria-selected="false">Add Service</button>
+         <button class="nav-link" id="v-pills-approveService-tab" data-bs-toggle="pill" data-bs-target="#v-pills-approveService" type="button" role="tab" aria-controls="v-pills-approveService" aria-selected="false">Approve Service</button>
 
         </div>
         <div class="tab-content" id="v-pills-tabContent">
@@ -70,6 +71,8 @@
                
                   <th scope="col">Service Requested Date</th>
                   <th scope="col">Service Request Status</th>
+                  <th scope="col">Service Request Hours Worked</th>
+                  <th scope="col">Service Request Price Per Hour</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
@@ -201,6 +204,24 @@
                         <input type="text" class="form-control" id="imageURL"  placeholder="URL">
                       </div>
                       <button type="submit" class="btn btn-dark mt-4">Post Service</button>
+                  </form>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-approveService" role="tabpanel" aria-labelledby="v-pills-approveService-tab">
+              <div class="container mb-3 border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
+                <h1>Approve/Reject Service</h1>
+                <form class="createServiceForm">
+                    <div class="form-group">
+                      <p>Note: You don't have to put hours or pay when rejecting.</p>
+                      <label for="hoursWorked">Hours Work</label>
+                      <input type="text" class="form-control" id="hoursWorked" value="30">
+                    </div>
+                    <div class="form-group">
+                      <label for="priceByHour">Pay per hour</label>
+                      <input type="text" class="form-control" id="priceByHour" value="30">
+                    </div>
+                      <button type="submit" class="btn btn-dark mt-4 appOnFormBtn">Approve</button>
+                      <button type="submit" class="btn btn-dark mt-4 rejOnFormBtn">Reject</button>
                   </form>
               </div>
             </div>
