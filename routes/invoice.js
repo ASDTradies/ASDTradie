@@ -36,6 +36,7 @@ router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
     {$and:[{userID: req.session.userID+'/'},
     {$or:[{street_address: query.toString()}, {_id: query.toString()}, {service_title: query.toString()}, {tradieID: query.toString()}, {date: query.toString()}, {price: query.toString()}]}
     ]}, function(err, invoices){
+        console.log("Query:", query);
         console.log("Result:", invoices);
         res.render('orderHistory', {
             invoiceList: invoices
