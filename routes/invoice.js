@@ -29,6 +29,20 @@ router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
     })
 })
 
+router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
+    const {query} = req.body;
+    var errors = [];
+    Invoice.find(
+    {$and:[{userID: req.session.userID+'/'},
+    {$or:[{street_address: query.toString()}, {_id: query.toString()}, {service_title: query.toString()}, {tradieID: query.toString()}, {date: query.toString()}, {price: query.toString()}]}
+    ]}, function(err, invoices){
+        console.log("Result:", invoices);
+        res.render('orderHistory', {
+            invoiceList: invoices
+        });
+    })
+})
+
 
 router.get('/workHistory', ensureAuthenticated, (req, res)=> {
     Invoice.find({tradieID: req.session.userID+'/'}, function(err, invoices){
