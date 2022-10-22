@@ -27,6 +27,7 @@ router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
             invoiceList: invoices
         })
     })
+    .catch(err => console.log(err))
 })
 
 router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
@@ -34,7 +35,13 @@ router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
     var errors = [];
     Invoice.find(
     {$and:[{userID: req.session.userID+'/'},
-    {$or:[{street_address: query.toString()}, {_id: query.toString()}, {service_title: query.toString()}, {tradieID: query.toString()}, {date: query.toString()}, {price: query.toString()}]}
+    {$or:[{street_address: query.toString()}, 
+        {_id: query.toString()},
+        {service_title: query.toString()}, 
+        {tradieID: query.toString()}, 
+        {date: query.toString()}, 
+        {price: query.toString()}
+    ]}
     ]}, function(err, invoices){
         console.log("Query:", query);
         console.log("Result:", invoices);
