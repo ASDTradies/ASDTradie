@@ -7,7 +7,7 @@
     <title>Tradie Trade</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/main.css" rel="stylesheet" >
-    
+    <script src="billingscr.js"></script>
 </head>
 <body>
     <main>  
@@ -42,23 +42,30 @@
                   <th scope="col">Total Payment Owed:</th>
                 </tr>
               </thead>
+
               <tbody>
                 <tr>
-                  <th scope="row">125</th>
-                  <input type="hidden" id="service_requestID" name="service_requestID" value="125"/>
+                  <th scope="row"><%=serviceRequest.serviceId%></th>
+                  <input type="hidden" id="service_requestID" name="service_requestID" value = <%=serviceRequest.serviceId%>/>
                   <td>Construction</td>
                   <input type="hidden" id="service_title" name="service_title" value="Construction"/>
-                  <td>User: 112</td>
-                  <input type="hidden" id="userID" name="userID" value="112"/>
-                  <td>Tradie: 278</td>
-                  <input type="hidden" id="tradieID" name="tradieID" value="278"/>
+                  <script>  </script>
+                  <td>User: <%=serviceRequest.customerID%></td>
+                  <input type="hidden" id="userID" name="userID" value = <%=serviceRequest.customerID%>/>
+                  <script> </script>
+                  <td>Tradie: <%=serviceRequest.tradieID%></td>
+                  <input type="hidden" id="tradieID" name="tradieID" value = <%=serviceRequest.tradieID%>/>
+                  <script> </script>
                   <td>8</td>
                   <input type="hidden" id="hours" name="hours" value="8"/>
+                  <script> </script>
                   <td>$50</td>
                   <input type="hidden" id="price" name="price" value="50"/>
+                  <script> </script>
                   <td>$400</td>
                 </tr>
               </tbody>
+              
             </table>
               </div>
               
@@ -118,24 +125,24 @@
                 <div class="input-fields">
                   <div class="column-1">
                     <label for="cardholder">Cardholder's Name</label>
-                    <input type="text" id="cardholder" />
+                    <input type="text" name = "cardName" id="cardName" />
              
                     <div class="small-inputs">
                       <div>
                         <label for="date">Valid thru</label>
-                        <input type="text" id="date" placeholder="MM / YY" />
+                        <input type="text" name = "expiry" id="expiry" placeholder="MM / YY" />
                       </div>
              
                       <div>
                         <label for="verification">CVV / CVC *</label>
-                        <input type="password" id="verification"/>
+                        <input type="password" name = "verification" id="verification"/>
                       </div>
                     </div>
              
                   </div>
                   <div class="column-2">
                     <label for="cardnumber">Card Number</label>
-                    <input type="password" id="cardnumber"/>
+                    <input type="password" name = "cardNumber" id="cardNumber"/>
              
                     <span class="info">* CVV or CVC is the card security code, unique three digits number on the back of your card separate from its number.</span>
                   </div>

@@ -2,72 +2,78 @@ let express = require('express');
 let router = express.Router();
 let uniqid = require('uniqid');
 const Invoice = require('../models/invoice-model').Invoice;
+let ServiceRequest = require('../models/serviceRequests-model').ServiceRequest;
+let Service = require('../models/services-model').Service;
 const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 
 
-// router.get('/invoiceGen', async (req, res)=> {
-//     let invoice = Invoice.findOne({first_name: res.newInvoice.first_name});
-//     res.render('invoiceGen.ejs', invoice);
-// })
-
 router.get('/billingForm', ensureAuthenticated, (req, res)=> {
-    res.render('billingForm.ejs')
-})
-
-//router.get('/index', (req, res)=> {
-//    res.render('index.html')
-//})
-
-/*router.get('/orderHistory', (req, res)=> {
-    Invoice.find({}).then((invoice) =>{
-        res.send(invoice);
-        res.render('orderHistory.ejs')
-    }).catch((error) => {
-        res.status(500).send(error);
+//Get serviceRequest where service request customer id = current session id
+    ServiceRequest.findOne({customerID : req.session.userID}).then(serviceRequest => { 
+        console.log(serviceRequest)
+        if(serviceRequest){
+            res.render('billingForm.ejs', {serviceRequest});
+        }
+        
     })
+    .catch(err => console.log(err))
 })
-*/
 
-/*const invoiceSchema = {
-    //   invId: String,
-    //   invRequestID: String,
-       service_title: String,
-       userID: String,
-       tradieID: String,
-       street_address: String,
-       date: String,
-       price: String,
-         //first_name: String,
-       street_address: String
-   }
-
-   const Invoice = mongoose.model('Invoice', invoiceSchema);
-   */
 
 router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
-    Invoice.find({}, function(err, invoices){
+    Invoice.find({userID: req.session.userID+'/'}, function(err, invoices){
+        console.log("Result:", invoices)
         res.render('orderHistory', {
             invoiceList: invoices
         })
     })
-        
-
+    .catch(err => console.log(err))
 })
 
+router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
+    const {query} = req.body;
+    var errors = [];
+    Invoice.find(
+    {$and:[{userID: req.session.userID+'/'},
+    {$or:[{street_address: query.toString()}, 
+        {_id: query.toString()},
+        {service_title: query.toString()}, 
+        {tradieID: query.toString()}, 
+        {date: query.toString()}, 
+        {price: query.toString()}
+    ]}
+    ]}, function(err, invoices){
+        console.log("Query:", query);
+        console.log("Result:", invoices);
+        res.render('orderHistory', {
+            invoiceList: invoices
+        });
+    })
+})
+
+
 router.get('/workHistory', ensureAuthenticated, (req, res)=> {
-    Invoice.find({}, function(err, invoices){
+    Invoice.find({tradieID: req.session.userID+'/'}, function(err, invoices){
         res.render('workHistory', {
             invoiceList: invoices
         })
     })
-        
-
 })
 
 
 router.post('/billingForm',  ensureAuthenticated, async (req, res) =>{
     //const { invRequestID, invServiceID, invCustomerID, invTradieID, invAddress, invDate, invPrice, invPaid} = req.body;
-    const { service_requestID, service_title , userID , first_name , last_name , tradieID , hours , street_address , phone_number, city, state, post_code, price} = req.body;
+    const { service_requestID, service_title , userID , first_name , last_name , tradieID , hours , street_address , phone_number, city, state, post_code, price, cardNumber, cardName, expiry, verification } = req.body;
+    var errors = []; //Error messages
+
+    //Check required fields
+    if(!first_name || !last_name || !street_address || !phone_number || !city || !state || !post_code|| !cardNumber|| !cardName || !expiry || !verification){
+        errors.push({msg: 'Please fill in all fields'});
+    }
+    if(phone_number.length != 10 || post_code.length != 4 || expiry.length != 4 || cardNumber.length != 16 || verification.length != 3){
+        errors.push({msg: 'Please fill fields to correct length'});
+    }
+    else{
     const newInvoice = new Invoice({
         service_requestID,
         service_title, 
@@ -83,14 +89,16 @@ router.post('/billingForm',  ensureAuthenticated, async (req, res) =>{
         state, 
         post_code,
         price 
-        //invPaid
     });
+
+    
     await newInvoice.save()
     .then(newInvoice =>{
-        // console.log("newinvoice" + newInvoice)
         res.render('invoiceGen.ejs', {invoice: newInvoice});
     })
+
     .catch(err => console.log(err))
+    }
 })
 
 
