@@ -30,7 +30,17 @@ router.get('/orderHistory', ensureAuthenticated, (req, res)=> {
     .catch(err => console.log(err))
 })
 
-router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
+router.get('/workHistory', ensureAuthenticated, (req, res)=> {
+    Invoice.find({tradieID: req.session.userID+'/'}, function(err, invoices){
+        console.log("Result:", invoices)
+        res.render('workHistory', {
+            invoiceList: invoices
+        })
+    })
+    .catch(err => console.log(err))
+})
+
+/*router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
     const {query} = req.body;
     var errors = [];
     Invoice.find(
@@ -50,20 +60,38 @@ router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
         });
     })
 })
+*/
 
-
-router.get('/workHistory', ensureAuthenticated, (req, res)=> {
+router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
     const {query} = req.body;
     var errors = [];
     Invoice.find(
-    {$and:[{tradieID: req.session.userID+'/'},
-    {$or:[{street_address: query.toString()}, 
-        {_id: query.toString()},
-        {service_title: query.toString()}, 
-        {userID: query.toString()}, 
-        {date: query.toString()}, 
-        {price: query.toString()}
-    ]}
+    {$or:[
+        {$and:[{userID: req.session.userID+'/'},{street_address: query.toString()}]},
+        {$and:[{userID: req.session.userID+'/'},{service_title: query.toString()}]},
+        {$and:[{userID: req.session.userID+'/'},{date: query.toString()}]},
+        {$and:[{userID: req.session.userID+'/'},{tradieID: query.toString()}]},
+        {$and:[{userID: req.session.userID+'/'},{price: query.toString()}]}
+    ]}, function(err, invoices){
+        console.log("Query:", query);
+        console.log("Result:", invoices);
+        res.render('orderHistory', {
+            invoiceList: invoices
+        });
+    })
+})
+
+
+router.post('/workHistory', ensureAuthenticated, (req, res)=> {
+    const {query} = req.body;
+    var errors = [];
+    Invoice.find(
+    {$or:[
+        {$and:[{tradieID: req.session.userID+'/'},{street_address: query.toString()}]},
+        {$and:[{tradieID: req.session.userID+'/'},{service_title: query.toString()}]},
+        {$and:[{tradieID: req.session.userID+'/'},{date: query.toString()}]},
+        {$and:[{tradieID: req.session.userID+'/'},{userID: query.toString()}]},
+        {$and:[{tradieID: req.session.userID+'/'},{price: query.toString()}]}
     ]}, function(err, invoices){
         console.log("Query:", query);
         console.log("Result:", invoices);
