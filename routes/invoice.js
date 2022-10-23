@@ -99,7 +99,6 @@ router.post('/orderHistory', ensureAuthenticated, (req, res)=> {
     Invoice.find(
     {$and:[{userID: req.session.userID},
     {$or:[{street_address: query.toString()}, 
-        {_id: query.toString()},
         {service_title: query.toString()}, 
         {tradieID: query.toString()}, 
         {date: query.toString()}, 
@@ -130,7 +129,6 @@ router.post('/workHistory', ensureAuthenticated, (req, res)=> {
     Invoice.find(
     {$and:[{tradieID: req.session.userID},
     {$or:[{street_address: query.toString()}, 
-        {_id: query.toString()},
         {service_title: query.toString()}, 
         {userID: query.toString()}, 
         {date: query.toString()}, 
