@@ -48,7 +48,7 @@
               <div class="col-2"></div>
               <div class="col-6">
                 <div class="input-group rounded">
-                  <input type="search" class="form-control rounded searchRequestQuery" placeholder="Search" aria-label="Search" aria-describedby="search-addon"  />
+                  <input type="search" class="form-control rounded searchRequestQuery" placeholder="Search by stage" aria-label="Search" aria-describedby="search-addon"  />
                   <button class="input-group-text border-0"  id="searchServiceRequest" >
                     <i class="fas fa-search"></i>
                   </button>
@@ -160,39 +160,33 @@
         <div class="tab-pane fade" id="v-pills-reviews" role="tabpanel" aria-labelledby="v-pills-reviews-tab"> 
           <div class="serviceHistory border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
             <div class="row mt-4">
-                <div class="col-10">
+                <div class="col-4">
                     <h2>Reviews About Me</h2>
                 </div>
+                <div class="col-2"></div>
+              <div class="col-6">
+                <div class="input-group rounded">
+                  <input type="search" class="form-control rounded searchReviewQuery" placeholder="Search" aria-label="Search" aria-describedby="search-addon"  />
+                  <button class="input-group-text border-0"  id="searchReview" >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+                
                </div>
            
-                <table class="table table-bordered mt-2">
+                <table class="table table-bordered mt-2 review-list">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
+                       
+                        <th scope="col">Review Date</th>
                         <th scope="col">Review Left By</th>
                         <th scope="col">Review</th>
-                        <th scope="col">Review Date</th>
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Bowser</td>
-                        <td>Very good customer. A pleasure to work with.</td>
-                        <td>11/02/22</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Michelle</td>
-                        <td>Thanks for picking Michelle's Gardens!</td>
-                        <td>22/02/22</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">3</th>
-                        <td>Emily</td>
-                        <td>Professional customer. Thanks.</td>
-                        <td>13/06/22</td>
-                      </tr>
+                    <tbody class="reviewList">
+                    
                     </tbody>
                   </table>
           </div> 
@@ -212,7 +206,8 @@
     <script src="./js/serviceRequestCD.js"></script>
     <script src="./js/addReview.js"></script>
     <script src="./js/showReviews.js"></script>
-    <script src="./js/searchServiceRequest.js"></script>
+    <script src="./js/searchRequestCD.js"></script>
+    <script src="./js/searchReview.js"></script>
 </body>
 
 </html>
