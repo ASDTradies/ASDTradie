@@ -8,6 +8,7 @@ let Schema = mongoose.Schema;
 let commentScheme = new Schema({
     id: String,
     serviceRequestId: String,
+    name: String,
     comment: String
 
 });

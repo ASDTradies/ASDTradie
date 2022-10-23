@@ -17,7 +17,8 @@
         <td>${review.serviceRequestId}</td>
         <td>${review.reviewName}</td>
         <td>${review.review}</td>
-        <td><button type="button" class="btn btn-link deleteBtn p-0">X</button></td>
+        <td><button type="button" class="btn btn-link deleteBtn p-0">X</button>
+        </td>
         </tr>`
         reviewList.insertAdjacentHTML('beforeend', reviewHTML);
     })

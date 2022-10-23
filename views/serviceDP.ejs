@@ -60,6 +60,7 @@
        <div class="container shadow-lg py-3 px-5 mb-5 bg-white rounded">
         <h1 class="text-center"><%= serviceTitle %></h1>
         <hr>
+        <input type="hidden" value="<%= id %>" class="serviceId">
         <img src="<%= imageURL %>" class="w-100" alt="<%= serviceTitle %>" >
         <hr>
        
@@ -68,7 +69,7 @@
         <p>Long Description:</p>
         <p><%= longDescription %></p>
        </div>
-       <div class="container shadow-lg py-3 px-5 mb-5 bg-white rounded">
+       <div class="container shadow-lg py-3 px-5 mb-5 bg-white rounded reviewsList">
         <h2 class="text-center p-3">Customer Reviews</h2>
         <div class="card reviewCard mb-2" >
           <img class="card-img-top" src="https://image.shutterstock.com/image-vector/user-icon-vector-trendy-flat-600w-1720665448.jpg" alt="Card image cap">
@@ -102,6 +103,29 @@
        </div>
     </main>
 </body>
+<script >
+  // get the reviews for a specific service by serviceId
+document.addEventListener('DOMContentLoaded', async function(){
+  let serviceId = document.querySelector('.serviceId').value;
+  let reviews = await fetch(`/reviewsDP?serviceId=${serviceId}`).then(res => res.json()).then(data => data);
+  let reviewsList = document.querySelector('.reviewsList');
+  reviewsList.innerHTML = '';
+  reviews.forEach(review => {
+      let reviewHTML = `
+      <div class="card reviewCard mb-2" >
+        <img class="card-img-top" src="https://image.shutterstock.com/image-vector/user-icon-vector-trendy-flat-600w-1720665448.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">${review.reviewName}</h5>
+          <p class="card-text">${review.review}</p>
+        </div>
+      </div>`;
+      reviewsList.insertAdjacentHTML('beforeend', reviewHTML);
+  })
+
+
+
+});
+</script>
 
 <footer class="bg-dark">
   <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
