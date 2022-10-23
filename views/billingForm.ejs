@@ -47,7 +47,7 @@
                 <tr>
                   <th scope="row"><%=serviceRequest.serviceId%></th>
                   <input type="hidden" id="service_requestID" name="service_requestID" value = <%=serviceRequest.serviceId%>>
-                  <td>     </td>
+                  <td><%=serviceRequest.serviceTitle%></td>
                   <input type="hidden" id="service_title" name="service_title" value=<%=serviceRequest.serviceTitle%>>
                   <script>  </script>
                   <td>User: <%=serviceRequest.customerID%></td>
@@ -149,6 +149,9 @@
                 </div>
             
             <div class="panel-footer"></div>
+            <div class="form-group">
+            <%- include ('./partials/alerts.ejs') %>
+          </div>
               <button type="submit" id="payBtn" class="btn pay-btn" type="submit">Pay</button>
             </div>
             </form>
