@@ -7,7 +7,7 @@ module.exports = {
         res.redirect('/users/login');
     },
     forwardAuthenticated: function(req, res, next) {
-        if (!req.isAuthenticated()) { //If there is no user authenticated, continue
+        if (!req.isAuthenticated()) { //If user is not authenticated, continue
           return next();
         }
     }

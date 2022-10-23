@@ -3,9 +3,9 @@ const router = express.Router();
 const User = require('../models/users-model').User;
 const bcrypt = require('bcryptjs'); //Bcrypt - for lightweight hashing
 const passport = require('passport');
-const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
+const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth'); //Comes from auth.js - determines if user is allowed to access pages
 
-//GETs - renders all pages
+//GETs - mostly loads all pages along with data passed on from POSTs
 router.get('/login', forwardAuthenticated, (req, res)=> {
     res.render('login')
 })
@@ -31,7 +31,7 @@ router.get('/redirectLogin', (req, res)=> {
     }
 })
 
-router.get('/logout', ensureAuthenticated, (req, res, next) => {
+router.get('/logout', ensureAuthenticated, (req, res, next) => { //Destroys req.user
     req.logout(function(err) {
       if (err) { return next(err); }
     req.flash('success_msg', 'You are logged out');
@@ -103,7 +103,7 @@ router.post('/registerUser',  (req, res) =>{
 
 })
 
-router.post('/login' , (req, res, next) =>{
+router.post('/login' , (req, res, next) =>{ //This handles user login redirects
     passport.authenticate('local', {
         successRedirect: '/users/redirectLogin', 
         failureRedirect: '/users/login',
@@ -113,7 +113,7 @@ router.post('/login' , (req, res, next) =>{
 
 router.post('/change-details', (req, res) => {
     var form = req.body;
-    Object.keys(form).forEach(k => (!form[k] && form[k] !== undefined) && delete form[k]);
+    Object.keys(form).forEach(k => (!form[k] && form[k] !== undefined) && delete form[k]); //Deletes the keys that have no values attached
     User.updateOne(req.user, form, function(err, res){
         if(err) throw err;
         console.log("document updated")
@@ -121,7 +121,6 @@ router.post('/change-details', (req, res) => {
         res.redirect('/users/settings')
     });  
 });
-
 
 router.post('/change-password', (req, res) => {
     const { current_password, new_password, new_password2} = req.body;
@@ -140,8 +139,8 @@ router.post('/change-password', (req, res) => {
         } else if (isMatch) {
                 bcrypt.genSalt(10, function(err, salt){ //Hashing the password before storage
                     bcrypt.hash(new_password, salt, (err,hash) => {
-                        req.user.password = hash;
-                        req.user.save();
+                        req.user.password = hash; //rehashes the password again for security
+                        req.user.save(); //saves into database
                         req.flash('success_msg', 'Password successfully changed!')
                         res.redirect('/users/settings')
                     })

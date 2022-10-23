@@ -39,9 +39,7 @@
           <li class="nav-item">
             <a id="nav-change-pw" class="nav-link" href="#change-password">Change My Password</a>
           </li>
-          <li class="nav-item">
-            <a id="nav-deactivate-acc" class="nav-link" href="#deactivate-account">Deactivate Account</a>
-          </li>
+  
         </ul>
       </div>
       <div class="container tab-content align-items-center">
@@ -103,18 +101,6 @@
             <button type="submit" class="btn-primary btn-lg btn-primary">Update Password</button><br>
           </div>
         </form>
-
-        <form id="deactivate-account" class="visually-hidden" action="" method="get">
-          <label for="password">Confirm email</label>
-          <input type="email" class="form-control form-control-lg position-static w-50 mb-2" aria-label="Email" autocomplete="new-email" name="email" id="email" placeholder="Confirm email address"><br>
-
-          <label for="password">Confirm password</label>
-          <input type="password" class="form-control form-control-lg position-static w-50 mb-4" aria-label="Password" autocomplete="new-password" name="password" id="password" placeholder="Confirm password" required>
-    
-          <div class="d-flex flex-column">
-            <button type="submit" class="btn-danger btn-lg btn-primary w-25">Deactivate Account</button><br>
-          </div>
-        </form>
       </div>
     </div>
   </main>
@@ -128,7 +114,6 @@
 <script>
   let navAboutMe = document.getElementById("nav-about-me");
   let navChangePassword = document.getElementById("nav-change-pw");
-  let navDeactivateAcc = document.getElementById("nav-deactivate-acc");
   let navChangeAddress = document.getElementById("nav-change-address");
   let tabTitle = document.getElementById("tabTitle");
 
@@ -138,7 +123,6 @@
       formToShow.classList.remove("visually-hidden");
       document.getElementById("change-password").classList.add("visually-hidden");
       document.getElementById("change-address").classList.add("visually-hidden");
-      document.getElementById("deactivate-account").classList.add("visually-hidden");
   }
 
   navChangeAddress.onclick = function () {
@@ -146,7 +130,6 @@
     let formToShow = document.getElementById("change-address");
     formToShow.classList.remove("visually-hidden");
     document.getElementById("change-password").classList.add("visually-hidden");
-    document.getElementById("deactivate-account").classList.add("visually-hidden");
     document.getElementById("my-details").classList.add("visually-hidden");
   }
 
@@ -156,16 +139,6 @@
       formToShow.classList.remove("visually-hidden");
       document.getElementById("my-details").classList.add("visually-hidden");
       document.getElementById("change-address").classList.add("visually-hidden");
-      document.getElementById("deactivate-account").classList.add("visually-hidden");
-  }
-
-  navDeactivateAcc.onclick = function(){
-      tabTitle.innerHTML = "Deactivate Account"
-      let formToShow = document.getElementById("deactivate-account");
-      formToShow.classList.remove("visually-hidden");
-      document.getElementById("change-password").classList.add("visually-hidden");
-      document.getElementById("change-address").classList.add("visually-hidden");
-      document.getElementById("my-details").classList.add("visually-hidden");
   }
 </script>
 </html>
