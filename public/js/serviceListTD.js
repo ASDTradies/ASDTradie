@@ -1,4 +1,3 @@
-
 async function getServices(){
     return await fetch('http://localhost:3000/service')
     .then((response) => response.json())

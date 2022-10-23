@@ -9,6 +9,7 @@ let hoursWorked = document.querySelector('#hoursWorked');
 let serviceRequestList = document.querySelector('.serviceRequestList');
 serviceRequestList.addEventListener('click', async (e) =>{
     if(e.target.classList.contains('approveBtn')){
+    console.log('approve button clicked');
         e.preventDefault();
         let id = e.target.parentNode.parentNode.querySelector('.serviceRequestId').value;
         let serviceId = e.target.parentNode.parentNode.querySelector('.serviceId').value;

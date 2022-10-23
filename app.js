@@ -48,6 +48,8 @@ let invoiceRouter = require('./routes/invoice.js');
 let customerDashboardRouter = require('./routes/customerDashboard.js');
 let indexRouter = require('./routes/index.js');
 let reviewRouter = require('./routes/review-routes.js');
+let searchRouter = require('./routes/search-routes.js');
+let searchRequestRouter = require('./routes/searchRequest-routes.js');
 
 app.get('/serviceDP', async (req, res) =>{
     let id = req.query.id;
@@ -69,7 +71,9 @@ app.get('/serviceRequestDP', async(req,res) =>{
         serviceTitle: service.serviceTitle,
         stage: serviceRequest.stage,
         date: serviceRequest.date,
-        description: service.description
+        description: service.description,
+        priceByHour : serviceRequest.priceByHour,
+        hoursWorked: serviceRequest.hoursWorked
     })
 })
 
@@ -80,4 +84,6 @@ app.use('/users', usersRouter)
 app.use('/invoice', invoiceRouter);
 app.use('/customerDashboard', customerDashboardRouter);
 app.use('/reviews', reviewRouter);
+app.use('/search', searchRouter);
+app.use('/searchRequest', searchRequestRouter);
 app.listen('3000', () => console.log('listening at 3000'));

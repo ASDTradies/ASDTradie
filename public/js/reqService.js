@@ -9,7 +9,9 @@ servicesTileList.addEventListener('click', async function(e){
             },
             body : JSON.stringify({
                 serviceId: serviceId,
-                stage: 'Processing'
+                stage: 'Processing',
+                hoursWorked : 0,
+                priceByHour : 0
             }
         )})
         .then((res) => res.text())

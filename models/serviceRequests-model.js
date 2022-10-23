@@ -11,8 +11,8 @@ let serviceRequestSchema = new Schema({
     tradieID: String,
     customerID: String,
     serviceTitle: String,
-    priceByHour: Number,
-    hoursWorked: Number
+    priceByHour: String,
+    hoursWorked: String
 });
 
 let ServiceRequest = mongoose.model('ServiceRequest' , serviceRequestSchema);

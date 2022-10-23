@@ -16,8 +16,8 @@ router.post('/' , async (req, res) =>{
         serviceId: req.body.serviceId,
         stage: req.body.stage,
         date: new Date(),
-        hoursWorked: hoursWorked,
-        priceByHour: priceByHour,
+        hoursWorked: req.body.hoursWorked,
+        priceByHour: req.body.priceByHour,
         tradieID: service.tradieID,
         customerID: req.session.userID
     });
