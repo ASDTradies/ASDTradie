@@ -1,7 +1,10 @@
 let servicesTileList = document.querySelector('.servicesTile-list');
+// getting the services from the database
 servicesTileList.addEventListener('click', async function(e){
+    // ensuring if the click was done on the button
     if(e.target.classList.contains('reqService')){
         let serviceId = e.target.parentNode.parentNode.querySelector('.serviceId').value;
+        // sending the post request to add service request
         await fetch('http://localhost:3000/requestService' , {
             method: 'POST',
             headers: {

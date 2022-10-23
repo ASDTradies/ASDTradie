@@ -1,20 +1,25 @@
+// getting the HTML elements
 let searchServiceRequest = document.querySelector('#searchServiceRequest');
 let searchRequestHTML = document.querySelector('.searchRequestQuery');
 
 // get the serviceRequest that have query in their title or description
 searchServiceRequest.addEventListener('click',async function(){
     console.log('button clicked');
-
+    // getting the query
     let searchRequestQuery = searchRequestHTML.value;
     console.log(searchRequestQuery);
+    // sending the get request to get the service request that have the query in their title or description
     let serviceRequest = await fetch(`http://localhost:3000/searchRequest?searchRequestQuery=${searchRequestQuery}`)
-    .then((response) => response.json())
-    .then((data) => data);
-    let serviceRequestList = document.querySelector('.serviceRequestList');
+    .then((response) => response.json()) // getting the response from the server
+    .then((data) => data); // getting the data from the response
+
+    // getting the HTML element to display the service request
+    let serviceRequestList = document.querySelector('.serviceRequestList'); 
     serviceRequestList.innerHTML = '';
     let i = 1;
     console.log('service request arre  ' + serviceRequest);
     serviceRequest.forEach((request) =>{
+        // displaying the service request
         let serviceRequestListHTML = `
         <tr>
         <th scope="row">${i++} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
@@ -36,7 +41,7 @@ searchServiceRequest.addEventListener('click',async function(){
 }
 )
 
-
+// button to go back to all services
 document.addEventListener('click', async (e) =>{
     if(e.target.classList.contains('backToAllServicesRequest')){
     //refresg the page
