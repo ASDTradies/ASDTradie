@@ -10,11 +10,16 @@ const { forwardAuthenticated, ensureAuthenticated } = require('../config/auth');
 //Render the billingForm.ejs page where user will input data. 
 //Make sure to grab the first available service request from current user.
 router.get('/billingForm', ensureAuthenticated, (req, res)=> {
+    var errors = [];
     ServiceRequest.findOne({customerID : req.session.userID}).then(async serviceRequest => { 
         if(serviceRequest){
             res.render('billingForm.ejs', {serviceRequest});
         }
-        
+        else{
+            errors.push({msg: 'No active Service Request found'});
+            req.flash('error', errors[0].msg)
+            res.render('billingForm.ejs');
+        }
     })
     .catch(err => console.log(err))
 })
