@@ -1,12 +1,16 @@
-
+// // function to get all the services
 async function getServices(){
+  // getting the services
     return await fetch('http://localhost:3000/service')
-    .then((response) => response.json())
-    .then((data) => data);
+    .then((response) => response.json()) // getting the response as json
+    .then((data) => data); // getting the data
 }
 
+// function to display the services on content load
 document.addEventListener('DOMContentLoaded' ,async function(){
+  // getting the services by calling the function
     let services = await getServices();
+    // getting the HTML element to display the services
     let serviceTiles = document.querySelector('.servicesTile-list');
     serviceTiles.innerHTML = '';
     // if(Array.isArray(services)){
@@ -14,6 +18,7 @@ document.addEventListener('DOMContentLoaded' ,async function(){
     // }else{
     //     console.log('service is not an array');
     // }
+    // displaying the services in the HTML element by looping through the services
     for(let i = 0; i < 3; i++){
       let serviceHTML = `
       <div class="card col-4" >
@@ -28,6 +33,7 @@ document.addEventListener('DOMContentLoaded' ,async function(){
       </div>
     </div>
       `;
+      // inserting the HTML into the HTML element
       serviceTiles.insertAdjacentHTML('beforeend',serviceHTML );
 
     }

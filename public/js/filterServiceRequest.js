@@ -12,13 +12,17 @@ rejectedFilterBtn.addEventListener("click", function () {
 
 // function to filter service request by stage
 async function filterServiceRequest(stage) {
+    // sending the get request to filter service request
     let filteredServices = await fetch(`http://localhost:3000/filter?stage=${stage}`)
     .then((response) => response.json())
     .then((data) => data);
+    // getting the service request container
     let serviceRequestList = document.querySelector(".serviceRequestList");
     serviceRequestList.innerHTML = "";
     let i = 1;
+    // looping through the filtered service request
     filteredServices.forEach((request) => {
+        // creating the service request card
         let serviceRequestListHTML = `
         <tr>
         <th scope="row">${i++} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
@@ -31,6 +35,7 @@ async function filterServiceRequest(stage) {
             <a href="/serviceRequestDP?id=${request.id}" class="btn btn-link mt-2">View Details</a>
         </td>
       </tr>`;
+      // appending the service request card to the service request container
         serviceRequestList.insertAdjacentHTML("beforeend", serviceRequestListHTML);
     });
     // button to go back to all services
