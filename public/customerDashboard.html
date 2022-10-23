@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tradie Trade</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link href="./css/main.css" rel="stylesheet" >
-    
 </head>
 <body>
-    <main>
+    <main>  
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="http://localhost:3000/">TradieTrades</a>
@@ -28,70 +28,95 @@
         </div>
       </nav>
 
-        <div class="container">
-          <h1><center>My Dashboard (Customer)</center></h1>
-          <div class="serviceRequests border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
-            <h2 class=" mt-4">My Service Requests</h2>
-          </section>
-          <section class="reviews">
-               <!-- Modal -->
-               <div class="modal" tabindex="-1" id="reviewModal">
-                  <div class="modal-dialog">
-                      <div class="modal-content">
-                          <div class="modal-header">
-                              <h5 class="modal-title">Review Service</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                              <form class="mail-form reviewForm">
-                                  <div class="form-group">
-                                      <label for="serviceRequestId" class="pt-1 pb-1">Service ID</label>
-                                      <input class="form-control pb-2" type="text" id="serviceRequestId" placeholder="ID" name="serviceRequestId">
-          
-                                  </div>
+        </div>
+        <h1><center>My Dashboard (Customer)</center></h1>
+    <div class="container">
+      <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button class="nav-link active" id="v-pills-serviceRequest-tab" data-bs-toggle="pill" data-bs-target="#v-pills-serviceRequest" type="button" role="tab" aria-controls="v-pills-serviceRequest" aria-selected="true">Service Request</button>
+          <button class="nav-link" id="v-pills-workHistory-tab" data-bs-toggle="pill" data-bs-target="#v-pills-workHistory" type="button" role="tab" aria-controls="v-pills-workHistory" aria-selected="false">Work History</button>
+          <button class="nav-link" id="v-pills-reviews-tab" data-bs-toggle="pill" data-bs-target="#v-pills-reviews" type="button" role="tab" aria-controls="v-pills-reviews" aria-selected="false">Reviews</button>
 
-                                  <div class="form-group">
-                                    <label for="reviewName" class="pt-1 pb-1">Name(Shown on Review)</label>
-                                    <input class="form-control pb-2" type="text" id="reviewName" placeholder="Name" name="reviewName">
-        
-                                </div>
-                                 
-                                  <div class="form-group">
-                                      <label for="review" class="pt-2 pb-1">Review</label>
-                                      <textarea class="form-control mb-2" id="review" rows="3"></textarea>
-                                  </div>
-                                  <input type="submit" class="btn btn-primary reviewSubmitBtn">
-                              </form>
-                          </div>
-          
-                      </div>
-                  </div>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="tab-pane fade show active" id="v-pills-serviceRequest" role="tabpanel" aria-labelledby="v-pills-serviceRequest-tab"> 
+            <div class="serviceRequests border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
+             <div class="row mt-4">
+              <div class="col-4">
+                <h2 >My Service Requests</h2>
               </div>
-              <button class="btn btn-primary reviewBtn" data-bs-toggle="modal" data-bs-target="#reviewModal">Review Service</button>
-             <div class="container">
-                 <div class="row reviews-list">
-                     
-      
-                 </div>
+              <div class="col-2"></div>
+              <div class="col-6">
+                <div class="input-group rounded">
+                  <input type="search" class="form-control rounded searchRequestQuery" placeholder="Search" aria-label="Search" aria-describedby="search-addon"  />
+                  <button class="input-group-text border-0"  id="searchServiceRequest" >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
              </div>
-          </section>
-                <table class="table table-bordered mt-2 ">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                     
-                        <th scope="col">Service Requested Date</th>
-                        <th scope="col">Service Request Hours Worked</th>
-                        <th scope="col">Service Request Price Per Hour</th>
-                        <th scope="col">Service Request Status</th>
-                        <th scope="col">Actions</th>
-                      </tr>
-                    </thead>
-                    <tbody class="serviceRequestList">
-                 
-                    </tbody>
-                  </table>
-          </div>
+            </section>
+            <section class="reviews">
+                 <!-- Modal -->
+                 <div class="modal" tabindex="-1" id="reviewModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Review Service</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form class="mail-form reviewForm">
+                                    <div class="form-group">
+                                        <label for="serviceRequestId" class="pt-1 pb-1">Service ID</label>
+                                        <input class="form-control pb-2" type="text" id="serviceRequestId" placeholder="ID" name="serviceRequestId">
+            
+                                    </div>
+  
+                                    <div class="form-group">
+                                      <label for="reviewName" class="pt-1 pb-1">Name(Shown on Review)</label>
+                                      <input class="form-control pb-2" type="text" id="reviewName" placeholder="Name" name="reviewName">
+          
+                                  </div>
+                                   
+                                    <div class="form-group">
+                                        <label for="review" class="pt-2 pb-1">Review</label>
+                                        <textarea class="form-control mb-2" id="review" rows="3"></textarea>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary reviewSubmitBtn">
+                                </form>
+                            </div>
+            
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary reviewBtn" data-bs-toggle="modal" data-bs-target="#reviewModal">Review Service</button>
+               <div class="container">
+                   <div class="row reviews-list">
+                       
+        
+                   </div>
+               </div>
+            </section>
+                  <table class="table table-bordered mt-2 ">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                       
+                          <th scope="col">Service Requested Date</th>
+                          <th scope="col">Service Request Hours Worked</th>
+                          <th scope="col">Service Request Price Per Hour</th>
+                          <th scope="col">Service Request Status</th>
+                          <th scope="col">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody class="serviceRequestList">
+                   
+                      </tbody>
+                    </table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-workHistory" role="tabpanel" aria-labelledby="v-pills-workHistory-tab">
           <div class="serviceHistory border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
             <div class="row mt-4">
                 <div class="col-10">
@@ -131,6 +156,8 @@
                     </tbody>
                   </table>
           </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-reviews" role="tabpanel" aria-labelledby="v-pills-reviews-tab"> 
           <div class="serviceHistory border border-secondary p-3 mt-4 shadow p-3 mb-5 bg-white rounded">
             <div class="row mt-4">
                 <div class="col-10">
@@ -169,14 +196,23 @@
                     </tbody>
                   </table>
           </div> 
+        </div>
+
+      </div>
+
+      </div>
+    </div>
+    </div>
+        <footer class="bg-dark">
+          <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
+      </footer>
+        
     </main>
-    <footer class="bg-dark">
-      <p class="footer-p text-end text-light">&copy; 2022 ASD Group 6 <br>All Copyrights Reserved</p>
-  </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./js/serviceRequestCD.js"></script>
     <script src="./js/addReview.js"></script>
     <script src="./js/showReviews.js"></script>
+    <script src="./js/searchServiceRequest.js"></script>
 </body>
 
 </html>
