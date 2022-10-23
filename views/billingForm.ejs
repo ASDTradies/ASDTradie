@@ -46,21 +46,21 @@
               <tbody>
                 <tr>
                   <th scope="row"><%=serviceRequest.serviceId%></th>
-                  <input type="hidden" id="service_requestID" name="service_requestID" value = <%=serviceRequest.serviceId%>/>
-                  <td>Construction</td>
-                  <input type="hidden" id="service_title" name="service_title" value="Construction"/>
+                  <input type="hidden" id="service_requestID" name="service_requestID" value = <%=serviceRequest.serviceId%>>
+                  <td><%=serviceRequest.serviceTitle%></td>
+                  <input type="hidden" id="service_title" name="service_title" value=<%=serviceRequest.serviceTitle%>>
                   <script>  </script>
                   <td>User: <%=serviceRequest.customerID%></td>
-                  <input type="hidden" id="userID" name="userID" value = <%=serviceRequest.customerID%>/>
+                  <input type="hidden" id="userID" name="userID" value = <%=serviceRequest.customerID%>>
                   <script> </script>
                   <td>Tradie: <%=serviceRequest.tradieID%></td>
-                  <input type="hidden" id="tradieID" name="tradieID" value = <%=serviceRequest.tradieID%>/>
+                  <input type="hidden" id="tradieID" name="tradieID" value = <%=serviceRequest.tradieID%>>
                   <script> </script>
                   <td><%=serviceRequest.hoursWorked%></td>
-                  <input type="hidden" id="hours" name="hours" value=/>
+                  <input type="hidden" id="hours" name="hours" value=<%=serviceRequest.hoursWorked%>>
                   <script> </script>
                   <td><%=serviceRequest.priceByHour%></td>
-                  <input type="hidden" id="price" name="price" value="50"/>
+                  <input type="hidden" id="price" name="price" value=<%=serviceRequest.priceByHour%>>
                   <script> </script>
                   <td><%=serviceRequest.priceByHour * serviceRequest.hoursWorked%></td>
                 </tr>
@@ -149,6 +149,9 @@
                 </div>
             
             <div class="panel-footer"></div>
+            <div class="form-group">
+            <%- include ('./partials/alerts.ejs') %>
+          </div>
               <button type="submit" id="payBtn" class="btn pay-btn" type="submit">Pay</button>
             </div>
             </form>
