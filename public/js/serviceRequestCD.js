@@ -18,12 +18,13 @@ document.addEventListener('DOMContentLoaded', async () =>{
     serviceRequests.forEach((request) =>{
         let requestHTML = `
         <tr>
-        <th scope="row">${i++}</th>
+        <th scope="row">${i++} <input type="hidden" class="serviceRequestId" value="${request.id}"></th>
         <td>${request.date}</td>
         <td>${request.hoursWorked}</td>
         <td>${request.priceByHour}</td>
         <td>${request.stage}</td>
         <td>
+        <button type="button" class="btn btn-link addReviewBtn p-0">Add Review</button>
         <a href="/serviceRequestDP?id=${request.id}" class="btn btn-link mt-2">View Details</a>
         </td>
       </tr>`;

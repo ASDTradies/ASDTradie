@@ -8,6 +8,7 @@ let Schema = mongoose.Schema;
 let reviewSchema = new Schema({
     id: String,
     serviceRequestId: String,
+    serviceId: String,
     reviewName: String,
     review: String
 });
