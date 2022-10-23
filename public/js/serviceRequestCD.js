@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', async () =>{
         <tr>
         <th scope="row">${i++}</th>
         <td>${request.date}</td>
-        <td>${request.stage}</td>
         <td>${request.hoursWorked}</td>
         <td>${request.priceByHour}</td>
+        <td>${request.stage}</td>
         <td>
         <a href="/serviceRequestDP?id=${request.id}" class="btn btn-link mt-2">View Details</a>
         </td>
