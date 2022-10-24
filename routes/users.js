@@ -15,9 +15,14 @@ router.get('/registerUser', (req, res)=> {
 })
 
 router.get('/settings', ensureAuthenticated, (req, res)=> {
-    res.render('userSettings.ejs', {
-        user: req.user
-    })
+    if(req.user.profileType == 'T'){
+        res.render('userTSettings.ejs', {
+            user: req.user
+        })    } else {
+        res.render('userSettings.ejs', {
+            user: req.user
+        })
+    }
 })
 
 //Checks if app should render tradiedashboard or customerdashboard
@@ -118,8 +123,8 @@ router.post('/change-details', (req, res) => {
         if(err) throw err;
         console.log("document updated")
         req.flash('success_msg', 'Details successfully changed!')
-        res.redirect('/users/settings')
     });  
+    res.redirect('/users/settings')
 });
 
 router.post('/change-password', (req, res) => {
