@@ -51,19 +51,14 @@
                   <input type="hidden" id="service_requestID" name="service_requestID" value = <%=serviceRequest.serviceId%>>
                   <td><%=serviceRequest.serviceTitle%></td>
                   <input type="hidden" id="service_title" name="service_title" value=<%=serviceRequest.serviceTitle%>>
-                  <script>  </script>
                   <td>User: <%=serviceRequest.customerID%></td>
                   <input type="hidden" id="userID" name="userID" value = <%=serviceRequest.customerID%>>
-                  <script> </script>
                   <td>Tradie: <%=serviceRequest.tradieID%></td>
                   <input type="hidden" id="tradieID" name="tradieID" value = <%=serviceRequest.tradieID%>>
-                  <script> </script>
                   <td><%=serviceRequest.hoursWorked%></td>
                   <input type="hidden" id="hours" name="hours" value=<%=serviceRequest.hoursWorked%>>
-                  <script> </script>
                   <td><%=serviceRequest.priceByHour%></td>
                   <input type="hidden" id="price" name="price" value=<%=serviceRequest.priceByHour%>>
-                  <script> </script>
                   <td><%=serviceRequest.priceByHour * serviceRequest.hoursWorked%></td>
                 </tr>
               </tbody>
